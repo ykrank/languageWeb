@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>control</title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+</head>
+<body>
+<h2 id="控制语句">3 控制语句</h2>
+<h3 id="if">3.1 if</h3>
+<p>if 语句有三种形式：</p>
+<pre><code>    if conditions then
+        then-part
+    end;
+</code></pre>
+<pre><code>    if conditions then
+        then-part
+    else
+        else-part
+    end;
+</code></pre>
+<pre><code>    if conditions then
+        then-part
+    elseif conditions then
+        elseif-part
+    .. ---&gt;多个elseif
+    else
+        else-part
+    end;
+</code></pre>
+<h3 id="while">3.2 while</h3>
+<pre><code>    while condition do
+        statements;
+    end;
+</code></pre>
+<h3 id="repeat-until">3.3 repeat-until</h3>
+<pre><code>    repeat
+        statements;
+    until conditions;
+</code></pre>
+<h3 id="for-循环">3.4 for 循环</h3>
+<h4 id="数值for循环">3.4.1 数值for循环</h4>
+<pre><code>    for var=exp1,exp2,exp3 do
+        loop-part
+    end
+</code></pre>
+<p>for将用exp3作为step从exp1（初始值）到exp2（终止值），执行loop-part。其中exp3可以省略，默认step=1</p>
+<h4 id="泛型for循环">3.4.2 泛型for循环</h4>
+<p>例子：
+    <code>for i,v in ipairs(a) do print(v) end</code>
+    范型for遍历迭代子函数返回的每一个值。</p>
+<p>iparis(t)介绍：遍历表t中所有元素。</p>
+<h2 id="简单例子">4 简单例子</h2>
+<pre><code>f= function (op, a, b)
+    if op == &#39;add&#39; then
+        return a + b
+    elseif op == &#39;sub&#39; then
+        return a - b
+    end
+    error(&quot;invalid operation&quot;)
+end
+
+g = function (value)
+    print(value)
+end
+</code></pre>
+<p>运行：</p>
+<pre><code>&gt; = f(&#39;add&#39;, 1, 2) -- args are given inside (), separated by commas.
+3
+&gt; = f(&#39;add&#39;, 1, 2, 123) -- extra args are ignored
+3
+&gt; = f(&#39;add&#39;, 1) -- missing args aren&#39;t an error, instead they will be filled with nil, which might cause an error in the function&#39;s code
+stdin:1: attempt to perform arithmetic on local &#39;b&#39; (a nil value)
+&gt; = g() -- to call a function with no args, use ()
+nil
+&gt; = g &quot;example&quot; -- the () can be omitted if you have one quoted string arg
+example
+&gt; = g {} -- same with one table constructor
+table: 0x820ee0
+</code></pre>
+</body>

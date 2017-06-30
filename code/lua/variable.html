@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>变量语法</title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+</head>
+<body>
+<h2 id="基础语法">2 基础语法</h2>
+<hr>
+
+<h3 id="赋值语句">2.1 赋值语句</h3>
+<p>赋值是改变一个变量的值和改变表域的最基本的方法。</p>
+<pre><code>a = &quot;hello&quot; .. &quot;world&quot;
+t.n = t.n + 1
+</code></pre>
+<p>Lua可以对多个变量同时赋值，变量列表和值列表的各个元素用逗号分开，赋值语句右边的值会依次赋给左边的变量。
+    <code>a, b = 10, 2*x &lt;--&gt; a=10; b=2*x</code></p>
+<h3 id="词法约定">2.2 词法约定</h3>
+<hr>
+<p><strong>标示符：</strong>
+    字母(letter)或者下划线开头的字母、下划线、数字序列.最好不要使用下划线加大写字母的标示符，因为Lua的保留字也是这样的。Lua中，letter的含义是依赖于本地环境的。
+    保留字：以下字符为Lua的保留字，不能当作标识符。</p>
+<pre><code>and     break     do         else         elseif
+end     false     for     function     if
+in         local    nil     not         or
+repeat  return     then     true         until
+while
+</code></pre>
+<p><strong>注意：</strong>Lua是大小写敏感的.<br><strong>注释：</strong></p>
+<ul>
+    <li>单行注释:--</li>
+    <li><p>多行注释：--[[ --]]</p>
+        <pre><code>--[[
+        print(10) -- no action (comment)
+        --]]
+        </code></pre>
+        <hr>
+        <h3 id="变量范围">2.3 变量范围</h3>
+    </li>
+    <li><p>全局变量<br>
+        全局变量不需要声明，给一个变量赋值后即创建了这个全局变量，访问一个没有初始化的全局变量也不会出错，只不过得到的结果是：nil。如果你想删除一个全局变量，只需要将变量负值为nil
+        例子：<code>b = 10</code></p>
+    </li>
+    <li>局部变量
+        使用local创建一个局部变量，与全局变量不同，局部变量只在被声明的那个代码块内有效。
+        代码块：指一个控制结构内，一个函数体，或者一个chunk（变量被声明的那个文件或者文本串）。
+        例子：<code>local b = 10</code></li>
+</ul>
+</body>

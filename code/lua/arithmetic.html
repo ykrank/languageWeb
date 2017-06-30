@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>表达式</title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+</head>
+<body>
+<h3 id="表达式">2.5 表达式</h3>
+<h4 id="算术运算符">2.5.1 算术运算符</h4>
+<p>二元运算符：+ - * / ^ (加减乘除幂)
+    一元运算符：- (负值)
+    这些运算符的操作数都是实数。</p>
+<hr>
+<h4 id="关系运算符">2.5.2 关系运算符</h4>
+<pre><code>&lt;   &gt;   &lt;=  &gt;=  ==  ~=
+</code></pre><p>这些操作符返回结果为false或者true；==和~=比较两个值，如果两个值类型不同，Lua认为两者不同；nil只和自己相等</p>
+<hr>
+<h4 id="逻辑运算符">2.5.3 逻辑运算符</h4>
+<pre><code>and     or      not
+</code></pre><p>逻辑运算符认为false和nil是假（false），其他为真，0也是true.
+    and和or的运算结果不是true和false，而是和它的两个操作数相关。</p>
+<pre><code>a and b -- 如果a为false，则返回a，否则返回b
+a or b -- 如果a为true，则返回a，否则返回b
+    <hr>
+</code></pre><h4 id="连接运算符">2.5.4 连接运算符</h4>
+<p><code>.. --两个点</code></p>
+<hr>
+<h4 id="表的构造">2.5.5 表的构造</h4>
+<p>构造器是创建和初始化表的表达式。表是Lua特有的功能强大的东西。最简单的构造函数是{}，用来创建一个空表。可以直接初始化数组:</p>
+<pre><code>days = {&quot;Sunday&quot;, &quot;Monday&quot;, &quot;Tuesday&quot;, &quot;Wednesday&quot;,&quot;Thursday&quot;, &quot;Friday&quot;, &quot;Saturday&quot;}
+</code></pre><p>Lua将&quot;Sunday&quot;初始化days[1]（第一个元素索引为1），用&quot;Monday&quot;初始化days[2]..</p>
+</body>
