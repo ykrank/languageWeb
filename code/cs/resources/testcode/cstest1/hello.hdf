@@ -1,0 +1,13 @@
+# This is my static data for Hello World (and this is a comment)
+
+Hello = Hello World!
+
+WeekDays {
+        0 = Sunday
+        1 = Monday
+        2 = Tuesday
+        3 = Wednesday
+        4 = Thursday
+        5 = Friday
+        6 = Saturday
+}

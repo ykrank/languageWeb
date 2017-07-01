@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>variable</title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+</head>
+<body>
+<h3 id="变量的替换和定义">3.2 变量的替换和定义</h3>
+<p>变量的替换和定义包含：<code>var, evar，lvar,include,linclude,set,name</code>。
+    我们使用比较多的是：<code>var,include,linclude,set</code>，下面只介绍经常用的命令。</p>
+<h4 id="var">3.2.1 var</h4>
+<p>var的使用举例：<code>&lt;?cs var:res.tranCode?&gt;</code>,这个简单的语句就会把tranCode值打印出来，var相当于数据类型，后面是参数值。</p>
+<h4 id="include">3.2.2 include</h4>
+<p>与C中的include是一个意思，把文件包含进来，例：</p>
+<p><code>&lt;?cs include:&quot;gdb_util&quot;?&gt;</code></p>
+<p><strong> 注意需要添加引号。</strong></p>
+<h4 id="linclude">3.2.3 linclude</h4>
+<p>与我们经常用的linclude是一个意思，例：</p>
+<pre><code>&lt;?cs if:res.tranCode=MB1001?&gt;
+&lt;?cs linclude:&quot;gdb_MB1001.cs&quot;?&gt;
+&lt;?cs elif: res.tranCode=MB1002?&gt;
+&lt;?cs linclude:&quot;gdb_MB1002.cs&quot;?&gt;
+&lt;?cs /if?&gt;
+</code></pre><p>这3行的意思是当tranCode的值为MB1001时，执行文件gdb_MB1001.cs中的代码。</p>
+<h4 id="set">3.2.4 set</h4>
+<p>使用举例：</p>
+<p><code>&lt;?cs set:account=&quot;&quot;?&gt;</code></p>
+<p>意思是把account设定值为空。</p>
+<pre><code>&lt;?cs set:i=#5?&gt;
+
+&lt;?cs loop:x=1,10,1?&gt;
+&lt;?cs set:i = i+1?&gt;
+&lt;?cs /loop?&gt;
+</code></pre><p>此时，i的值为5。注：这里数字都用#1，#2来代替，CS模板中数字都写成#1，#2的形式。</p>
+
+
+</body>

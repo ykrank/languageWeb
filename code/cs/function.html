@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>FUNCTIONS</title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+</head>
+<body>
+<h3 id="functions">3.6 FUNCTIONS</h3>
+<p>CS定义的函数有很多，在此不一一列举，只介绍我们经常使用的几个。</p>
+<ul>
+    <li><code>subcount(var)</code></li>
+</ul>
+<p>这个函数返回子节点的个数。比如subcount(res)，如果res下面有5个子节点，那么这句话返回的结果是：5。
+    注意：当res父节点下有多个item子节点，可以用subcount(res)得到item子节点的个数，但是当res下只有一个item子节点的时候，返回不为1，为子节点个数。</p>
+<hr>
+<ul>
+    <li><code>string.slice(expr, start, end)</code></li>
+</ul>
+<p>
+    切片操作，第一个参数为一个<code>string</code>类型的表达式，后两个参数为数值型的表达式。这个函数根据<code>start</code>（开始位置）和<code>end</code>(结束位置)返回一个<code>string</code>类型的表达式。例如：
+</p>
+<pre><code>&lt;?cs def:time(s)?&gt;
+&lt;?cs var:string.slice(s,0,2)?&gt;:&lt;?cs var:string.slice(s,2,4)?&gt;
+&lt;?cs /def?&gt;
+</code></pre>
+<p>调用这个函数<code>&lt;?cs
+    call:time(today.time)?&gt;</code>时，如果参数<code>（today.time）</code>的值是<code>1530</code>，那么输出的结果为：<code>15:30</code>。
+    <code>&lt;?cs var:string.slice(s,0,2)?&gt;</code>这部分代码把<code>1530</code>切成<code>15</code>，<code>
+        &lt;?cs var:string.slice(s,2,4)?&gt;</code>把<code>1530</code>切成<code>30</code>。</p>
+<hr>
+<ul>
+    <li><code>string.find(string, substr)</code>
+        查找函数，第一个参数是一个<code>string</code>类型的表达式，第二个参数是想要查找的表达式。它会返回<code>substr</code>表达式的数字位置（如果找到的话），否则返回-1。
+        举个例子：
+    </li>
+</ul>
+<p><code>&lt;?cs var:string.find(res.attr.query,&quot;gameType&quot;)?&gt;</code>
+    这句话会从<code>res.attr.query</code>这个字符串中查找<code>gameType</code>字符串，需要注意的是返回的数字位置是<code>gameType</code>字符串首字母的位置。
+    这里涉及到了一个<code>attr</code>，它是一个属性，<code>res.attr.query</code>用这种方式可以取到<code>res</code>的<code>query</code>属性的值。
+</p>
+<p>对于XML报文：
+    <code>&lt;res query=&quot;tranCode=MB1001&amp;gameType=0200&quot;&gt;&lt;/res&gt;</code></p>
+<p>用<code>res.attr.query</code>就可以取到值<code>tranCode=MB1001&amp;gameType=0200</code>。</p>
+<hr>
+<ul>
+    <li><code>string.length(expr)</code>，计算表达式的长度。<code>expr</code>参数是具体的我们想返回的表达式。</li>
+</ul>
+<hr>
+<ul>
+    <li>
+        <p><code>url_escape(string);</code></p>
+        <p><code> //This URL encodes the string.</code></p>
+        <p><code>//This converts characters such as ?, &, and = into their URL safe equivilants using the %hhsyntax.</code></p>
+
+    </li>
+</ul>
+
+<p>如果想研究更多的CS语法，参见：<a href="http://www.clearsilver.net/docs/" target="_blank">http://www.clearsilver.net/docs/</a>
+</p>
+</body>

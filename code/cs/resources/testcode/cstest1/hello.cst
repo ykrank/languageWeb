@@ -1,0 +1,12 @@
+<?cs var:Hello ?>
+<br>
+
+<?cs each:day = WeekDays ?>
+    On <?cs var:day ?>, <?cs var:Hello ?> <br>
+<?cs /each ?>
+
+<?cs if:?Query.day ?>
+    <font color="red">On <?cs var:WeekDays[Query.day] ?>, <?cs var:Hello ?> </font><br>
+<?cs /if ?>
+
+Hey <?cs var:html_escape(Query.name) ?>, <?cs var:Hello ?>

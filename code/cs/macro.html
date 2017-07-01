@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>macro</title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+</head>
+<body>
+<h3 id="宏">3.5 宏</h3>
+<p>宏的命令：<code>def, call</code>。</p>
+<ul>
+    <li><p>def，定义宏的命令。例如：</p>
+        <pre><code>&lt;?cs def:map_val(val, map) ?&gt;
+&lt;?cs    each:item = map ?&gt;
+&lt;?cs        if:val == item ?&gt;
+&lt;?cs            var:item.value ?&gt;
+&lt;?cs        /if ?&gt;
+&lt;?cs    /each ?&gt;
+&lt;?cs /def ?&gt;
+</code></pre>
+        <p>第一行定义宏map_val(val, map)，第二行遍历map并赋值给item，第三行如果item值等于val，第四行输出item的value值，五行以后都是结束标记。</p>
+    </li>
+    <li><p>call，就是调用函数（宏）</p>
+    </li>
+</ul>
+
+<p>在上面我们定义了<code>map_val(val, map)</code>这样一个函数（宏），现在我们想调用这个函数，可以写成如下形式：</p>
+<p><code>&lt;?cs call: map_val (res.tranCode,res.list.row)?&gt;</code></p>
+<p>参数可以任意写成我们想要的“实参”。</p>
+<hr>
+
+假设有数据：<br>
+Lang.Dates {<br>
+&nbsp; Weekdays {<br>
+&nbsp;&nbsp;&nbsp; 0 = 0<br>
+&nbsp;&nbsp;&nbsp; 0.val =Sunday<br>
+&nbsp;&nbsp;&nbsp; 1 = 1<br>
+&nbsp;&nbsp;&nbsp; 1.val =Monday<br>
+&nbsp;&nbsp;&nbsp; 2 = 2<br>
+&nbsp;&nbsp;&nbsp; 2.val =Tuesday<br>
+&nbsp;&nbsp;&nbsp; 3 = 3<br>
+&nbsp;&nbsp;&nbsp; 3.val =Wednesday<br>
+&nbsp;&nbsp;&nbsp; 4 = 4<br>
+&nbsp;&nbsp;&nbsp; 4.val =Thursday<br>
+&nbsp;&nbsp;&nbsp; 5 = 5<br>
+&nbsp;&nbsp;&nbsp; 5.val =Friday<br>
+&nbsp;&nbsp;&nbsp; 6 = 6<br>
+&nbsp;&nbsp;&nbsp; 6.val =Saturday<br>
+&nbsp; }<br>
+}<br>
+那么用call调用宏<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;?cs call:map_val(#6, Lang.Dates.Weekdays)?&gt;<br>
+最后的结果为Saturday，但是前面有很多空&#26684;，这是由于&nbsp;&nbsp;&nbsp; &lt;?cs var:item.val ?&gt;前的空&#26684;导致的。我们可以<br>
+&lt;?cs def:map_val(val, map)?&gt;<br>
+&lt;?cs &nbsp;&nbsp;each:item = map&nbsp;&nbsp; ?&gt;<br>
+&lt;?cs &nbsp;&nbsp;&nbsp;&nbsp;if:val == item&nbsp;&nbsp;&nbsp;&nbsp; ?&gt;<br>
+&lt;?cs &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var:item.val?&gt;<br>
+&lt;?cs &nbsp;&nbsp;&nbsp;&nbsp;/if ?&gt;<br>
+&lt;?cs &nbsp;&nbsp;/each?&gt;<br>
+&lt;?cs /def?&gt;<br>
+这样来书写模板就避免了前面的空&#26684;输出。 <br>
+
+<hr>
+<h3 id="cs中的macros">4.2 CS中的Macros</h3>
+<p>CS中的自定义函数都是以宏的形式存在的，所以在函数中的空格会返回在调用的结果中，比如：</p>
+<pre><code>&lt;?cs def:alias_id(alias,id) ?&gt;
+     &lt;?cs if:alias==&quot;&quot;?&gt;
+         &lt;?cs var:id ?&gt;
+     &lt;?cs elif:alias==id?&gt;
+         &lt;?cs var:id ?&gt;
+     &lt;?cs else ?&gt;
+         &lt;?cs var:alias ?&gt;/&lt;?cs var:id ?&gt;
+     &lt;?cs /if?&gt;
+&lt;?cs /def ?&gt;
+</code></pre><p>调用：
+    <code>***&lt;?cs call:alias_id(&quot;abc&quot;, &quot;123&quot;) ?&gt;***</code>
+    输出：
+    <code>***                 abc/123***</code>
+    在<code>abc</code>前会出现一段空格，所以，如果函数中不能留空格，应该以下面的方式写：</p>
+<pre><code>&lt;?cs def:alias_id(alias,id) ?&gt;
+&lt;?cs    if:alias==&quot;&quot;?&gt;
+&lt;?cs        var:id ?&gt;
+&lt;?cs    elif:alias==id?&gt;
+&lt;?cs        var:id ?&gt;
+&lt;?cs    else ?&gt;
+&lt;?cs        var:alias ?&gt;/&lt;?cs var:id ?&gt;
+&lt;?cs    /if?&gt;
+&lt;?cs /def ?&gt;
+</code></pre>
+</body>
