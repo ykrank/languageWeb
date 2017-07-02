@@ -1,0 +1,30 @@
+<root>
+	<pkgId>BBB</pkgId>
+	<tranCode>MB1002</tranCode>
+	<errorCode>0000</errorCode>
+	<errorMessage></errorMessage>
+	<cd>
+		<transferFlowNo>123123123123123</transferFlowNo>
+		<transferDate>2014-01-01</transferDate>
+		<netTradeTime>2014-01-01</netTradeTime>
+		<billKey>111111</billKey>
+		<companyId>910180173005010</companyId>
+		<resSign>123</resSign>
+		<resTimestamp>1232313</resTimestamp>
+		<rspCode>ok</rspCode>
+		<billRecordList>
+			<contractNo>123123</contractNo>
+			<userName>zhngsan</userName>
+			<balance>100</balance>
+			<dueAmt>￥1,000.00</dueAmt>
+			<beginDate>2014-01-01</beginDate>
+			<endDate>2014-01-01</endDate>
+			<address>111111</address>
+			<waterTotal>1111</waterTotal>
+			<indices>1111</indices>
+		</billRecordList>
+
+	</cd>
+	
+</root>
+

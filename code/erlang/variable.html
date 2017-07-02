@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>变量、元子、元组、列表</title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+</head>
+<body>
+<h2 id="a-name基础语法基础语法a">2 <a name="基础语法">基础语法</a></h2>
+<h3 id="变量">2.1 变量</h3>
+<p>变量首字母必须是<strong>大写</strong>。
+    Erlang的变量是单一赋值变量。</p>
+<pre><code>-module(tut1).
+-export([fac/1, mult/2]).
+fac(1) -&gt;
+    1;
+fac(N) -&gt;
+    N * fac(N - 1).
+mult(X, Y) -&gt;
+    X * Y.
+</code></pre>
+<p>在文件中的第一行，就告诉我们模块的名称。
+    说明tut1模块包含一个名称为fac的函数，并且带有一个参数(在我们的例子中为N)和一个名称为mult的函数，并且带有两个参数。而且这两个函数可以在tut1模块以外被调用。</p>
+<p>fac函数第一部分说明1的阶乘是1,注意我们以一个<em>;</em>结束这一部分，这说明这个函数没有结束。
+    fac函数第二部分<code>fac(N) -&gt;N * fac(N - 1).</code>
+    说明N的阶乘是，N与N - 1的阶乘的乘积<code>(N! = N * (N - 1)!)</code>。注意这部分以<em>.</em>结束，以说明本函数没有其它部分了。
+    在函数功能代码中的参数N, X, Y被叫做变量。</p>
+<hr>
+<h3 id="元子">2.2 元子</h3>
+<p>元子是在Erlang中的另一个数据类型。
+    元子以<strong>小写字母</strong>开头，
+    例如：<code>charles</code>, <code>centimeter</code>,<code>inch</code>。元子只是一个简单的名字，其它什么都不是。他们不像变量可以带有一个值。
+</p>
+<hr>
+<h3 id="元组">2.3 元组</h3>
+<p>元组以<strong>{</strong>和<strong>}</strong>括起来的。
+    所以我们可以写<code>{inch, 3}</code>来表示3英寸，并以<code>{centimeter, 5}</code>来表示5厘米。
+    一组元组有一个固定的大小。我们称元组中的东西为<em>元素</em>。所以在元组<code>{moscow,{c,-10}}</code>中，元素1是<code>moscow</code>，元素2是<code>{c,
+        -10}</code>。</p>
+<hr>
+<h3 id="列表">2.4 列表</h3>
+<p>列表在Erlang中被括在<strong>[</strong>和<strong>]</strong>里。
+    如一个不同城市温度的列表可能是这样的：</p>
+<pre><code>[1,2,3,4]
+[{moscow, {c, -10}},
+ {cape_town, {f, 70}},
+ {stockholm, {c, -4}},
+ {paris, {f, 28}},
+ {london, {f, 36}}
+]。
+    </code>
+    </pre>
+</body>

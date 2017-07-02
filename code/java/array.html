@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>array</title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+</head>
+<body>
+	<p>八、Java 数组</p>
+	<p>一维数组:</p>
+	<p>(1)声明数组</p>
+	<p>int a[];</p>
+	<p>int[] a;</p>
+	<p>(2)数组初始化</p>
+	<pre>
+		int[] a={1,2,3,4,5,6,7,8,9}; 
+		2 int[] a=new int[9];
+		for(int i=0;i< 9;i++){ 
+			a[i]=i+1;
+		}
+		3 int[] a=new int[]{1,2,3,4,5,6,7,8,9};
+	</pre>
+	<p>演变->可变参数</p>
+	<p>例题:</p>
+
+	<A href="array/TestArg1.java" target="_blank">TestArg1.java</A><hr>
+
+	<pre>
+		class TestArg1{
+			static void f(int[] a){ 
+				for (int x:a){
+					System.out.print(x+" "); 
+				}
+			}
+			public static void main(String[] args){
+				int[] b=new int[]{1,2,3,4,5,6,7};
+				f(b); 
+			}
+		}
+	</pre>
+	<p>可以演变为:</p>
+
+	<A href="array/TestArg2.java" target="_blank">TestArg2.java</A><hr>
+
+	<pre>
+	class TestArg2{
+		static void f(int[] a){
+			for (int x:a){ 
+				System.out.print(x+" ");
+			} 
+		}
+		public static void main(String[] args){ 
+			f(new int[]{1,2,3,4,5,6,7});
+		} 
+	}
+	</pre>
+	<p>继而演变为:</p>
+
+	<A href="array/TestArg3.java" target="_blank">TestArg3.java</A><hr>
+
+	
+	<pre>
+	class TestArg3{
+		static void f(int... a){
+		for (int x:a){
+			System.out.print(x+" ");
+		} 
+		}
+		public static void main(String[] args){ 
+			f(1,2,3,4,5,6,7);
+		} 
+	}
+	</pre>
+	<p>(3)一维数组的长度 a.lenth</p>
+
+	<A href="array/TestArray.java" target="_blank">TestArray.java</A><hr>
+
+	<p>例题:</p>
+	<pre>
+		class TestArray{
+			public static void main(String[] args){ 
+				int[] a=new int[]{1,2,3,4,5,6,7,8,9}; 
+				for(int i=0;i< a.length;i++)
+				{
+					System.out.print(a[i]+" "); 
+				}
+			} 
+		}
+	</pre>
+
+
+	<p>二维数组:</p>
+	<p>(1)声明数组</p>
+	<p>int a[][];</p>
+	<p>int[][] a;</p>
+	<p>(2)数组初始化</p>
+	<p>1 int[][] a={{1,2,3},{4,5,6},{7,8,9}};</p>
+
+	<A href="array/TestArray21.java" target="_blank">TestArray21.java</A><hr>
+
+	<p>class TestArray21{</p>
+	<pre>
+		class TestArray21{
+			public static void main(String[] args){
+				int[][] a={{1,2,3},{4,5,6},{7,8,9}}; 
+				for(int i=0;i< a.length;i++){
+					for (int j=0;j< a[i].length;j++ ){ 
+						System.out.print(a[i][j]+" ");
+					} 
+					System.out.println();//换行
+				} 
+			}
+		}
+	</pre>
+
+	<pre>
+		2 int[][] a=new int[3][];
+			a[0]=new int[3];
+			a[1]=new int[3];
+			a[2]=new int[3];
+			for(int i=0;i< a.length;i++){
+				for (int j=0;j< a[i].length;j++ ){ 
+					a[i][j]=k;
+					k++;
+				} 
+			}
+	</pre>
+	<p>例题:</p>
+
+	<A href="array/TestArray22.java" target="_blank">TestArray22.java</A><hr>
+
+	<pre>
+		class TestArray22{
+			public static void main(String[] args){
+				int k=1;
+				int[][] a=new int[3][]; 
+					a[0]=new int[3];
+					a[1]=new int[3];
+					a[2]=new int[3];
+				for(int i=0;i< a.length;i++){
+					for (int j=0;j< a[i].length;j++ ){ 
+							a[i][j]=k;
+							k++;
+						} 
+				}
+				for(int i=0;i< a.length;i++){
+					for (int j=0;j< a[i].length;j++ ){
+						System.out.print(a[i][j]+" "); 
+					}
+					System.out.println(); 
+				}
+			} 
+		}
+	</pre>
+
+
+
+
+
+	<p>★ java 中的二维数组可以看做是数组的数组。(每行可以有不同的列数) 例题:二维数组动态创建。</p>
+
+	<A href="array/ArrayOfArrayDemo2.java" target="_blank">ArrayOfArrayDemo2.java</A><hr>
+
+	<pre>
+		public class ArrayOfArrayDemo2{
+			public static void main(String[] args){ 
+				int[][] aMatrix=new int[4][];
+				for (int i=0;i< aMatrix.length;i++ ){
+					aMatrix[i]=new int[i+1];
+					for (int j=0;j< aMatrix[i].length;j++ ){
+						aMatrix[i][j]=i+j; 
+					}
+				} //输出数组
+				for (int i=0;i< aMatrix.length;i++ ){
+					for (int j=0;j< aMatrix[i].length;j++ ){
+						System.out.print(aMatrix[i][j]+" "); 
+					}
+				    System.out.println(); 
+				}
+			} 
+		}
+	</pre>
+	<p>数组作为方法参数 例题:一维数组作为参数，计算数组中所有元素的和。 public class Sum{</p>
+	<p>static int sum(int a[]){ int s=0;</p>
+	<p>for(int i=0;i<a.length;i++){ s=s+a[i];</p>
+	<p>} return s;</a.length;i++){>
+	<p>}</p>
+	<p>public static void main(String[] args){</p>
+	<p>int a[]={1,2,3,4,5,6,7,8,9,10};</p>
+	<p>System.out.println("数组 a 的总和是:"+sum(a)); }</p>
+	<p>}</p>
+
+</body>

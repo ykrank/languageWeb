@@ -1,0 +1,520 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html xmlns:fn="http://www.w3.org/2005/02/xpath-functions">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="../otp_doc.css" type="text/css">
+<title>Erlang -- Maps</title>
+</head>
+<body bgcolor="white" text="#000000" link="#0000ff" vlink="#ff00ff" alink="#ff0000"><div id="container">
+<script id="js" type="text/javascript" language="JavaScript" src="../js/flipmenu/flipmenu.js"></script><script id="js2" type="text/javascript" src="../js/erlresolvelinks.js"></script><script language="JavaScript" type="text/javascript">
+            <!--
+              function getWinHeight() {
+                var myHeight = 0;
+                if( typeof( window.innerHeight ) == 'number' ) {
+                  //Non-IE
+                  myHeight = window.innerHeight;
+                } else if( document.documentElement && ( document.documentElement.clientWidth ||
+                                                         document.documentElement.clientHeight ) ) {
+                  //IE 6+ in 'standards compliant mode'
+                  myHeight = document.documentElement.clientHeight;
+                } else if( document.body && ( document.body.clientWidth || document.body.clientHeight ) ) {
+                  //IE 4 compatible
+                  myHeight = document.body.clientHeight;
+                }
+                return myHeight;
+              }
+
+              function setscrollpos() {
+                var objf=document.getElementById('loadscrollpos');
+                 document.getElementById("leftnav").scrollTop = objf.offsetTop - getWinHeight()/2;
+              }
+
+              function addEvent(obj, evType, fn){
+                if (obj.addEventListener){
+                obj.addEventListener(evType, fn, true);
+                return true;
+              } else if (obj.attachEvent){
+                var r = obj.attachEvent("on"+evType, fn);
+                return r;
+              } else {
+                return false;
+              }
+             }
+
+             addEvent(window, 'load', setscrollpos);
+
+             //--></script><div id="leftnav"><div class="innertube">
+<img alt="Erlang logo" src="../erlang-logo.png"><br><small><a href="users_guide.html">User's Guide</a><br><a href="../pdf/otp-system-documentation-6.0.pdf">PDF</a><br><a href="../index.html">Top</a></small><p><strong>Erlang Reference Manual</strong><br><strong>User's Guide</strong><br><small>Version 6.0</small></p>
+<br><a href="javascript:openAllFlips()">Expand All</a><br><a href="javascript:closeAllFlips()">Contract All</a><p><small><strong>Chapters</strong></small></p>
+<ul class="flipMenu" imagepath="../js/flipmenu">
+<li id="no" title="Introduction" expanded="false">Introduction<ul>
+<li><a href="introduction.html">
+              Top of chapter
+            </a></li>
+<li title="Purpose"><a href="introduction.html#id61547">Purpose</a></li>
+<li title="Prerequisites"><a href="introduction.html#id56678">Prerequisites</a></li>
+<li title="Document Conventions"><a href="introduction.html#id67360">Document Conventions</a></li>
+<li title="Complete List of BIFs"><a href="introduction.html#id68943">Complete List of BIFs</a></li>
+<li title="Reserved Words"><a href="introduction.html#id57680">Reserved Words</a></li>
+</ul>
+</li>
+<li id="no" title="Character Set and Source File Encoding" expanded="false">Character Set and Source File Encoding<ul>
+<li><a href="character_set.html">
+              Top of chapter
+            </a></li>
+<li title="Character Set"><a href="character_set.html#id66993">Character Set</a></li>
+<li title="Source File Encoding"><a href="character_set.html#id68971">Source File Encoding</a></li>
+</ul>
+</li>
+<li id="no" title="Data Types" expanded="false">Data Types<ul>
+<li><a href="data_types.html">
+              Top of chapter
+            </a></li>
+<li title="Terms"><a href="data_types.html#id61276">Terms</a></li>
+<li title="Number"><a href="data_types.html#id61249">Number</a></li>
+<li title="Atom"><a href="data_types.html#id60420">Atom</a></li>
+<li title="Bit Strings and Binaries"><a href="data_types.html#id64717">Bit Strings and Binaries</a></li>
+<li title="Reference"><a href="data_types.html#id67235">Reference</a></li>
+<li title="Fun"><a href="data_types.html#id68827">Fun</a></li>
+<li title="Port Identifier"><a href="data_types.html#id64520">Port Identifier</a></li>
+<li title="Pid"><a href="data_types.html#id66818">Pid</a></li>
+<li title="Tuple"><a href="data_types.html#id73581">Tuple</a></li>
+<li title="Map"><a href="data_types.html#id67665">Map</a></li>
+<li title="List"><a href="data_types.html#id64356">List</a></li>
+<li title="String"><a href="data_types.html#id74345">String</a></li>
+<li title="Record"><a href="data_types.html#id74623">Record</a></li>
+<li title="Boolean"><a href="data_types.html#id74658">Boolean</a></li>
+<li title="Escape Sequences"><a href="data_types.html#id74687">Escape Sequences</a></li>
+<li title="Type Conversions"><a href="data_types.html#id75055">Type Conversions</a></li>
+</ul>
+</li>
+<li id="no" title="Pattern Matching" expanded="false">Pattern Matching<ul>
+<li><a href="patterns.html">
+              Top of chapter
+            </a></li>
+<li title="Pattern Matching"><a href="patterns.html#id75188">Pattern Matching</a></li>
+</ul>
+</li>
+<li id="no" title="Modules" expanded="false">Modules<ul>
+<li><a href="modules.html">
+              Top of chapter
+            </a></li>
+<li title="Module Syntax"><a href="modules.html#id75314">Module Syntax</a></li>
+<li title="Module Attributes"><a href="modules.html#id75345">Module Attributes</a></li>
+<li title="Comments"><a href="modules.html#id75809">Comments</a></li>
+<li title="The module_info/0 and module_info/1 functions"><a href="modules.html#id75822">The module_info/0 and module_info/1 functions</a></li>
+</ul>
+</li>
+<li id="no" title="Functions" expanded="false">Functions<ul>
+<li><a href="functions.html">
+              Top of chapter
+            </a></li>
+<li title="Function Declaration Syntax"><a href="functions.html#id76081">Function Declaration Syntax</a></li>
+<li title="Function Evaluation"><a href="functions.html#id76196">Function Evaluation</a></li>
+<li title="Tail recursion"><a href="functions.html#id76347">Tail recursion</a></li>
+<li title="Built-In Functions, BIFs"><a href="functions.html#id76380">Built-In Functions, BIFs</a></li>
+</ul>
+</li>
+<li id="no" title="Types and Function Specifications" expanded="false">Types and Function Specifications<ul>
+<li><a href="typespec.html">
+              Top of chapter
+            </a></li>
+<li title="The Erlang Type Language"><a href="typespec.html#id76496">The Erlang Type Language</a></li>
+<li title="Types and their Syntax"><a href="typespec.html#id76544">Types and their Syntax</a></li>
+<li title="Type declarations of user-defined types"><a href="typespec.html#id77354">Type declarations of user-defined types</a></li>
+<li title="Type information in record declarations"><a href="typespec.html#id77437">Type information in record declarations</a></li>
+<li title="Specifications for functions"><a href="typespec.html#id77514">Specifications for functions</a></li>
+</ul>
+</li>
+<li id="no" title="Expressions" expanded="false">Expressions<ul>
+<li><a href="expressions.html">
+              Top of chapter
+            </a></li>
+<li title="Expression Evaluation"><a href="expressions.html#id77772">Expression Evaluation</a></li>
+<li title="Terms"><a href="expressions.html#id77815">Terms</a></li>
+<li title="Variables"><a href="expressions.html#id77827">Variables</a></li>
+<li title="Patterns"><a href="expressions.html#id77958">Patterns</a></li>
+<li title="Match"><a href="expressions.html#id78078">Match</a></li>
+<li title="Function Calls"><a href="expressions.html#id78136">Function Calls</a></li>
+<li title="If"><a href="expressions.html#id78336">If</a></li>
+<li title="Case"><a href="expressions.html#id78401">Case</a></li>
+<li title="Send"><a href="expressions.html#id78465">Send</a></li>
+<li title="Receive"><a href="expressions.html#id78549">Receive</a></li>
+<li title="Term Comparisons"><a href="expressions.html#id78713">Term Comparisons</a></li>
+<li title="Arithmetic Expressions"><a href="expressions.html#id78975">Arithmetic Expressions</a></li>
+<li title="Boolean Expressions"><a href="expressions.html#id79481">Boolean Expressions</a></li>
+<li title="Short-Circuit Expressions"><a href="expressions.html#id79636">Short-Circuit Expressions</a></li>
+<li title="List Operations"><a href="expressions.html#id79752">List Operations</a></li>
+<li title="Bit Syntax Expressions"><a href="expressions.html#id79820">Bit Syntax Expressions</a></li>
+<li title="Fun Expressions"><a href="expressions.html#id80363">Fun Expressions</a></li>
+<li title="Catch and Throw"><a href="expressions.html#id80524">Catch and Throw</a></li>
+<li title="Try"><a href="expressions.html#id80670">Try</a></li>
+<li title="Parenthesized Expressions"><a href="expressions.html#id81028">Parenthesized Expressions</a></li>
+<li title="Block Expressions"><a href="expressions.html#id81060">Block Expressions</a></li>
+<li title="List Comprehensions"><a href="expressions.html#id81085">List Comprehensions</a></li>
+<li title="Bit String Comprehensions"><a href="expressions.html#id81225">Bit String Comprehensions</a></li>
+<li title="Guard Sequences"><a href="expressions.html#id81357">Guard Sequences</a></li>
+<li title="Operator Precedence"><a href="expressions.html#id81921">Operator Precedence</a></li>
+</ul>
+</li>
+<li id="no" title="The Preprocessor" expanded="false">The Preprocessor<ul>
+<li><a href="macros.html">
+              Top of chapter
+            </a></li>
+<li title="File Inclusion"><a href="macros.html#id82240">File Inclusion</a></li>
+<li title="Defining and Using Macros"><a href="macros.html#id82369">Defining and Using Macros</a></li>
+<li title="Predefined Macros"><a href="macros.html#id82492">Predefined Macros</a></li>
+<li title="Macros Overloading"><a href="macros.html#id82560">Macros Overloading</a></li>
+<li title="Flow Control in Macros"><a href="macros.html#id82629">Flow Control in Macros</a></li>
+<li title="Stringifying Macro Arguments"><a href="macros.html#id82766">Stringifying Macro Arguments</a></li>
+</ul>
+</li>
+<li id="loadscrollpos" title="Maps" expanded="true">Maps<ul>
+<li><a href="maps.html">
+              Top of chapter
+            </a></li>
+<li title="Creating Maps"><a href="maps.html#id82896">Creating Maps</a></li>
+<li title="Updating Maps"><a href="maps.html#id83023">Updating Maps</a></li>
+<li title="Maps in Patterns"><a href="maps.html#id83219">Maps in Patterns</a></li>
+<li title="Maps in Guards"><a href="maps.html#id83423">Maps in Guards</a></li>
+</ul>
+</li>
+<li id="no" title="Records" expanded="false">Records<ul>
+<li><a href="records.html">
+              Top of chapter
+            </a></li>
+<li title="Defining Records"><a href="records.html#id83533">Defining Records</a></li>
+<li title="Creating Records"><a href="records.html#id83564">Creating Records</a></li>
+<li title="Accessing Record Fields"><a href="records.html#id83618">Accessing Record Fields</a></li>
+<li title="Updating Records"><a href="records.html#id83657">Updating Records</a></li>
+<li title="Records in Guards"><a href="records.html#id83690">Records in Guards</a></li>
+<li title="Records in Patterns"><a href="records.html#id83722">Records in Patterns</a></li>
+<li title="Nested records"><a href="records.html#id83749">Nested records</a></li>
+<li title="Internal Representation of Records"><a href="records.html#id83784">Internal Representation of Records</a></li>
+</ul>
+</li>
+<li id="no" title="Errors and Error Handling" expanded="false">Errors and Error Handling<ul>
+<li><a href="errors.html">
+              Top of chapter
+            </a></li>
+<li title="Terminology"><a href="errors.html#id83905">Terminology</a></li>
+<li title="Exceptions"><a href="errors.html#id84033">Exceptions</a></li>
+<li title="Handling of Run-Time Errors in Erlang"><a href="errors.html#id84205">Handling of Run-Time Errors in Erlang</a></li>
+<li title="Exit Reasons"><a href="errors.html#id84267">Exit Reasons</a></li>
+</ul>
+</li>
+<li id="no" title="Processes" expanded="false">Processes<ul>
+<li><a href="processes.html">
+              Top of chapter
+            </a></li>
+<li title="Processes"><a href="processes.html#id84741">Processes</a></li>
+<li title="Process Creation"><a href="processes.html#id84754">Process Creation</a></li>
+<li title="Registered Processes"><a href="processes.html#id84804">Registered Processes</a></li>
+<li title="Process Termination"><a href="processes.html#id84914">Process Termination</a></li>
+<li title="Message Sending"><a href="processes.html#id85004">Message Sending</a></li>
+<li title="Links"><a href="processes.html#id85033">Links</a></li>
+<li title="Error Handling"><a href="processes.html#id85098">Error Handling</a></li>
+<li title="Monitors"><a href="processes.html#id85208">Monitors</a></li>
+<li title="Process Dictionary"><a href="processes.html#id85300">Process Dictionary</a></li>
+</ul>
+</li>
+<li id="no" title="Distributed Erlang" expanded="false">Distributed Erlang<ul>
+<li><a href="distributed.html">
+              Top of chapter
+            </a></li>
+<li title="Distributed Erlang System"><a href="distributed.html#id85368">Distributed Erlang System</a></li>
+<li title="Nodes"><a href="distributed.html#id85398">Nodes</a></li>
+<li title="Node Connections"><a href="distributed.html#id85468">Node Connections</a></li>
+<li title="epmd"><a href="distributed.html#id85518">epmd</a></li>
+<li title="Hidden Nodes"><a href="distributed.html#id85538">Hidden Nodes</a></li>
+<li title="C Nodes"><a href="distributed.html#id85584">C Nodes</a></li>
+<li title="Security"><a href="distributed.html#id85608">Security</a></li>
+<li title="Distribution BIFs"><a href="distributed.html#id85718">Distribution BIFs</a></li>
+<li title="Distribution Command Line Flags"><a href="distributed.html#id86016">Distribution Command Line Flags</a></li>
+<li title="Distribution Modules"><a href="distributed.html#id86153">Distribution Modules</a></li>
+</ul>
+</li>
+<li id="no" title="Compilation and Code Loading" expanded="false">Compilation and Code Loading<ul>
+<li><a href="code_loading.html">
+              Top of chapter
+            </a></li>
+<li title="Compilation"><a href="code_loading.html#id86356">Compilation</a></li>
+<li title="Code Loading"><a href="code_loading.html#id86466">Code Loading</a></li>
+<li title="Code Replacement"><a href="code_loading.html#id86513">Code Replacement</a></li>
+<li title="Running a function when a module is loaded"><a href="code_loading.html#id86588">Running a function when a module is loaded</a></li>
+</ul>
+</li>
+<li id="no" title="Ports and Port Drivers" expanded="false">Ports and Port Drivers<ul>
+<li><a href="ports.html">
+              Top of chapter
+            </a></li>
+<li title="Ports"><a href="ports.html#id86761">Ports</a></li>
+<li title="Port Drivers"><a href="ports.html#id86796">Port Drivers</a></li>
+<li title="Port BIFs"><a href="ports.html#id86836">Port BIFs</a></li>
+</ul>
+</li>
+</ul>
+</div></div>
+<div id="content">
+<div class="innertube">
+<h1>10 Maps</h1>
+  
+
+  <div class="note">
+<div class="label">Note</div>
+<div class="content"><p>
+	  <p>Maps are considered experimental during OTP 17 and may be subject to change.</p>
+	  <p>The documentation below describes it being possible to use arbitrary
+		  expressions or variables as keys, this is <strong>NOT</strong> implemented in the current
+		  version of Erlang/OTP.</p>
+	  <p>Exceptions returns <span class="code">badarg</span> instead of <span class="code">badmap</span>, this will change in
+		  the future releases.</p>
+  </p></div>
+</div>
+
+  <h3><a name="id82896">10.1 
+        Creating Maps</a></h3>
+	  
+	  <p>
+		  Constructing a new map is done by letting an expression <span class="code">K</span> be associated with
+		  another expression <span class="code">V</span>:
+	  </p>
+	  <div class="example"><pre>#{ K =&gt; V }</pre></div>
+	  <p>
+		  New maps may include multiple associations at construction by listing every
+		  association:
+	  </p>
+	  <div class="example"><pre>#{ K1 =&gt; V1, .., Kn =&gt; Vn }</pre></div>
+	  <p>
+		  An empty map is constructed by not associating any terms with each other:
+	  </p>
+	  <div class="example"><pre>#{}</pre></div>
+	  <p>
+		  All keys and values in the map are terms. Any expression is first evaluated and
+		  then the resulting terms are used as <strong>key</strong> and <strong>value</strong> respectively.
+	  </p>
+	  <p>
+		  Keys and values are separated by the <span class="code">=&gt;</span> arrow and associations are
+		  separated by <span class="code">,</span>.
+	  </p>
+
+	  <p>
+		  Examples:
+	  </p>
+	  <div class="example"><pre>
+M0 = #{},                 % empty map
+M1 = #{a =&gt; &lt;&lt;"hello"&gt;&gt;}, % single association with literals
+M2 = #{1 =&gt; 2, b =&gt; b},   % multiple associations with literals
+M3 = #{k =&gt; {A,B}},       % single association with variables
+M4 = #{{"w", 1} =&gt; f()}.  % compound key associated with an evaluated expression</pre></div>
+	  <p>
+		  where, <span class="code">A</span> and <span class="code">B</span> are any expressions and <span class="code">M0</span> through <span class="code">M4</span>
+		  are the resulting map terms.
+	  </p>
+	  <p>
+		  If two matching keys are declared, the latter key will take precedence.
+	  </p>
+	  <p>
+		  Example:
+	  </p>
+
+<div class="example"><pre>
+1&gt; <span class="bold_code">#{1 =&gt; a, 1 =&gt; b}.</span>
+#{1 =&gt; b }
+2&gt; <span class="bold_code">#{1.0 =&gt; a, 1 =&gt; b}.</span>
+#{1 =&gt; b, 1.0 =&gt; a}
+</pre></div>
+	  <p>
+		  The order in which the expressions constructing the keys and their
+		  associated values are evaluated is not defined. The syntactic order of
+		  the key-value pairs in the construction is of no relevance, except in
+		  the above mentioned case of two matching keys.
+	  </p>
+  
+
+  <h3><a name="id83023">10.2 
+        Updating Maps</a></h3>
+	  
+	  <p>
+		  Updating a map has similar syntax as constructing it.
+	  </p>
+	  <p>
+		  An expression defining the map to be updated is put in front of the expression
+		  defining the keys to be updated and their respective values.
+	  </p>
+	  <div class="example"><pre>M#{ K =&gt; V }</pre></div>
+	  <p>
+		  where <span class="code">M</span> is a term of type map and <span class="code">K</span> and <span class="code">V</span> are any expression.
+	  </p>
+	  <p>
+		  If key <span class="code">K</span> does not match any existing key in the map, a new association
+		  will be created from key <span class="code">K</span> to value <span class="code">V</span>.  If key <span class="code">K</span> matches
+		  an existing key in map <span class="code">M</span> its associated value will be replaced by the
+		  new value <span class="code">V</span>. In both cases the evaluated map expression will return a new map.
+	  </p>
+	  <p>
+		  If <span class="code">M</span> is not of type map an exception of type <span class="code">badmap</span> is thrown.
+	  </p>
+	  <p>
+		  To only update an existing value, the following syntax is used,
+	  </p>
+	  <div class="example"><pre>M#{ K := V } </pre></div>
+	  <p>
+		  where <span class="code">M</span> is an term of type map, <span class="code">V</span> is an expression and <span class="code">K</span>
+		  is an expression which evaluates to an existing key in <span class="code">M</span>.
+	  </p>
+	  <p>
+		  If key <span class="code">K</span> does not match any existing keys in map <span class="code">M</span> an exception
+		  of type <span class="code">badarg</span> will be triggered at runtime. If a matching key <span class="code">K</span>
+		  is present in map <span class="code">M</span> its associated value will be replaced by the new
+		  value <span class="code">V</span> and the evaluated map expression returns a new map.
+	  </p>
+	  <p>
+		  If <span class="code">M</span> is not of type map an exception of type <span class="code">badmap</span> is thrown.
+	  </p>
+	  <p>
+		  Examples:
+	  </p>
+	  <div class="example"><pre>
+M0 = #{},
+M1 = M0#{a =&gt; 0},
+M2 = M1#{a =&gt; 1, b =&gt; 2},
+M3 = M2#{"function" =&gt; fun() -&gt; f() end},
+M4 = M3#{a := 2, b := 3}.  % 'a' and 'b' was added in `M1` and `M2`.</pre></div>
+	  <p>
+		  where <span class="code">M0</span> is any map. It follows that <span class="code">M1 .. M4</span> are maps as well.
+	  </p>
+	  <p>
+		  More Examples:
+	  </p>
+<div class="example"><pre>
+1&gt; <span class="bold_code">M = #{1 =&gt; a}.</span>
+#{1 =&gt; a }
+2&gt; <span class="bold_code">M#{1.0 =&gt; b}.</span>
+#{1 =&gt; a, 1.0 =&gt; b}.
+3&gt; <span class="bold_code">M#{1 := b}.</span>
+#{1 =&gt; b}
+4&gt; <span class="bold_code">M#{1.0 := b}.</span>
+** exception error: bad argument
+</pre></div>
+	  <p>
+		  As in construction, the order in which the key and value expressions
+		  are evaluated is not defined. The
+		  syntactic order of the key-value pairs in the update is of no
+		  relevance, except in the case where two keys match, in which
+		  case the latter value is used.
+	  </p>
+  
+
+  <h3><a name="id83219">10.3 
+        Maps in Patterns</a></h3>
+	  
+	  <p>
+		  Matching of key-value associations from maps is done in the following way:
+	  </p>
+
+	  <div class="example"><pre>#{ K := V } = M</pre></div>
+	  <p>
+		  where <span class="code">M</span> is any map. The key <span class="code">K</span> has to be an expression with bound
+		  variables or a literals, and <span class="code">V</span> can be any pattern with either bound or
+		  unbound variables.
+	  </p>
+	  <p>
+		  If the variable <span class="code">V</span> is unbound, it will be bound to the value associated
+		  with the key <span class="code">K</span>, which has to exist in the map <span class="code">M</span>. If the variable
+		  <span class="code">V</span> is bound, it has to match the value associated with <span class="code">K</span> in <span class="code">M</span>.
+	  </p>
+	  <p> Example: </p>
+<div class="example"><pre>
+1&gt; <span class="bold_code">M = #{"tuple" =&gt; {1,2}}.</span>
+#{"tuple" =&gt; {1,2}}
+2&gt; <span class="bold_code">#{"tuple" := {1,B}} = M.</span>
+#{"tuple" =&gt; {1,2}}
+3&gt; <span class="bold_code">B.</span>
+2.</pre></div>
+	  <p>
+		  This will bind variable <span class="code">B</span> to integer <span class="code">2</span>.
+	  </p>
+	  <p>
+		  Similarly, multiple values from the map may be matched:
+	  </p>
+	  <div class="example"><pre>#{ K1 := V1, .., Kn := Vn } = M</pre></div>
+	  <p>
+		  where keys <span class="code">K1 .. Kn</span> are any expressions with literals or bound variables. If all
+		  keys exist in map <span class="code">M</span> all variables in <span class="code">V1 .. Vn</span> will be matched to the
+		  associated values of their respective keys.
+	  </p>
+	  <p>
+		  If the matching conditions are not met, the match will fail, either with
+	  </p>
+	  <ul>
+		  <li>
+			  a <span class="code">badmatch</span> exception, if used in the context of the matching operator
+			  as in the example, 
+		  </li>
+		  <li>
+			  or resulting in the next clause being tested in function heads and
+			  case expressions.
+		  </li>
+	  </ul>
+	  <p>
+		  Matching in maps only allows for <span class="code">:=</span> as delimiters of associations.
+		  The order in which keys are declared in matching has no relevance.
+	  </p>
+	  <p>
+		  Duplicate keys are allowed in matching and will match each pattern associated
+		  to the keys.
+	  </p>
+	  <div class="example"><pre>#{ K := V1, K := V2 } = M</pre></div>
+	  <p>
+		  Matching an expression against an empty map literal will match its type but
+		  no variables will be bound:
+	  </p>
+	  <div class="example"><pre>#{} = Expr</pre></div>
+	  <p>
+		  This expression will match if the expression <span class="code">Expr</span> is of type map, otherwise
+		  it will fail with an exception <span class="code">badmatch</span>.
+	  </p>
+	  <h4>Matching syntax: Example with literals in function heads</h4>
+		  
+		  <p>
+			  Matching of literals as keys are allowed in function heads.
+		  </p>
+		  <div class="example"><pre>
+%% only start if not_started
+handle_call(start, From, #{ state := not_started } = S) -&gt;
+...
+    {reply, ok, S#{ state := start }};
+
+%% only change if started
+handle_call(change, From, #{ state := start } = S) -&gt;
+...
+    {reply, ok, S#{ state := changed }};</pre></div>
+	  
+  
+  <h3><a name="id83423">10.4 
+        Maps in Guards</a></h3>
+	  
+	  <p>
+		  Maps are allowed in guards as long as all sub-expressions are valid guard expressions.
+	  </p>
+	  <p>
+		  Two guard BIFs handles maps:
+	  </p>
+	  <ul>
+		  <li>
+			  <span class="bold_code"><a href="javascript:erlhref('../../','erts','erlang.html#is_map-1');">is_map/1</a></span>
+		  </li>
+		  <li>
+			  <span class="bold_code"><a href="javascript:erlhref('../../','erts','erlang.html#map_size-1');">map_size/1</a></span>
+		  </li>
+	  </ul>
+  
+</div>
+<div class="footer">
+<hr>
+<p>Copyright © 2003-2014 Ericsson AB. All Rights Reserved.</p>
+</div>
+</div>
+</div></body>
+</html>

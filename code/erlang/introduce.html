@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html">
+<head>
+    <title>variable</title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+</head>
+<body>
+
+<p>相关文档</p>
+<A href="resources/doc/Erlang程序设计中文版（完整书签）.pdf" target="_blank">Erlang程序设计中文版（完整书签）.pdf</A>
+<p>api</p>
+<A href="resources/doc/otp_doc_html_17.0/doc/applications.html" target="_blank">applications</A></p>
+<A href="resources/doc/otp_doc_html_17.0/doc/index.html" target="_blank">Erlang/OTP</A></p>
+<A href="resources/doc/otp_doc_html_17.0/doc/man_index.html" target="_blank">OTP Reference Page Index</A></p>
+<p>源码存放址</p>
+<A href="resources/soundCode/otp_src_17.0" target="_blank">resources/soundCode/otp_src_17.0</A></p>
+<P>网址</P>
+<A href="http://erldoc.com" target="_blank">http://erldoc.com</A></p>
+<hr>
+<h2 id="简介">1 简介</h2>
+<p>Erlang 是一门<strong>函数式编程语言（Functional Programming Language）</strong>。
+    这就是所有让人感到害怕――并让新的使用者望而却步的东西。然而有意思的是，Erlang 其实是一门非常小而且简单的语言。
+    可能你正在对Erlang 代码看上去的样子感到迷惑不解。</p>
+<hr>
+<p>什么是<strong>模式匹配</strong>：
+    在Erlang中，<strong>=</strong> 表示一个模式匹配操作。
+    Erlang 大量使用了模式匹配语法；</p>
+<p>这里有一个Erlang 代码的小例子（摘自新版的Programming Erlang 一书）：</p>
+<pre><code>-module(geometry).
+-export([area/1]).
+area({rectangle, Width, Ht}) -&gt; Width * Ht;
+area({square, X}) -&gt; X * X;
+area({circle, R}) -&gt; 3.14159 * R * R.
+</code></pre><p>现在，让我们在Erlang shell 中编译并运行它：</p>
+<pre><code>1&gt; c(geometry).
+{ok,geometry}
+2&gt; geometry:area({rectangle, 10, 5}).
+50
+3&gt; geometry:area({circle, 1.4}).
+6.15752
+    <hr>
+</code></pre><p>相当的简单… </p>
+<p>以下是做类似事情的Java 代码：</p>
+<pre><code>abstract class Shape {
+abstract double area();
+}
+
+class Circle extends Shape {
+final double radius;
+Circle(double radius) { this.radius = radius; }
+double area()
+{ return Math.PI * radius*radius; }
+}
+class Rectangle extends Shape {
+final double ht;
+final double width;
+Rectangle(double width, double height) {
+this.ht = height;
+this.width = width;
+}
+double area() { return width * ht; }
+}
+
+class Square extends Shape {
+final double side;
+Square(double side) {
+this.side = side;
+}
+double area() { return side * side; }
+}
+</code></pre>
+</body>

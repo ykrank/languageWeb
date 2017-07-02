@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>if case 列表循环</title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+</head>
+<body>
+<h2 id="控制语句">3 控制语句</h2>
+<h3 id="if">3.1 if</h3>
+<pre><code>if
+    Condition 1 -&gt;
+    Action 1;
+    Condition 2 -&gt;
+    Action 2;
+    Condition 3 -&gt;
+    Action 3;
+    Condition 4 -&gt;
+    Action 4;
+    true -&gt;
+    Action 5
+end
+</code></pre>
+<p>注意，在结尾没有<strong>;</strong>！
+    条件<code>(Conditions)</code>和守卫一样，测试成功或是失败。Erlang会从最顶上开始向下，直到找到一个成功的条件为止，并执行此行条件下面的动作，并且忽略掉其后面其它的条件。如果没有条件匹配，会发生一个运行时<code>(run-time)</code>错误。元子true在条件中表示真，它常常被放在条件层，表示如果没有匹配的条件的话，应该做什么动作。
+</p>
+<hr>
+<p><strong>if小例子：</strong></p>
+<pre><code>-module(tut9).
+-export([test_if/2]).
+test_if(A, B) -&gt;
+    if
+        A == 5 -&gt;
+            io:format(&quot;A = 5~n&quot;, []),
+            a_equals_5;
+        B == 6 -&gt;
+            io:format(&quot;B = 6~n&quot;, []),
+            b_equals_6;
+        A == 2, B == 3 -&gt; %i.e. A equals 2 and B equals 3
+            io:format(&quot;A == 2, B == 3~n&quot;, []),
+            a_equals_2_b_equals_3;
+        A == 1 ; B == 7 -&gt; %i.e. A equals 1 or B equals 7
+            io:format(&quot;A == 1 ; B == 7~n&quot;, []),
+            a_equals_1_or_b_equals_7
+    end.
+</code></pre>
+<p>运行。</p>
+<hr>
+<h3 id="case">3.2 case</h3>
+<p><code>case</code>是另一个Erlang结构。</p>
+<pre><code>-module(tut10).
+-export([convert_length/1]).
+convert_length(Length) -&gt;
+    case Length of
+        {centimeter, X} -&gt;
+            {inch, X / 2.54};
+        {inch, Y} -&gt;
+            {centimeter, Y * 2.54}
+    end.
+</code></pre>
+<p><strong>注意:</strong> <code>case</code>和<code>if</code>都有返回值，在上面的例子中<code>case</code>返回<code>{inch,X/2.54}</code>或
+    <code>{centimeter,Y*2.54}</code>。<code>case</code>的行为也可以使用守卫来代替。</p>
+<hr>
+<p><strong>小例子：</strong></p>
+<pre><code>-module(tut11).
+-export([month_length/2]).
+month_length(Year, Month) -&gt;
+%% All years divisible by 400 are leap
+%% Years divisible by 100 are not leap (except the 400 rule above)
+%% Years divisible by 4 are leap (except the 100 rule above)
+%%四年一闰，百年不闰，四百年再闰。
+Leap = if
+    trunc(Year / 400) * 400 == Year -&gt;
+        leap;
+    trunc(Year / 100) * 100 == Year -&gt;
+        not_leap;
+    trunc(Year / 4) * 4 == Year -&gt;
+        leap;
+    true -&gt;
+        not_leap
+    end,
+    case Month of
+        sep -&gt; 30;
+        apr -&gt; 30;
+        jun -&gt; 30;
+        nov -&gt; 30;
+        feb when Leap == leap -&gt; 29;
+        feb -&gt; 28;
+        jan -&gt; 31;
+        mar -&gt; 31;
+        may -&gt; 31;
+        jul -&gt; 31;
+        aug -&gt; 31;
+        oct -&gt; 31;
+        dec -&gt; 31
+    end.
+</code></pre>
+<hr>
+<h3 id="列表循环">3.3 列表循环</h3>
+<p><strong>|</strong>可以用来得到列表中的第一个元素。</p>
+<pre><code>[M1|T1] = [paris, london, rome].
+51&gt; M1.
+paris
+52&gt; T1.
+[london,rome]
+</code></pre>
+<hr>
+<h2 id="简单例子">4 简单例子</h2>
+<pre><code>%% This module is in file tut5.erl
+-module(tut5).
+-export([format_temps/1]).
+%% Only this function is exported
+
+format_temps([])-&gt; % No output for an empty list
+    ok;
+format_temps([City | Rest]) -&gt;
+    print_temp(convert_to_celsius(City)),
+    format_temps(Rest).
+
+convert_to_celsius({Name, {c, Temp}}) -&gt; % No conversion needed
+    {Name, {c, Temp}};
+convert_to_celsius({Name, {f, Temp}}) -&gt; % Do the conversion
+    {Name, {c, (Temp - 32) * 5 / 9}}.
+
+print_temp({Name, {c, Temp}}) -&gt;
+    io:format(&quot;~-15w ~w c~n&quot;, [Name, Temp]).
+</code></pre>
+<p><code>tut5:format_temps([{moscow, {c, -10}}, {cape_town, {f, 70}},{stockholm, {c, -4}}, {paris,
+    {f, 28}}, {london, {f, 36}}]).</code></p>
+
+</body>

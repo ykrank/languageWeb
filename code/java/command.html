@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+</head>
+<body>
+<p>九、Java 命令行参数</p>
+<p>例题 2-30:利用命令行参数实现两整数相乘。</p>
+<a href="command/text.java" target="_blank">text.java</a><hr>
+<pre>
+    public class text {
+        public static void main(String[] args) {
+            for (int i = 0; i < args.length; i++)
+                System.out.println(args[i] + " ");
+        }
+    }
+</pre>
+
+<p>例题 2-31:输出命令行所有参数。 </p>
+<a href="command/text2.java" target="_blank">text2.java</a><hr>
+
+<pre>
+    public class text2 {
+        public static void main(String[] args) {
+            int a1, a2, a3;
+            if (args.length < 2) {
+                System.out.println("运行本程序应该提供两个命令行参数");
+                System.exit(0);
+            }
+            a1 = Integer.parseInt(args[0]);
+            a2 = Integer.parseInt(args[1]);
+            a3 = a1 * a2;
+            System.out.println(a1 + "与" + a2 + "相乘的积为:" + a3);
+        }
+    }
+</pre>
+</body>

@@ -1,0 +1,104 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html xmlns:fn="http://www.w3.org/2005/02/xpath-functions">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="../../../../doc/otp_doc.css" type="text/css">
+<title>Erlang -- </title>
+</head>
+<body bgcolor="white" text="#000000" link="#0000ff" vlink="#ff00ff" alink="#ff0000"><div id="container">
+<script id="js" type="text/javascript" language="JavaScript" src="../../../../doc/js/flipmenu/flipmenu.js"></script><script id="js2" type="text/javascript" src="../../../../doc/js/erlresolvelinks.js"></script><script language="JavaScript" type="text/javascript">
+            <!--
+              function getWinHeight() {
+                var myHeight = 0;
+                if( typeof( window.innerHeight ) == 'number' ) {
+                  //Non-IE
+                  myHeight = window.innerHeight;
+                } else if( document.documentElement && ( document.documentElement.clientWidth ||
+                                                         document.documentElement.clientHeight ) ) {
+                  //IE 6+ in 'standards compliant mode'
+                  myHeight = document.documentElement.clientHeight;
+                } else if( document.body && ( document.body.clientWidth || document.body.clientHeight ) ) {
+                  //IE 4 compatible
+                  myHeight = document.body.clientHeight;
+                }
+                return myHeight;
+              }
+
+              function setscrollpos() {
+                var objf=document.getElementById('loadscrollpos');
+                 document.getElementById("leftnav").scrollTop = objf.offsetTop - getWinHeight()/2;
+              }
+
+              function addEvent(obj, evType, fn){
+                if (obj.addEventListener){
+                obj.addEventListener(evType, fn, true);
+                return true;
+              } else if (obj.attachEvent){
+                var r = obj.attachEvent("on"+evType, fn);
+                return r;
+              } else {
+                return false;
+              }
+             }
+
+             addEvent(window, 'load', setscrollpos);
+
+             //--></script><div id="leftnav"><div class="innertube">
+<img alt="Erlang logo" src="../../../../doc/erlang-logo.png"><br><small><a href="users_guide.html">User's Guide</a><br><a href="index.html">Reference Manual</a><br><a href="release_notes.html">Release Notes</a><br><a href="../pdf/crypto-3.3.pdf">PDF</a><br><a href="../../../../doc/index.html">Top</a></small><p><strong>crypto</strong><br><strong>Release Notes</strong><br><small>Version 3.3</small></p>
+<br><a href="javascript:openAllFlips()">Expand All</a><br><a href="javascript:closeAllFlips()">Contract All</a><p><small><strong>Chapters</strong></small></p>
+<ul class="flipMenu" imagepath="../../../../doc/js/flipmenu"><li id="no" title="Crypto Release Notes" expanded="false">Crypto Release Notes<ul>
+<li><a href="notes.html">
+              Top of chapter
+            </a></li>
+<li title="Crypto 3.3"><a href="notes.html#id59322">Crypto 3.3</a></li>
+<li title="Crypto 3.2"><a href="notes.html#id59610">Crypto 3.2</a></li>
+<li title="Crypto 3.1"><a href="notes.html#id59639">Crypto 3.1</a></li>
+<li title="Crypto 3.0"><a href="notes.html#id59668">Crypto 3.0</a></li>
+<li title="Crypto 2.3"><a href="notes.html#id64462">Crypto 2.3</a></li>
+<li title="Crypto 2.2"><a href="notes.html#id64516">Crypto 2.2</a></li>
+<li title="Crypto 2.1"><a href="notes.html#id64610">Crypto 2.1</a></li>
+<li title="Crypto 2.0.4"><a href="notes.html#id64694">Crypto 2.0.4</a></li>
+<li title="Crypto 2.0.3"><a href="notes.html#id64748">Crypto 2.0.3</a></li>
+<li title="Crypto 2.0.2.2"><a href="notes.html#id64819">Crypto 2.0.2.2</a></li>
+<li title="Crypto 2.0.2.1"><a href="notes.html#id64849">Crypto 2.0.2.1</a></li>
+<li title="Crypto 2.0.2"><a href="notes.html#id64878">Crypto 2.0.2</a></li>
+<li title="Crypto 2.0.1"><a href="notes.html#id64912">Crypto 2.0.1</a></li>
+<li title="Crypto 2.0"><a href="notes.html#id65003">Crypto 2.0</a></li>
+<li title="Crypto 1.6.4"><a href="notes.html#id65080">Crypto 1.6.4</a></li>
+<li title="Crypto 1.6.3"><a href="notes.html#id65336">Crypto 1.6.3</a></li>
+<li title="Crypto 1.6.2"><a href="notes.html#id65404">Crypto 1.6.2</a></li>
+<li title="Crypto 1.6.1"><a href="notes.html#id65435">Crypto 1.6.1</a></li>
+<li title="Crypto 1.6"><a href="notes.html#id65510">Crypto 1.6</a></li>
+<li title="Crypto 1.5.3"><a href="notes.html#id65568">Crypto 1.5.3</a></li>
+<li title="Crypto 1.5.2.1"><a href="notes.html#id65600">Crypto 1.5.2.1</a></li>
+<li title="Crypto 1.5.2"><a href="notes.html#id65630">Crypto 1.5.2</a></li>
+<li title="Crypto 1.5.1.1"><a href="notes.html#id65685">Crypto 1.5.1.1</a></li>
+<li title="Crypto 1.5"><a href="notes.html#id65730">Crypto 1.5</a></li>
+<li title="Crypto 1.4"><a href="notes.html#id65764">Crypto 1.4</a></li>
+<li title="Crypto 1.3"><a href="notes.html#id65817">Crypto 1.3</a></li>
+<li title="Crypto 1.2.3"><a href="notes.html#id65849">Crypto 1.2.3</a></li>
+<li title="Crypto 1.2.2"><a href="notes.html#id65896">Crypto 1.2.2</a></li>
+<li title="Crypto 1.2.1"><a href="notes.html#id65931">Crypto 1.2.1</a></li>
+<li title="Crypto 1.2"><a href="notes.html#id65968">Crypto 1.2</a></li>
+<li title="Crypto 1.1.3"><a href="notes.html#id66063">Crypto 1.1.3</a></li>
+<li title="Crypto 1.1.2"><a href="notes.html#id66094">Crypto 1.1.2</a></li>
+<li title="Crypto 1.1.1"><a href="notes.html#id66146">Crypto 1.1.1</a></li>
+<li title="Crypto 1.1"><a href="notes.html#id66180">Crypto 1.1</a></li>
+<li title="Crypto 1.0"><a href="notes.html#id66213">Crypto 1.0</a></li>
+</ul>
+</li></ul>
+</div></div>
+<div id="content">
+<div class="innertube">
+<div class="frontpage"></div>
+<center><h1>crypto Release Notes</h1></center>
+<center><h4>Version 3.3</h4></center>
+<center><h4>April  7, 2014</h4></center>
+</div>
+<div class="footer">
+<hr>
+<p>Copyright © 1999-2014 Ericsson AB. All Rights Reserved.</p>
+</div>
+</div>
+</div></body>
+</html>
