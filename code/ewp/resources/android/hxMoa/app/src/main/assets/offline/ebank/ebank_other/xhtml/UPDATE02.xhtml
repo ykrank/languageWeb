@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+#{
+this = ert.channel:get_page("ebank_other","UPDATE02");
+local model = this.context["model"];
+local c_version = this.context["c_version"];
+local s_version = this.context["s_version"];
+local url = this.context["url"];
+}#
+
+<content>
+  <head>
+    <link ref="ebank_other/css/ebank_other_public.css" type="text/css"/>
+    <link ref="ebank_public.css" type="text/css"/>
+    <script type="text/x-lua" src="ebank_other/lua/UPDATE02.lua" ></script>
+  </head>
+  <body>
+   #{local str = ebank_public.header:set_header("检查更新","2")}#
+   #{= str}#
+   <div class="public_main_div" border="0">
+    <div class="div_kong" border="0"></div>
+    <table class="" border="0" >
+        <tr>
+          <td>
+            <div valign="middle" align="center" class="div_t25_w320" border="0" > 
+              <img src='check-icon.png' class="w36_h36"/>
+              <div class="w12,inline-block"></div>
+              <label class="">检查成功！</label>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div class="div_kong,h25,bgffffff" border="0"></div>
+            <label class="label_l15_fs12">客户端版本号：</label>
+            <label class="label_r15_fs12">#{=c_version}#</label>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div class="div_kong,h25,bgffffff" border="0"></div>
+            <label class="label_l15_fs12">新版本号：</label>
+            <label class="label_r15_fs12">#{=s_version}#</label>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div class="div_kong,h25,bgffffff" border="0"></div>
+            <div class="div_kong" border="0"></div>
+            <div class="div_kong" border="0"></div>
+          </td>
+        </tr>
+      </table>
+  </div>
+  <div class="div_kong" border="0"></div>
+  <input type="button" class="public_15_w290_h35" id="div_input_1" border="0" enable="true" value="立即更新" onclick="click('#{=url}#')" /> 
+</body>
+</content>

@@ -1,0 +1,26 @@
+/*登录样式*/
+.cmm_ui_type_div{width:320px;top:6px;}
+/*.cmm_ui_main_div{width:320px;top:70px;}*/
+.cmm_ui_main_div{width:320px;top:15px;}
+
+.cmm_ui_left10{left:20px;width: 18px; height: 18px;}
+
+.cmm_ui_left{left:0px;width: 150px; font-size:14px;height: 42px;text-align: center;color: #FF5A5F;}
+.cmm_ui_right{right:0px;width: 150px; font-size:14px;height: 42px;text-align: center;color: #999999;}
+
+.cmm_ui_line_color{left: 0px;width: 320px;height: 1px;bottom: 1px;background-color:#FF5A5F; }
+.cmm_ui_line_left{left: 25px;width: 100px;height: 2px;bottom: 2px;background-color:#FF5A5F;display:block;}
+.cmm_ui_line_right{right: 25px;width: 100px;height: 2px;bottom: 2px;background-color:#FF5A5F;display: none;}
+.cmm_ui_line_c{left: 15px;width: 290px;height: 1px;bottom: 1px;background-color:#E8E8E8; }
+
+/*中间间隔*/
+.cmm_ui_h15{height: 15px;}
+.cmm_ui_h10{height: 10px;}
+.cmm_ui_h5{height: 5px;}
+
+.cmm_ui_w290{left: 15px; width: 290px;}
+.cmm_ui_f12b_l{font-size: 12px;color: #76C9FF;}
+.cmm_ui_f12b_r{font-size: 12px;color: #76C9FF;right: 0px;}
+
+.login_dibu_img{bottom: 0px;width: 320px;height: 180px;}
+.cmm_ui_b300{left: 10px;width: 300px;bottom: 90px;}

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+#{
+
+  --华兴宝收益
+  local req_tbl_hx = ert.channel:get_request("ebank_product_huaxingbao","PX0004");
+  local rate_xp = req_tbl_hx["rate_xp"];
+  local profit_xp = req_tbl_hx["profit_xp"];
+}#
+<content>
+<head>
+    <script type="text/x-lua" src="ebank_product_huaxingbao/lua/PX0004.lua"></script>
+    <link ref="ebank_public.css" type="text/css"/>
+    <link ref="ebank_product_huaxingbao/css/PX0004.css" type="text/css"/>
+
+    <style>
+    .tabel_w320_bgFFFFFF{width: 320px;background-color: #F7F7F7;height: 150px;top:0px;}
+
+    .img_date1{width:20px;height: 20px;left: 80px;top: 12px; }
+    .img_date2{width:20px;height: 20px;left: 180px;top: 12px; }
+    </style>
+</head>
+<body>
+  #{local str = ebank_public.header:set_header("我的华兴宝","7","0","0")}#
+  #{= str}#
+  <div class="public_main_div" border="0">
+    <div class="div_t0_h190_w320" border="0">
+      <label class="label_1_w320_t50_f32_cf85050" id="profit">#{=format_money(profit)}#</label>
+      <label class="label_1_w320_t50_f32_cf85050,label_2_f12_c666666_t67">昨日收益(元)</label>
+      <!--
+      <img class="img_w320_h1" />
+      -->
+      <div class="div_l40_w240_h1" border="0"></div>
+      <div class="div_h25_w1_l160" border="0"></div>
+      <label class="label_w160_l0_t106" id="income">#{=format_money(income)}#</label>
+      <label class="label_w160_l0_t106,label_f14_c66666">累计收益(元)</label>
+      <label class="label_w160_l0_t106,labe_l160" id="balance">#{=format_money(balance)}#</label>
+      <label class="label_w160_l0_t106,label_f14_c66666,labe_l160">总金额(元)</label>
+      <label class="public_line_stroke_b1"></label>
+    </div>
+
+    <div class="div_t150_w320" border="0">
+      <label class="public_line_stroke_t0"></label>
+
+      <div class="div_left_l0_h35_w160_t0" id="div_1" border="0" onclick="change_color('1')"><label id="lab_1" class="label_w159_fs14,label_r0_c999999">收益明细</label></div>
+      <div class="div_right_l160_h35_w160_t0" id="div_2" border="0" onclick="change_color('2')"><label id="lab_2" class="label_w159_fs14,label_l0_c4d4d4d">交易明细</label></div>
+
+      <div class="div_t35_h46_l0_w320" border="0">
+        <input type="text" style="-wap-input-format:'date'" showformat="yyyy-MM-dd" id="dateStart" class="input_t10_w97_fs12_c666666,input_l8" border="0"/>
+        <input type="text" style="-wap-input-format:'date'" showformat="yyyy-MM-dd" id="dateEnd" class="input_t10_w97_fs12_c666666,input_l110" border="0"/>
+        <input type="button" class="input_t10_h26_w93_l219_fs12_cFFFFFF" value="查询" border="0" onclick="alert_show()" />
+        <img src="menology.png" class = "img_date1"></img>
+        <img src="menology.png" class = "img_date2"></img>
+      </div>
+
+      <div class="div_t81_h30_w304_l8_bgEBEBEE" border="0">
+          <label class="label_t9_r15_fs14_c666666" id="lab_33"></label>
+          <label class="label_t9_l130_fs14_c666666" id="lab_32"></label>
+          <label class="label_t9_l15_fs14_c666666" id="lab_31"></label>
+      </div>
+
+      <div name="mindro" class="div_w320" border="0"></div>
+
+    </div>    
+  </div>
+  <div class="div_but" border="0">
+      <input type="button" id = "butpx0002" class = "input_t0_h35_w160_l0_fs14_cFFFFFF" value="申购" onclick="turn_page_px0002_px0005('2','#{=rate_xp}#','#{=profit_xp}#')"></input>
+      <input type="button" id = "butpx0005" class = "input_t0_h35_w160_r0_fs14_cFFFFFF" value="赎回" onclick="turn_page_px0002_px0005('5','#{=rate_xp}#','#{=profit_xp}#')"></input>
+  </div>
+</body>
+</content>

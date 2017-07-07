@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.ghbank.moas"
+    android:versionCode="5"
+    android:versionName="1.7.0" >
+
+    <uses-sdk
+        android:minSdkVersion="8"
+        android:targetSdkVersion="17" />
+	<!-- 消息推送 -->
+	<uses-permission android:name="android.permission.WRITE_SETTINGS" />
+	<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+	<uses-permission android:name="android.permission.GET_TASKS" />
+	<uses-permission android:name="android.permission.WAKE_LOCK" />
+
+
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+    <!-- 设置联网权限 -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <!-- 设置通讯录权限 -->
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.WRITE_CONTACTS" />
+    <!-- 设置READ_PHONE_STATE权限 -->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <!-- 设置安装程序权限 -->
+    <uses-permission android:name="android.permission.INSTALL_PACKAGES" />
+    <!-- 设置创建于删除文件权限 -->
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <!-- 开启GPS寻址权限 -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.MODIFY_PHONE_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <!-- 相机权限 -->
+    <uses-permission android:name="android.permission.CAMERA" />
+    <!-- 允许程序调用相机权限 (扫描，相机模块) -->
+    <uses-feature android:name="android.hardware.camera" />
+    <!-- 允许程序camera自动对焦(扫描，相机模块) -->
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+    <!-- 允许程序访问闪光灯 -->
+    <uses-permission android:name="android.permission.FLASHLIGHT" />
+    <!-- 允许项目读取logcat信息。 -->
+    <uses-permission android:name="android.permission.READ_LOGS" />
+    <!-- 允许监听新安装/卸载/替换的包 -->
+    <uses-permission android:name="android.permission.RESTART_PACKAGES" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <!-- MDM -->
+	<permission android:name="com.nq.enterprise.sdk.permission" />
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/icon"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme"
+        android:name="com.rytong.emp.android.EMPApplication" >
+        <!-- 配置高德地图key-->
+        <meta-data
+            android:name="com.amap.api.v2.apikey"
+            android:value="5bb05b8b1e427fb2e516319eff96ae36"/> 
+        <activity
+            android:name="com.rytong.emp.test.MainActivity"
+            android:alwaysRetainTaskState="true"
+            android:configChanges="orientation|keyboardHidden"
+            android:label="@string/app_name"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan">
+             <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity 
+            android:name="com.rytong.emp.test.config.ConfigActivity"
+            android:screenOrientation="portrait">
+            
+        </activity>
+        <!-- 人脸识别 -->
+        <activity
+            android:name="com.rytong.emp.face.ac.FaceActivity"
+            android:screenOrientation="portrait">
+        </activity>
+        
+        <activity
+            android:name="com.aeye.android.facerecog.ui.PreviewActivity"
+            android:configChanges="orientation"
+            android:launchMode="standard"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.aeye.android.facerecog.ui.RecognizeActivity"
+            android:configChanges="orientation"
+            android:label="Graphics/CameraPreview"
+            android:screenOrientation="portrait">
+        </activity>
+        
+        <service android:name="com.aeye.android.facerecog.service.InitService"/>
+        
+        <activity
+            android:name="com.rytong.emp.test.multitask.SubTaskActivity"
+            android:alwaysRetainTaskState="true"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" >
+        </activity>
+
+        <!-- 附件阅读 -->
+        <activity android:name="com.wordandexcel.WordRead" >
+        </activity>
+        <activity android:name="com.wordandexcel.ExcelRead">
+        </activity>
+        <activity android:name="com.artifex.mupdf.MuPDFActivity" >
+            <intent-filter>  
+		         <action android:name="android.intent.action.VIEW"/>  
+		         <data android:scheme="content"/>
+		    </intent-filter> 
+        </activity>
+        <activity android:name="com.artifex.mupdf.OutlineActivity" >
+        </activity>
+        
+        <activity
+            android:name="com.wordandexcel.ReadWordOrXlsx"
+            android:theme="@style/TransparentFullscreen">
+        </activity>
+        
+        <activity
+            android:name="com.read.image.ReadImage"
+            android:theme="@style/TransparentFullscreen">
+        </activity>
+        
+        
+        <!-- 二维码 -->
+        <activity
+            android:name="com.rytong.qrcode.zxing.activity.CaptureActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden" >
+        </activity>
+        
+        
+        
+        <!-- 可靠消息 -->
+        <service
+            android:name="com.rytong.emp.androidpn.client.NotificationService"
+            android:enabled="true"
+            android:label="NotificationService" >
+
+            <!--
+            <intent-filter>
+                <action android:name="com.rytong.emp.androidpn.client.NotificationService" />
+            </intent-filter>
+            -->
+        </service>
+        <service android:name="com.rytong.emp.androidpn.client.ExamineNotificationService" />
+
+        <!-- 统计 -->
+        <service android:name="com.rytong.track.control.TrackService" />
+        
+        <!-- VpnService服务 -->
+		<service android:name="com.sangfor.ssl.l3vpn.service.EasyappSvpnService"
+                android:permission="android.permission.BIND_VPN_SERVICE">
+            <intent-filter>
+                <action android:name="com.sangfor.ssl.l3vpn.service.EasyappSvpnService"/>
+            </intent-filter>
+        </service>
+		
+		<!-- XMPP所在服务 -->
+		<service
+		    android:name="org.androidpn.client.NotificationService"
+		    android:exported="true"
+		    android:label="NotificationService"
+		    android:process=":ryt_remote_push_service" >
+		    <intent-filter android:priority="1000" >
+		        <action android:name="org.androidpn.client.NotificationService" />
+		    </intent-filter>
+		</service>
+		<service
+		    android:name="org.androidpn.client.NotificationService$GrayInnerService"
+		    android:enabled="true"
+		    android:exported="false"
+		    android:process=":ryt_remote_push_service" />
+		
+		<receiver
+		    android:name="org.androidpn.client.NotificationReceiver"
+		    android:process=":ryt_remote_push_service" >
+		    <intent-filter>
+		        <action android:name="com.rytong.push.action.BIND_RYT_PUSHSERVICE" />
+		        <action android:name="com.rytong.push.SHOW_NOTIFICATION" />
+		
+		        <!-- 注册以下广播可以提高service的存活率 -->
+		        <action android:name="android.intent.action.USER_PRESENT" />
+		        <action android:name="android.intent.action.BOOT_COMPLETED" />
+		        <action android:name="android.intent.action.ACTION_POWER_CONNECTED" />
+		        <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED" />
+		
+		        <category android:name="android.intent.category.HOME" />
+		    </intent-filter>
+		    <!-- 监听应用的安装卸载 -->
+		    <intent-filter>
+		        <action android:name="android.intent.action.PACKAGE_ADDED" />
+		        <action android:name="android.intent.action.PACKAGE_REMOVED" />
+		        <action android:name="android.intent.action.PACKAGE_DATA_CLEARED" />
+		
+		        <data android:scheme="package" />
+		    </intent-filter>
+		</receiver>
+		<receiver
+    android:name="com.rytong.push.receiver.MyPushReceiver"
+    android:exported="true" >
+    <intent-filter>
+        <action android:name="com.rytong.push.app.action.PUSH_RECEIVER_SHOW" />
+        <action android:name="com.rytong.push.app.action.PUSH_RECEIVER_CLICKED" />
+        <action android:name="com.rytong.push.app.action.PUSH_RECEIVER_CANCELED" />
+        <!-- 接收离线消息广播 -->
+        <action android:name="com.rytong.push.action.OFFLINE_NOTIFICATION" />
+    </intent-filter>
+</receiver>
+    </application>
+   	<uses-permission android:name="android.permission.DISABLE_KEYGUARD" />
+ 	<uses-permission android:name="android.permission.WAKE_LOCK" />
+</manifest>

@@ -1,0 +1,1148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content" >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="5dp" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <RadioGroup
+                android:id="@+id/config_UnitRg"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:orientation="horizontal" >
+
+                <RadioButton
+                    android:id="@+id/config_UnitRb"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:checked="true"
+                    android:text="非单元测试" />
+
+                <RadioButton
+                    android:id="@+id/config_NotUnitRb"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:layout_gravity="right"
+                    android:layout_marginLeft="10dp"
+                    android:text="单元测试" />
+            </RadioGroup>
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" >
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="应用:" />
+
+                <Spinner
+                    android:id="@+id/config_NameSp"
+                    android:layout_width="50dp"
+                    android:layout_height="25dp"
+                    android:background="#550000FF" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:gravity="center_vertical" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="信道:" />
+
+                <Spinner
+                    android:id="@+id/config_ChannelSp"
+                    android:layout_width="50dp"
+                    android:layout_height="25dp"
+                    android:background="#550000FF" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:gravity="center_vertical" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="离线:" />
+
+                <Spinner
+                    android:id="@+id/config_OfflineSp"
+                    android:layout_width="50dp"
+                    android:layout_height="25dp"
+                    android:background="#550000FF" />
+            </LinearLayout>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp" >
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="统计:" />
+
+                <ToggleButton
+                    android:id="@+id/config_TrackTob"
+                    style="@style/Config_TogBtn" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:gravity="center_vertical" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="性能:" />
+
+                <ToggleButton
+                    android:id="@+id/config_PerfTestTob"
+                    style="@style/Config_TogBtn" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:gravity="center_vertical" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="推送:" />
+
+                <ToggleButton
+                    android:id="@+id/config_PushTob"
+                    style="@style/Config_TogBtn" />
+            </LinearLayout>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp" >
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="国密:" />
+
+                <ToggleButton
+                    android:id="@+id/config_SMTob"
+                    style="@style/Config_TogBtn" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:gravity="center_vertical" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="开发:" />
+
+                <ToggleButton
+                    android:id="@+id/config_DevModeTob"
+                    style="@style/Config_TogBtn" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:gravity="center_vertical" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="日志:" />
+
+                <ToggleButton
+                    android:checked="true"
+                    android:id="@+id/config_LogTob"
+                    style="@style/Config_TogBtn" />
+            </LinearLayout>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp" >
+
+            <Button
+                android:id="@+id/config_AXmlBtn"
+                android:layout_width="80dp"
+                android:layout_height="25dp"
+                android:background="#FF66FF"
+                android:text="本地a.xml" />
+
+            <Button
+                android:id="@+id/config_ClearDataBtn"
+                android:layout_width="80dp"
+                android:layout_height="25dp"
+                android:layout_centerHorizontal="true"
+                android:background="#FF66FF"
+                android:text="清除数据" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/config_DevModeLayout"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:background="#55696969"
+            android:orientation="vertical"
+            android:visibility="gone" >
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="以下设置仅开发模式下有效"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="错误提示:" />
+
+                <ToggleButton
+                    android:id="@+id/config_ErrorAlertTob"
+                    style="@style/Config_TogBtn"
+                    android:checked="true" />
+                
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="缓存模式:" />
+
+                <ToggleButton
+                    android:id="@+id/config_CacheModeTob"
+                    style="@style/Config_TogBtn"
+                    android:checked="true" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+
+                <CheckBox
+                    android:id="@+id/config_EmpEditorCbx"
+                    android:layout_width="wrap_content"
+                    android:layout_height="35dp"
+                    android:checked="false"
+                    android:text="使用EmpEditor"
+                    android:textSize="16sp" />
+
+                <Button
+                    android:id="@+id/config_ExplainBtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="35dp"
+                    android:layout_gravity="right"
+                    android:text="说明" />
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content" >
+
+                <EditText
+                    android:id="@+id/config_EmpHostEdt"
+                    android:layout_width="fill_parent"
+                    android:layout_height="35dp"
+                    android:layout_toLeftOf="@+id/config_TutorialBtn"
+                    android:enabled="false"
+                    android:singleLine="true"
+                    android:text="10.0.2.2:7003"
+                    android:textSize="14sp" />
+
+                <Button
+                    android:id="@+id/config_TutorialBtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="35dp"
+                    android:layout_alignParentRight="true"
+                    android:enabled="false"
+                    android:text="Tutorial" />
+            </RelativeLayout>
+        </LinearLayout>
+
+        <!-- SDK全局属性配置 -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="SDK全局属性配置:" />
+
+            <ToggleButton
+                android:id="@+id/SDK_full_config"
+                style="@style/Config_TogBtn" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/config_SDKFullConfigLayout"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:background="#55696969"
+            android:orientation="vertical"
+            android:visibility="gone" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="label"
+                android:textSize="20sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+
+                <CheckBox
+                    android:id="@+id/sdk_ch_break_mode_on"
+                    android:layout_width="wrap_content"
+                    android:layout_height="35dp"
+                    android:checked="false"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="行号省略号" />
+
+                <Spinner
+                    android:id="@+id/sdk_config_linebreakmode"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@color/grgray" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="阴影颜色" />
+
+                <EditText
+                    android:id="@+id/sdk_config_shadow_color"
+                    android:layout_width="100dp"
+                    android:layout_height="35dp"
+                    android:singleLine="true"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="阴影偏移量" />
+
+                <EditText
+                    android:id="@+id/sdk_config_shadowoffset"
+                    android:layout_width="70dp"
+                    android:layout_height="35dp"
+                    android:text="5,5"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="password"
+                    android:textSize="20sp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="键盘顺序" />
+
+                    <ToggleButton
+                        android:id="@+id/sdk_pwd_is_order"
+                        style="@style/Config_TogBtn" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="替换符" />
+
+                    <EditText
+                        android:id="@+id/sdk_pwd_substitute"
+                        android:layout_width="70dp"
+                        android:layout_height="35dp"
+                        android:text="*"
+                        android:textSize="14sp" />
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="button"
+                    android:textSize="20sp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="延时时间（单位/ms）" />
+
+                    <EditText
+                        android:id="@+id/sdk_et_delay_time"
+                        android:layout_width="70dp"
+                        android:layout_height="35dp"
+                        android:inputType="number"
+                        android:text="0"
+                        android:textSize="14sp" 
+                        />
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="text"
+                    android:textSize="20sp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="清除模式" />
+
+                    <Spinner
+                        android:id="@+id/sdk_input_clearmode"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="#550000FF" />
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="image"
+                    android:textSize="20sp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="加载成功图片" />
+
+                    <EditText
+                        android:id="@+id/sdk_et_img_loading"
+                        android:layout_width="200dp"
+                        android:layout_height="35dp"
+                        android:text="ryt_img_loading.jpg"
+                        android:textSize="14sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="加载失败图片" />
+
+                    <EditText
+                        android:id="@+id/sdk_et_img_failed"
+                        android:layout_width="200dp"
+                        android:layout_height="35dp"
+                        android:text="ryt_img_failed.jpg"
+                        android:textSize="14sp" />
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="link"
+                    android:textSize="20sp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal" >
+
+                    <CheckBox
+                        android:id="@+id/sdk_ch_link_break_mode_on"
+                        android:layout_width="wrap_content"
+                        android:layout_height="35dp"
+                        android:checked="false"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="文字省略模式" />
+
+                    <Spinner
+                        android:id="@+id/sdk_link_linebreakmode"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@color/grgray" />
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="option"
+                    android:textSize="20sp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="下拉列表文本高度" />
+
+                    <EditText
+                        android:id="@+id/sdk_et_option_height"
+                        android:layout_width="200dp"
+                        android:layout_height="35dp"
+                        android:text="暂未设置"
+                        android:textSize="14sp" />
+                </LinearLayout>
+                
+                 <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="OptimalWidth"
+                    android:textSize="20sp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="资源图片最优显示分辨率宽" />
+
+                    <EditText
+                        android:id="@+id/sdk_optimalwidth"
+                        android:layout_width="200dp"
+                        android:layout_height="35dp"
+                        android:text="480"
+                        android:textSize="14sp" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+        
+        <!-- 页边距及间距配置 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="控件边距及间距配置:" />
+
+            <ToggleButton
+                android:id="@+id/control_padding_togg"
+                style="@style/Config_TogBtn" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/control_padding_layout"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:background="#55696969"
+            android:orientation="vertical"
+            android:visibility="gone" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="div"
+                android:textSize="20sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="div边距:" />
+				
+                <LinearLayout 
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    >
+					<TextView 
+					    android:layout_width="wrap_content"
+					    android:layout_height="wrap_content"
+					    android:text="左:"
+					    />
+					<EditText 
+					    android:id="@+id/control_padding_div_left"
+					    android:layout_width="80dp"
+					    android:layout_height="35dp"
+					    android:inputType="number"
+					    android:text="0"
+					    android:textSize="14sp"
+					    /> 
+					<TextView 
+					    android:layout_width="wrap_content"
+					    android:layout_height="wrap_content"
+					    android:text="上:"
+					    />
+					<EditText 
+					    android:id="@+id/control_padding_div_up"
+					    android:layout_width="80dp"
+					    android:layout_height="35dp"
+					    android:inputType="number"
+					    android:text="0"
+					    android:textSize="14sp"
+					    />                    
+                </LinearLayout>
+                <LinearLayout 
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    >
+					<TextView 
+					    android:layout_width="wrap_content"
+					    android:layout_height="wrap_content"
+					    android:text="右:"
+					   
+					    />
+					<EditText 
+					    android:id="@+id/control_padding_div_right"
+					    android:layout_width="80dp"
+					    android:layout_height="35dp"
+					    android:inputType="number"
+					    android:text="0"
+					    android:textSize="14sp"
+					    /> 
+					<TextView 
+					    android:layout_width="wrap_content"
+					    android:layout_height="wrap_content"
+					    android:text="下:"
+					    
+					    />
+					<EditText 
+					    android:id="@+id/control_padding_div_down"
+					    android:layout_width="80dp"
+					    android:layout_height="35dp"
+					    android:inputType="number"
+					    android:text="0"
+					    android:textSize="14sp"
+					    />                    
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="子元素纵向间距:" />
+
+                <EditText
+                    android:id="@+id/control_padding_et_div_child_col"
+                    android:layout_width="80dp"
+                    android:layout_height="35dp" 
+					android:textSize="14sp"
+					android:text="5"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="子元素横向间距:" />
+
+                <EditText
+                    android:id="@+id/control_padding_et_div_child_row"
+                    android:layout_width="80dp"
+                    android:layout_height="35dp" 
+                    android:textSize="14sp"
+                    android:text="5"/>
+            </LinearLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="body"
+                android:textSize="20sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="body边距:" />
+
+                <LinearLayout 
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    >
+					<TextView 
+					    android:layout_width="wrap_content"
+					    android:layout_height="wrap_content"
+					    android:text="左:"
+					    />
+					<EditText 
+					    android:id="@+id/control_padding_body_left"
+					    android:layout_width="80dp"
+					    android:layout_height="35dp"
+					    android:inputType="number"
+					    android:text="0"
+					    android:textSize="14sp"
+					    /> 
+					<TextView 
+					    android:layout_width="wrap_content"
+					    android:layout_height="wrap_content"
+					    android:text="上:"
+					    />
+					<EditText 
+					    android:id="@+id/control_padding_body_up"
+					    android:layout_width="80dp"
+					    android:layout_height="35dp"
+					    android:inputType="number"
+					    android:text="0"
+					    android:textSize="14sp"
+					    />                    
+                </LinearLayout>
+                <LinearLayout 
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    >
+					<TextView 
+					    android:layout_width="wrap_content"
+					    android:layout_height="wrap_content"
+					    android:text="右:"
+					    />
+					<EditText 
+					    android:id="@+id/control_padding_body_right"
+					    android:layout_width="80dp"
+					    android:layout_height="35dp"
+					    android:inputType="number"
+					    android:text="0"
+					    android:textSize="14sp"
+					    /> 
+					<TextView 
+					    android:layout_width="wrap_content"
+					    android:layout_height="wrap_content"
+					    android:text="下:"
+					    />
+					<EditText 
+					    android:id="@+id/control_padding_body_down"
+					    android:layout_width="80dp"
+					    android:layout_height="35dp"
+					    android:inputType="number"
+					    android:text="0"
+					    android:textSize="14sp"
+					    />                    
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="子元素纵向间距:" />
+
+                <EditText
+                    android:id="@+id/control_padding_et_body_child_col"
+                    android:layout_width="80dp"
+                    android:layout_height="35dp" 
+					android:textSize="14sp"
+					android:text="5"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="子元素横向间距:" 
+                    />
+
+                <EditText
+                    android:id="@+id/control_padding_et_body_child_row"
+                    android:layout_width="80dp"
+                    android:layout_height="35dp" 
+                    android:textSize="14sp"
+                    android:text="0"/>
+            </LinearLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="form"
+                android:textSize="20sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="form边距:" />
+				
+                <LinearLayout 
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    >
+					<TextView 
+					    android:layout_width="wrap_content"
+					    android:layout_height="wrap_content"
+					    android:text="左:"
+					    
+					    />
+					<EditText 
+					    android:id="@+id/control_padding_form_left"
+					    android:layout_width="80dp"
+					    android:layout_height="35dp"
+					    android:inputType="number"
+					    android:text="5"
+					    android:textSize="14sp"
+					    /> 
+					<TextView 
+					    android:layout_width="wrap_content"
+					    android:layout_height="wrap_content"
+					    android:text="上:"
+					    />
+					<EditText 
+					    android:id="@+id/control_padding_form_up"
+					    android:layout_width="80dp"
+					    android:layout_height="35dp"
+					    android:inputType="number"
+					    android:text="5"
+					    android:textSize="14sp"
+					    />                    
+                </LinearLayout>
+                <LinearLayout 
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    >
+					<TextView 
+					    android:layout_width="wrap_content"
+					    android:layout_height="wrap_content"
+					    android:text="右:"
+					    />
+					<EditText 
+					    android:id="@+id/control_padding_form_right"
+					    android:layout_width="80dp"
+					    android:layout_height="35dp"
+					    android:inputType="number"
+					    android:text="5"
+					    android:textSize="14sp"
+					    /> 
+					<TextView 
+					    android:layout_width="wrap_content"
+					    android:layout_height="wrap_content"
+					    android:text="下:"
+					    />
+					<EditText 
+					    android:id="@+id/control_padding_form_down"
+					    android:layout_width="80dp"
+					    android:layout_height="35dp"
+					    android:inputType="number"
+					    android:text="5"
+					    android:textSize="14sp"
+					    />                    
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="子元素纵向间距:" />
+
+                <EditText
+                    android:id="@+id/control_padding_et_form_child_col"
+                    android:layout_width="80dp"
+                    android:layout_height="35dp" 
+					android:textSize="14sp"
+					android:text="5"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="子元素横向间距:" />
+
+                <EditText
+                    android:id="@+id/control_padding_et_form_child_row"
+                    android:layout_width="80dp"
+                    android:layout_height="35dp" 
+                    android:textSize="14sp"
+                    android:text="5"/>
+            </LinearLayout>
+            
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="table>td"
+                android:textSize="20sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="td边距:" />
+
+               <LinearLayout 
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    >
+					<TextView 
+					    android:layout_width="wrap_content"
+					    android:layout_height="wrap_content"
+					    android:text="左:"
+					    
+					    />
+					<EditText 
+					    android:id="@+id/control_padding_td_left"
+					    android:layout_width="80dp"
+					    android:layout_height="35dp"
+					    android:inputType="number"
+					    android:text="0"
+					    android:textSize="14sp"/> 
+					<TextView 
+					    android:layout_width="wrap_content"
+					    android:layout_height="wrap_content"
+					    android:text="上:"
+					    />
+					<EditText 
+					    android:id="@+id/control_padding_td_up"
+					    android:layout_width="80dp"
+					    android:layout_height="35dp"
+					    android:inputType="number"
+					    android:text="0"
+					    android:textSize="14sp"/>                    
+                </LinearLayout>
+                <LinearLayout 
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    >
+					<TextView 
+					    android:layout_width="wrap_content"
+					    android:layout_height="wrap_content"
+					    android:text="右:"
+					    />
+					<EditText 
+					    android:id="@+id/control_padding_td_right"
+					    android:layout_width="80dp"
+					    android:layout_height="35dp"
+					    android:inputType="number"
+					    android:text="0"
+					    android:textSize="14sp"/> 
+					<TextView 
+					    android:layout_width="wrap_content"
+					    android:layout_height="wrap_content"
+					    android:text="下:"
+					    />
+					<EditText 
+					    android:id="@+id/control_padding_td_down"
+					    android:layout_width="80dp"
+					    android:layout_height="35dp"
+					    android:inputType="number"
+					    android:text="0"
+					    android:textSize="14sp"/>                    
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="子元素纵向间距:" />
+
+                <EditText
+                    android:id="@+id/control_padding_et_td_child_col"
+                    android:layout_width="80dp"
+                    android:layout_height="35dp" 
+					android:textSize="14sp"
+					android:text="0"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="子元素横向间距:" />
+
+                <EditText
+                    android:id="@+id/control_padding_et_td_child_row"
+                    android:layout_width="80dp"
+                    android:layout_height="35dp" 
+                    android:textSize="14sp"
+                    android:text="0"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp" >
+
+            <EditText
+                android:id="@+id/config_HostEdt"
+                android:layout_width="fill_parent"
+                android:layout_height="35dp"
+                android:layout_toLeftOf="@+id/config_ConfirmBtn"
+                android:singleLine="true"
+                android:text="http://192.168."
+                android:textSize="14sp" />
+
+            <Button
+                android:id="@+id/config_ConfirmBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="35dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="5dp"
+                android:text="确定" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <Button
+                android:id="@+id/config_0Btn"
+                style="@style/Config_IPBtn"
+                android:text="http://10.1.87.99:4002" />
+
+            <Button
+                android:id="@+id/config_1Btn"
+                style="@style/Config_IPBtn"
+                android:text="http://10.1.87.100:4002" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+</ScrollView>

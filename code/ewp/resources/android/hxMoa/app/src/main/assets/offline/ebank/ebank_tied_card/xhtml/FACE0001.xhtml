@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+#{
+    this = ert.channel:get_page("ebank_tied_card","FACE0001");
+    local data=this:get_data();
+    local table=json:objectFromJSON(data) or {};
+    table["body"]=table["body"] or {};
+    local flag = table["body"]["flag"];
+    local grade = table["body"]["grade"];
+    if grade~=nil then
+        grade=tonumber(grade)*100;
+    end
+}#
+<content>
+    <head>
+        <link ref="ebank_public.css" type="text/css"/>
+        <link ref="ebank_tied_card/css/FACE0001.css" type="text/css"/>
+        <script type="text/x-lua" src="RYTL.lua"></script>
+        <script type="text/x-lua" src="ebank_tied_card/lua/FACE0001.lua"></script>
+    </head>
+    <body class="body">
+    <div class="ebank_public_header_div" border="0">
+            <div border="0">
+                <input type="button" class="ebank_public_header_div_left" border ="0" onclick="this.last_page()"></input>
+                <img src="back.png" class="ebank_public_header_div_left_image2"></img>
+            </div>
+            <label class="ebank_public_header_label">人脸识别结果</label>
+            <label class="public_line_b1"></label>
+        </div>
+        <div class="public_main_div" border="0">
+            #{ if flag == "0" then }#
+                <div valign="middle" align="center" class="public_succeed_div,cmm_ui_h110" border="0" >
+                    <img src='check-icon.png' class="public_succeed_img,cmm_ui_l97"/>
+                    <label class="public_succeed_label,cmm_ui_w90">识别成功！</label>
+                    <label class="public_succeed_label2">本次识别分数：#{=grade}#分</label>
+                </div>
+                <div class="cmm_ui_h15"></div>
+                <input type="button" class="public_15_w290_h35" onclick="this.next_page()" value="下一步"/>
+            #{ else }#
+                <div valign="middle" align="center" class="public_succeed_div,cmm_ui_h110" border="0" >
+                    <img src='cwtupian.png' class="public_succeed_img,cmm_ui_l97"/>
+                    <label class="public_succeed_label,cmm_ui_w90">识别失败！</label>
+                    <label class="public_succeed_label2">本次识别分数：#{=grade}#分</label>
+                </div>
+                <div class="cmm_ui_h15"></div>
+                <input type="button" class = "input_h35_w140_l15_fs14_cFFFFFF" onclick="this.tied_card()" value="返回银行卡管理"></input>
+                <input type="button" class = "input_h35_w140_r15_fs14_cFFFFFF" onclick="this.face_page()" value="重新识别"></input>
+            #{ end }#
+        </div>
+    </body>
+</content>

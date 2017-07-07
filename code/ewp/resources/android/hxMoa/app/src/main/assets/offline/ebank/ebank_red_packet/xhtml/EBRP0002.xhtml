@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+#{
+    local req_value = ert.channel:get_request("ebank_red_packet","EBRP0002");
+}#
+
+<content>
+    <head>
+    <script type="text/x-lua" src="ebank_red_packet/lua/EBRP0002.lua"></script>
+    <link ref="ebank_manage_asset/css/EMAS0000.css" type="text/css"/>
+    <link ref="ebank_manage_asset/css/EMAS0005.css" type="text/css"/>
+    <link ref="ebank_public.css" type="text/css"/>
+    </head>
+    <body class="body">
+      #{local str = ebank_public.header:set_header("我的红包","2","0","0")}#
+      #{= str}#
+      <div class="public_main_div" border="0">
+        <table class="tabel_t15_w320_bgFFFFFF" border="0">
+          <tr class="trtd_h44_w320,bgF3F3F3" border="1">
+            <td class="trtd_h44_w320,bgF3F3F3">
+              <label class="public_label_left">可提现金额</label>
+              <label class="label_fs14_c4D4D4D,colorF85050,right32">#{= format_money(req_value["WithdrawAmount"])}#</label>
+              <label class="label_fs14_c4D4D4D,colorF85050,public_right">元</label>
+              <label class="public_line_b1"></label>
+            </td>
+          </tr>
+          <tr class="trtd_h44_w320" id="tr_balance" border="1">
+            <td class="trtd_h44_w320">
+              <label class="public_label_left">提现金额</label>
+              <label class="label_fs14_c4D4D4D,right32">#{= format_money(req_value["WithdrawAmount"])}#</label>
+              <label class="label_fs14_c4D4D4D,public_right">元</label>
+              <label class="public_line_b1"></label>
+            </td>
+          </tr>
+          <tr class="trtd_h15_w320,bgEBEBEE" border="1">
+            <td class="trtd_h15_w320,bgEBEBEE">
+            </td>
+          </tr>
+          <tr class="trtd_h44_w320" border="1">
+            <td class="trtd_h44_w320">
+              <label class="public_label_left">交易密码</label>
+              <input type="password-num" id="tran_password" class="public_input_w188_l117" maxleng="6" hold="请输入6位交易密码" border="0" isorder="true" />
+            </td>
+          </tr>
+          <tr class="trtd_h30_w320,bgEBEBEE" border="1">
+            <td class="trtd_h30_w320,bgEBEBEE">
+            </td>
+          </tr>
+          <tr class="trtd_h40_w320,bgEBEBEE" border="0">
+            <td class="trtd_h40_w320,bgEBEBEE">
+                <input type="button" class="public_15_w290_h35" value="全部提现" onclick="withdraw_result()"></input>
+            </td>
+          </tr>
+        </table>
+      </div>
+  </body>
+</content>

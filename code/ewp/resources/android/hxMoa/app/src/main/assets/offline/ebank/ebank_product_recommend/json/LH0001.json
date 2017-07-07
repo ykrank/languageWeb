@@ -1,0 +1,16 @@
+{
+  "header":
+      {
+        "tran_success": "01",
+        "error_code": "1",
+        "error_msg":""
+      },
+  "body":
+      {
+        "productId": "0900200100202",
+        "income":"1234567.89",
+        "rate":"1.124",
+        "profit":"0.423",
+        "amount":"50"
+      }
+}

@@ -8,4 +8,12 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="msg_style">
+        <item name="android:textSize">45px</item>
+        <item name="android:textColor">#0f0f0f</item>
+        <item name="android:autoLink">all</item>
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
 </resources>

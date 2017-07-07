@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+#{
+    local json_data = ert.channel:get_response("ebank_product_homepage", "PH0001");
+    local table=json:objectFromJSON(json_data) or {};
+    table["body"] = table["body"] or {};
+    ---window:alert(table);
+
+
+    local hx_amount = table["body"]["hx_amount"];
+    local hx_rate = table["body"]["hx_rate"];
+    local profit = table["body"]["profit"];
+    local zn_amount = table["body"]["zn_amount"];
+    local zn_rate = table["body"]["zn_rate"];
+    local start_amount = table["body"]["start_amount"];
+    local list = table["body"]["list"] or {};
+
+    global_hx_rate = hx_rate;--华兴宝七日收益率
+    global_hx_profit = profit;--华兴宝七日收益率
+    global_zn_rate = zn_rate;--智能存款年化收益率
+    global_zn_amount = start_amount;--起购金额
+}#
+<content>
+<head>
+    <script type="text/x-lua" src="ebank_product_homepage/lua/PH0001.lua"></script>
+    <link ref="ebank_public.css" type="text/css"/>
+    <link ref="ebank_product_homepage/css/PH0001.css" type="text/css"/>
+    <style>
+
+    /*0元购测试*/
+    .div_h100_w320_1{height: 100px;width: 640px;background-color: #ffffff;}
+    .div_0yg{top:0px; left:0px;height: 60px;width: 60px;background-color: #3f3f3f;}
+    .div_0yg_2{top:0px; left:100px;height: 60px;width: 60px;background-color: #3f3f3f;}
+    .div_0yg_3{top:0px; left:200px;height: 60px;width: 60px;background-color: #3f3f3f;}
+    .div_0yg_4{top:0px; left:300px;height: 60px;width: 60px;background-color: #3f3f3f;}
+
+    </style>
+</head>
+<body>
+  #{local str = ebank_public.header:set_header("产品超市","1")}#
+  #{= str}#
+  <div class="div_w320_t44_l0" border="0">
+    <img class="img_t0_l0_w320_h145" src="ebank_product_huaxingbao/images/banner_02.png"/>
+    <label class="public_line_stroke,line_t146" border="0"></label>
+    <!--华兴宝-->
+    <div border="0" class="div_h100_w320,div_t160">
+      <!--上下线-->
+      <label class="public_line_stroke_t0"></label>
+      <label class="public_line_stroke_b1"></label>
+      <label class="label_l15_t10">华兴宝</label>
+      <!--总收益屏蔽
+      <label class="label_l50_t6">总计为客户产生收益</label>
+      <label class="label_f12_b666666">#{=format_money(hx_amount)}#</label>
+      <label class="label_l150_t6">元</label>
+      -->
+      <label class="label_l15_t45_f24">#{=hx_rate}#</label>
+      <label class="label_l15_t75_f9">七日年化收益率</label>
+      <label class="label_l150_t65_f10">#{=profit}#</label>
+      <label class="label_l150_t75_f9">万份收益</label>
+      <div class="line_w290_l15" border="0"></div>
+      <input type="button" value="立即申购" border="0" class="but_r15" onclick="turn_page_product('1','#{=hx_rate}#','#{=profit}#')"></input>
+    </div>
+    <!--智能存款-->
+    <div border="0" class="div_h100_w320,div_t290"> 
+      <!--上下线-->
+      <label class="public_line_stroke_t0"></label>
+      <label class="public_line_stroke_b1"></label>
+      <label class="label_l15_t10">智能存款</label>
+      <!--总收益屏蔽
+
+      <label class="label_l50_t6">总计为客户产生收益</label>
+      <label class="label_f12_b666666">#{=format_money(zn_amount)}#</label>
+      <label class="label_l150_t6">元</label>
+      -->
+      <label class="label_l15_t45_f24">#{=zn_rate}#</label>
+      <label class="label_l15_t75_f9">最高年化收益率(%)</label>
+      <label class="label_l150_t65_f10">#{=start_amount}#</label>
+      <label class="label_l150_t75_f9">起购金额(元)</label>
+      <div class="line_w290_l15" border="0"></div>
+      <input type="button" value="立即买入" border="0" class="but_r15" onclick="turn_page_product('2','','')"></input>
+    </div>
+    
+    <!--0元购测试代码
+    <div border="0" class="div_h100_w320_1,div_t420"> 
+      #{for key,list in pairs(list) do}#
+      <label>#{=list["name"]}# .. #{=list["price"]}#</label><br/>
+      #{end}#
+    </div>
+    -->
+  </div>
+  #{local bottom = ebank_public.bottom:set_bottom("产品超市")}#
+  #{= bottom}#
+</body>
+</content>

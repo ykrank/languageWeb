@@ -1,0 +1,14 @@
+{
+  "header":
+      {
+        "tran_success":"000000",
+        "error_code": "0",
+        "error_msg":"",
+        "error_num":"1"
+      },
+      "body":
+	   {
+	      "flag":"0",
+	      "agreementId":"0"
+	   }
+}

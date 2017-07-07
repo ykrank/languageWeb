@@ -1,0 +1,17 @@
+{
+  "header":
+      {
+        "tran_success":"0",
+        "error_code": "0",
+        "error_msg":"登录失败",
+        "error_num":"1"
+      },
+   "body":
+   {
+      "flag":"2",
+      "obligate":"星期一",
+      "username_login":"小明",
+      "mobile":"15913100123",
+      "firstloginstate":"2"
+   }
+}

@@ -1,0 +1,68 @@
+.trtd_h10_w320{height: 10px;width: 320px;}
+.trtd_h15_w320{height: 15px;width: 320px;}
+.trtd_h20_w320{height: 20px;width: 320px;}
+.trtd_h25_w320{height: 25px;width: 320px;}
+.trtd_h27_w320{height: 27px;width: 320px;}
+.trtd_h30_w320{height: 30px;width: 320px;}
+.trtd_h35_w320{height: 35px;width: 320px;}
+.trtd_h36_w320{height: 36px;width: 320px;}
+.trtd_h40_w320{height: 40px;width: 320px;}
+.trtd_h44_w320{height: 44px;width: 320px}
+.trtd_h45_w320{height: 45px;width: 320px}
+.trtd_h50_w320{height: 50px;width: 320px;}
+.trtd_h100_w320{height: 100px;width: 320px;}
+
+.bgF3F3F3{background-color: #F3F3F3;}
+.bgEBEBEE{background-color: #EBEBEE;}
+.bgFFFFFF{background-color: #FFFFFF;}
+
+.right20{right: 20px;}
+.right32{right: 32px;}
+.right55{right: 55px;}
+
+.left45{left: 45px;}
+.left55{left: 55px;}
+.left136{left: 136px;}
+.left67{left: 67px;}
+.left69{left: 69px;}
+.left117{left: 117px;}
+.left123{left: 123px;}
+.left137{left: 137px;}
+.left185{left: 185px;}
+.left210{left: 210px;}
+
+.top5{top: 5px;}
+.top12{top: 12px;}
+.top15{top: 15px;}
+.top16{top: 16px;}
+.top20{top: 20px;}
+
+.height230{height: 230px;}
+.height249{height: 249px;}
+.height245{height: 245px;}
+.height460{height: 460px;}
+.height440{height: 350px;}
+.width290{width: 290px;}
+.width180{width: 180px;}
+
+/*金额/元样式*/
+.label_t15_r42_fs13_c999999{top: 15px;right: 42px;font-size: 13px;color: #999999;}
+.label_t17_r27_fs10_c999999{top: 17px;right: 27px;font-size: 10px;color: #999999;}
+
+/*字体红色样式*/
+.colorF85050{color: #F85050;}
+
+/*字体灰色样式*/
+.color999999{color: #999999;}
+
+/*右边字体样式*/
+.label_fs14_c4D4D4D{font-size: 14px;color: #4D4D4D;}
+
+.label_l136_t10_w320 {left: 136px;top: 10px;width: 320px;font-size: 12px;}
+
+
+/*公共底部文字样式*/
+.ebank_public_label_goloal_text_1{font-size:10px;color:#999999;text-align:center;top:32px;left:20px;}
+.ebank_public_label_goloal_text_2{font-size:10px;color:#999999;text-align:center;top:32px;left:20px;}
+.ebank_public_label_goloal_text_3{font-size:10px;color:#FC646B;text-align:center;top:32px;left:20px;}
+.ebank_public_label_goloal_text_4{font-size:10px;color:#999999;text-align:center;top:32px;left:20px;}

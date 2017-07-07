@@ -1,0 +1,43 @@
+    .div_w320_t44_l0{width: 320px;top: 44px;left: 0px;height: 450px;}
+
+    .div_h100_w320{height: 115px;width: 320px;background-color: #ffffff;}
+    /*华兴宝div*/
+    .div_t160{top: 160px;}
+
+    /*智能存款div*/
+    .div_t290{top: 290px;}
+
+    /*0元购div*/
+    .div_t420{top: 420px;}
+
+    /*顶部图片*/
+    .img_t0_l0_w320_h145{top: 0px;left: 0;width: 320px;height: 145px;}
+    /*产品名字*/
+    .label_l15_t10{left: 15px;top: 10px;font-size: 17px;color: #4d4d4d;}
+    /*累计收益*/
+    .label_l50_t6{left: 100px;top: 15px;font-size: 12px;color: #999999;}
+    .label_l150_t6{top: 15px;font-size: 12px;color: #999999;}
+    .label_f12_b666666{font-size: 12px;top: 15px;font-s;color: #666666}
+
+    /*左边红色字体*/
+    .label_l15_t45_f24{left: 15px;top: 50px;font-size:32px;color: #F85050;font-style:normal;}
+    /*七日，最高*/
+    .label_l15_t75_f9{left: 15;top: 90px;font-size: 12px;color: #999999;}
+    /*右边灰色字体*/
+    .label_l150_t65_f10{left: 140px;top: 65px;font-size: 17px;color: #666666;}
+    /*万份，起购*/
+    .label_l150_t75_f9{left: 140px;top: 90px;font-size: 12px;color: #999999;}
+
+    /*中间线*/
+    .line_w290_l15{width: 290px;left:15px;height: 1px;top:43px; background-color: #E8E8E8;}
+
+    /*按扭*/
+    .but_r15{left: 222px;top:60px;width: 83px;height: 26px;font-size: 12px;color: #ffffff; background-image: url(local:btn_bg.png);}
+    /**/
+    .line_t146{top:146px;}
+
+    /*公共底部文字样式*/
+    .ebank_public_label_goloal_text_1{font-size:10px;color:#999999;text-align:center;top:32px;left:20px;}
+    .ebank_public_label_goloal_text_2{font-size:10px;color:#FC646B;text-align:center;top:32px;left:20px;}
+    .ebank_public_label_goloal_text_3{font-size:10px;color:#999999;text-align:center;top:32px;left:20px;}
+    .ebank_public_label_goloal_text_4{font-size:10px;color:#999999;text-align:center;top:32px;left:20px;}

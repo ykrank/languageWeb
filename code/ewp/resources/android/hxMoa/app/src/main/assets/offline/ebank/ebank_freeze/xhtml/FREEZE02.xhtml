@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+#{
+this = ert.channel:get_page("ebank_other","FREEZE01");
+local json_data = ert.channel:get_response("ebank_freeze", "FREEZE01");
+local json_tbl = json:objectFromJSON(json_data) or {};
+local t_body = json_tbl["body"] or {};
+local eAccountNo = t_body["eAccountNo"];
+}#
+<content>
+<head>
+    <link ref="ebank_freeze/css/ebank_freeze_public.css" type="text/css"/>
+    <link ref="ebank_public.css" type="text/css"/>
+    <script type="text/x-lua" src="ebank_freeze/lua/FREEZE02.lua"></script>
+</head>
+<body>
+    #{local str = ebank_public.header:set_header("结果","3")}#
+    #{= str}#
+    <div class="public_main_div" border="0">
+      <table class="" border="0" >
+        <tr>
+          <td>
+            <div valign="middle" align="center" class="div_t25_w320" border="0" >   <img src='check-icon.png' class="w36_h36"/>
+              <div class="w12,inline-block"></div>
+              <label class="">冻结成功！</label>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div class="div_kong,h25,bgffffff" border="0"></div>
+            <label class="label_l15_fs12">E账户：</label>
+            <label class="label_r15_fs12">#{=eAccountNo}#</label>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div class="div_kong,h25,bgffffff" border="0"></div>
+            <div class="div_kong" border="0"></div>
+            <div class="div_kong" border="0"></div>
+          </td>
+        </tr>
+      </table>
+      <div border="0" >
+        <input type="button" class="public_15_w290_h35" border="0"  value="确认并返回" onclick="click()" />
+      </div>
+      <table border="0">
+        <tr class="trtd_h45_w320,bgEBEBEE" border="1">
+          <td class="trtd_h45_w320,bgEBEBEE">
+          </td>
+        </tr>
+      </table>
+    </div>
+    #{=ebank_public.new_broduct:new_broduct_show()}#
+  </body>
+</content>

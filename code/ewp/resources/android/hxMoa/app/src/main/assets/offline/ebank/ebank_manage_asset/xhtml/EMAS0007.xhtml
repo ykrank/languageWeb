@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+#{
+    local req_value = ert.channel:get_request("ebank_manage_asset","EMAS0007");--获取交易明细详情
+}#
+
+<content>
+    <head>
+    <script type="text/x-lua" src="ebank_manage_asset/lua/EMAS0003.lua"></script>
+    <link ref="ebank_manage_asset/css/EMAS0000.css" type="text/css"/>
+    <link ref="ebank_manage_asset/css/EMAS0003.css" type="text/css"/>
+    <link ref="ebank_public.css" type="text/css"/>
+    </head>
+    <body class="body">
+      #{local str = ebank_public.header:set_header("交易明细","2","0","0")}#
+      #{= str}#
+      <div class="public_main_div" border="0">
+        <table class="tabel_w320_bgFFFFFF" border="0">
+          <tr class="trtd_h10_w320" border="1">
+              <td class="trtd_h10_w320">
+              </td>
+            </tr>
+            <tr class="trtd_h30_w320" border="1">
+              <td class="trtd_h30_w320">
+                <label class="label_fs12_c666666,public_left">转款账户:</label>
+                <label class="label_fs12_c666666,public_right">#{= format_account(req_value["banAccountNo"])}#</label>
+              </td>
+            </tr>
+            <tr class="trtd_h30_w320" border="1">
+              <td class="trtd_h30_w320">
+                <label class="label_fs12_c666666,public_left">账户名称:</label>
+                <label class="label_fs12_c666666,public_right">#{= req_value["CustName"]}#</label>
+              </td>
+            </tr>
+             <tr class="trtd_h30_w320" border="1">
+              <td class="trtd_h30_w320">
+                <label class="label_fs12_c666666,public_left">转款时间:</label>
+                <label class="label_fs12_c666666,public_right">#{= req_value["transactionDate"]}#</label>
+              </td>
+            </tr>
+            <tr class="trtd_h30_w320" border="1">
+              <td class="trtd_h30_w320">
+                <label class="label_fs12_c666666,public_left">转款金额:</label>
+                <label class="label_fs12_cF85050,right32">#{= format_money(req_value["transactionAmount"])}#</label>
+                <label class="label_fs12_c666666,public_right">元</label>
+              </td>
+            </tr>
+             <tr class="trtd_h10_w320" border="1">
+              <td class="trtd_h10_w320">
+              </td>
+            </tr>
+        </table>
+      </div>
+  </body>
+</content>

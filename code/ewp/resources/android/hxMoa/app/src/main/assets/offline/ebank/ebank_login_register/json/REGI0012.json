@@ -1,0 +1,16 @@
+{
+  "header":
+      {
+        "tran_success":"0",
+        "error_code": "0",
+        "error_msg":"",
+        "error_num":"1"
+      },
+   "body":
+   {
+      "checkType":"3",
+      "mobile":"15913100123",
+      "eAccountNo":"15913100123434534",
+      "custno":"123456"
+   }
+}

@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+#{
+    this = ert.channel:get_page("ebank_product_deposit","PD0002");
+    local data=this:get_data();
+    local table=json:objectFromJSON(data) or {};
+    table["body"] = table["body"] or {};
+    
+    this.json=table;
+
+    local balance = table["body"]["balance"];
+    local startdate = table["body"]["startdate"];
+    local enddate = table["body"]["enddate"];   
+
+    --智能存款收益
+    local req_tbl_zn = ert.channel:get_request("ebank_product_deposit","PD0002");
+    local zn_rate = req_tbl_zn["zn_rate"];
+    local zn_amount = req_tbl_zn["zn_amount"];
+}#
+<content>
+<head>
+    <script type="text/x-lua" src="ebank_product_deposit/lua/PD0002.lua"></script>
+    <link ref="ebank_public.css" type="text/css"/>
+    <link ref="ebank_product_deposit/css/PD0001.css" type="text/css"/>
+    <link ref="ebank_product_deposit/css/PD0002.css" type="text/css"/>
+    <style type="text/css">
+   /*隐藏div*/
+    .div_showContent{width:320;top:0px;left:0px;background-color:#FFFFFF;display:none;}  
+    /*协议内容*/
+    .label_f14_w290_l15{font-size: 12px;width: 290px;left: 15px;}
+    /*协议标题*/
+    .label_w320_h40_t10{width: 320px;height: 40px;top: 10px;text-align: center;}
+    /*协议内容*/
+    .public_main_div_1{left:0px;top:44px;width: 320px;height: 502px;}
+    </style>
+</head>
+<body>
+  #{local str = ebank_public.header:set_header("智能存款","2",'0','0')}#
+  #{= str}#
+  <div class="public_main_div" border="0">
+      <div class="div_h116_w320_t0" border="0">
+      <!--
+          <img src="ebank_product_huaxingbao/images/vertical_line.png" class="img_l160_t30_w1" />
+          -->
+          <label class="label_f40_w160,div_t30">#{=format_money(global_zn_rate)}#</label>
+          <label class="label_f40_w160,div_t30,div_l160">#{=format_money(global_zn_amount)}#</label>
+          <label class="label_f14_w160,div_t80">最高年化收益率(%)</label>
+          <label class="label_f14_w160,div_t80,div_l160">起购金额(元)</label>
+          <div class="line_2" border="0" ></div>
+          <label class="public_line_stroke_b1"></label>
+      </div>
+    <div class="div_w320_t131" border="0">
+      <table border="0" class="table_t0">
+        <tr class="public_line,bD8D8D8"><td></td><td></td></tr>
+        <tr class="tr_bEBEBEE">
+          <td>
+            <label class="label_l15_f14">可用余额</label>  
+            <label class="label_right,cF85050">#{=format_money(balance)}#</label>
+            <label class="label_right">元</label>
+          </td>
+        </tr>
+         <tr>
+          <td>
+            <label class="public_line_stroke_t0"></label>
+            <label class="label_l15_f14">购买金额</label>
+            <input type="text" hold="请输入金额" id="inuput_money" style="-wap-input-format:'n'" maxleng="20" border="0" class="input_l46_w80" onchange="input_onchange()" onblur="input_onblur()" ></input><br/>
+          </td>
+        </tr>
+         <tr>
+          <td>
+            <label class="public_line_stroke_t0"></label>
+            <label class="label_l15_f14">交易密码</label>
+             <input type="password-num" id="passoword_id" hold="请输入密码" isorder="true" border="0" maxleng="6" class="input_l46_w80"></input><br/>
+            <label class="public_line_stroke_b1"></label>
+          </td>
+        </tr>
+         <tr class="tr_bEBEBEE">
+          <td>
+            <input type="checkbox" class="checkbax_i" id="checkbox_id" name="checkbox_id" ></input>  
+            <label class="public_label_left,label_l30_check">我已阅读并同意</label> 
+            <a class="public_label_left,label_l160_c76c9ff" onclick='contentShow()'>"智能存款"产品服务协议</a><br/>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>  
+  <div class="div_h10" border="0">
+  </div>
+  <input type="button" class="public_15_w290_h35" value="买入" onclick="trun_page_PD0003('#{=zn_rate}#','#{=zn_amount}#','#{=balance}#')"></input>
+  <div class="div_showContent" name="showcontent_div" border="0"></div>
+</body>
+</content>

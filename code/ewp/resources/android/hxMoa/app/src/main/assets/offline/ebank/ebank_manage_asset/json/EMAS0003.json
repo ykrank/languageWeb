@@ -1,0 +1,19 @@
+{
+  "header":
+      {
+        "tran_success": "111111",
+        "error_code": "111",
+        "error_msg":""
+      },
+  "body":
+      {
+        "sign":"欧阳峰",
+        "accountIn":"42222 90888******888888",
+        "amountIn":"500",
+        "receivedDate":"11-28",
+        "accBalance":"5000",
+        "outBank":"交通银行",
+        "marketDate":"2015-07-08",
+        "accPayment":"42222 90888******888888"
+      }
+}

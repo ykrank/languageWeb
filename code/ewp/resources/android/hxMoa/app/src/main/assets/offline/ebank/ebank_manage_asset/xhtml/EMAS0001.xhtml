@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+#{
+    this = ert.channel:get_page("ebank_manage_asset","EMAS0001");
+    local json_data=this:get_data();
+    local json_tbl = json:objectFromJSON(json_data) or {};
+    json_tbl["body"] = json_tbl["body"] or {};
+
+    local CustName = json_tbl["body"]["custName"];
+    local EAccountNo = json_tbl["body"]["eAccountNo"];
+    local hxbIncome = json_tbl["body"]["hxbIncome"];
+    local znckIncome = json_tbl["body"]["znckIncome"];
+    local AccBalance = json_tbl["body"]["accBalance"];
+
+    local hxbProduct = json_tbl["body"]["hxbProduct"];
+    local hxbBalance = json_tbl["body"]["hxbBalance"];
+    local znckProduct = json_tbl["body"]["znckProduct"];
+    local znckBalance = json_tbl["body"]["znckBalance"];
+    local p2pkProduct = json_tbl["body"]["p2pkProduct"];
+    local p2pBalance = json_tbl["body"]["p2pBalance"];
+    local hbProduct = json_tbl["body"]["hbProduct"];
+    local hbBalance = json_tbl["body"]["hbBalance"];
+    
+    local AccIncome = tonumber(hxbIncome)+tonumber(znckIncome);
+    local TotalAssets = tonumber(AccBalance)+tonumber(hxbBalance)+tonumber(znckBalance)+tonumber(p2pBalance)+tonumber(hbBalance);
+}#
+
+<content>
+    <head>
+    <script type="text/x-lua" src="ebank_manage_asset/lua/EMAS0001.lua"></script>
+    <link ref="ebank_manage_asset/css/EMAS0000.css" type="text/css"/>
+    <link ref="ebank_manage_asset/css/EMAS0001.css" type="text/css"/>
+    <link ref="ebank_public.css" type="text/css"/>
+    </head>
+    <body>
+      #{local str = ebank_public.header:set_header("我的资产","1","0","0")}#
+      #{= str}#
+      <div class="public_main_div" border="0">
+        <div class="div_top0_h74_w320_bgFFFFFF" border="0">
+          <img src="ebank_manage_asset/images/wdzc_tx.png" class = "img_h44_w44_t15,public_left"></img>
+          <label id="custName" class="label_t20_fs12_c3A3A3A,left69">#{= CustName}#</label>
+          <label id="EAccountNo" class="label_t15_fs12_c666666,left69">#{= EAccountNo}#</label>
+        </div>
+        <div class="div_t74_h54_w320_bgCBCBCB" border="0" onclick="e_wallet()">
+          <label class="label_t20_fs12_c3A3A3A,public_left">我的总资产</label>
+          <label id="fsize" class="label_t15_r22_fs28_cFF5A5F">#{= format_money(TotalAssets)}#</label>
+          <label class="label_t28_fs12_cFF5A5F,public_right">元</label>
+        </div>
+        <div class="div_top128_h74_w320_bgFFFFFF" border="0">
+          <div class = "div_h44_w1_t15_l160" border="0"></div>
+          <label class="label_t15_fs12_c3A3A3A,public_left">账户余额</label>
+          <label id="AccBalance" class="label_t42_l195_fs15_c666666">#{= format_money(AccBalance)}#</label>
+          <label class="label_t42_l130_fs12_cFF5A5F">元</label>
+          <label class="label_t15_fs12_c3A3A3A,left185">累计收益</label>
+          <label id="AccIncome" class="label_t42_r32_fs32_cFF7E82">#{= format_money(AccIncome)}#</label>
+          <label class="label_t42_r15_fs12_cFF7E82">元</label>
+        </div>
+        <div class="div_top217_h40_w320_bgFFFFFF" border="0">
+          <div class = "div_h20_w1_t10_l160" border="0"></div>
+          <img src="ebank_manage_asset/images/in.png" class = "img_h19_w25_t10,left45" onclick="next_money_into('0','#{= AccBalance}#')"/>
+          <img src="ebank_manage_asset/images/out.png" class = "img_h19_w25_t10,left210" onclick="next_money_into('1','#{= AccBalance}#')"/>
+          <input type="button" class="label_t10_l74_fs17_cFFA578" value="转入" onclick="next_money_into('0','#{= AccBalance}#')"/>
+          <input type="button" class="label_t10_l239_fs17_cFFA578" value="转出" onclick="next_money_into('1','#{= AccBalance}#')"/>
+        </div>
+        <table class="table_t272_w320" border="0">
+          <tr class="trtd_h44_w320" onclick="turn_page_PX0004()">
+            <td class="trtd_h44_w320">
+              <label class="label_t13_l53_fs12_c3A3A3A">华兴宝</label>
+              <img src="right_jt.png" class="public_img_h12_w7_r15,top16"/>
+              <img src="ebank_manage_asset/images/hxb.png" class="img_h18_w18_t13_l20"/>
+              <label class="label_t15_r42_fs13_c999999" id="hxbBalance">#{= format_money(hxbBalance)}#</label>
+              <label class="label_t17_r27_fs10_c999999">元</label>
+              <label class="public_line_b1,public_left"></label>
+            </td>
+          </tr>
+          <tr class="trtd_h44_w320" onclick="trun_page_PD0004()">
+            <td class="trtd_h44_w320">
+              <label class="label_t13_l53_fs12_c3A3A3A">智能存款</label>
+              <img src="right_jt.png" class="public_img_h12_w7_r15,top16"/>
+              <img src="ebank_manage_asset/images/znck.png" class="img_h18_w18_t13_l20"/>
+              <label class="label_t15_r42_fs13_c999999" id="znckBalance">#{= format_money(znckBalance)}#</label>
+              <label class="label_t17_r27_fs10_c999999">元</label>
+              <label class="public_line_b1,public_left"></label>
+            </td>
+          </tr>
+          
+          <tr class="trtd_h44_w320" onclick="next_P2P()">
+            <td class="trtd_h44_w320">
+              <label class="label_t13_l53_fs12_c3A3A3A">P2P平台</label>
+              <img src="right_jt.png" class="public_img_h12_w7_r15,top16"/>
+              <img src="ebank_manage_asset/images/P2P.png" class ="img_h18_w18_t13_l20"/>
+              <label class="label_t15_r42_fs13_c999999" id="p2pBalance">#{= format_money(p2pBalance)}#</label>
+              <label class="label_t17_r27_fs10_c999999">元</label>
+              <label class="public_line_b1,public_left"></label>
+            </td>
+          </tr>
+          <tr class="trtd_h44_w320" onclick="next_red_packet()">
+            <td class="trtd_h44_w320">
+              <label class="label_t13_l53_fs12_c3A3A3A">我的红包</label>
+              <img src="right_jt.png" class="public_img_h12_w7_r15,top16"/>
+              <img src="ebank_manage_asset/images/hb.png" class="img_h18_w18_t13_l20"/>
+              <label class="label_t15_r42_fs13_c999999" id="hbBalance">#{= format_money(hbBalance)}#</label>
+              <label class="label_t17_r27_fs10_c999999">元</label>
+            </td>
+          </tr>
+        </table>
+        <div class="div_t463_h44_w320_bgFFFFFF" border="0" onclick="asset_allocation()">
+          <img src="right_jt.png" class="public_img_h12_w7_r15,top16"/>
+          <img src="ebank_manage_asset/images/zcpz.png" class="img_h18_w18_t13_l20"/>
+          <label class="label_t13_l53_fs12_c3A3A3A">资产配置</label>
+        </div>
+        <div class="div_t507_h15_w320_bgEBEBEE" border="0"></div>
+      </div>
+      #{local bottom = ebank_public.bottom:set_bottom("我的资产")}#
+      #{= bottom}#
+  </body>
+</content>

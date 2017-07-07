@@ -1,0 +1,37 @@
+    .div_left_l0_h35_w160_t0{left:0px;height:35px;width:160px;top:0px;background-color: #fefeff;}
+    .div_right_l160_h35_w160_t0{left:160px;height:35px;width:160px;top:0px;background-color: #F7F7F7;}
+
+     .div_but{bottom: 0px;position: fixed;left: 0px;height: 40px;width: 320px;background-image:url(btn_double.png);}
+     /*日期*/
+     .div_t35_h46_l0_w320{top: 35px;height: 46px;left: 0px;width: 320px;background-color: #F7F7F7;}
+     /*日期输入*/
+     .input_t10_w97_fs12_c666666{top: 10px;width: 97px;font-size: 12px;color: #666666;background-image:url(date.png);}
+     .input_l8{left: 8px;}
+     .input_l110{left: 110px;}
+     /*日期按扭*/
+     .input_t10_h26_w93_l219_fs12_cFFFFFF{top: 10px;height: 26px;width: 93px;left: 219px;font-size: 12px;color: #F85050;background-image:url(btn_bg2.png);}
+
+    /*交易明细列表*/
+    .div_t81_h30_w304_l8_bgEBEBEE{top: 81px;height: 30px;width: 304px;left: 8px;background-color: #EBEBEE;}
+    .div_t0_h250_w320 {top: 0px;width: 320px;background-color: #FFFFFF;}
+    .bgf7f7f7{background-color: #f7f7f7;}
+    .w100_fs12{width: 80px;font-size: 12px;text-align: center;color: #999999;}
+    .label_tac{right: 15px;width: 60px;}
+    .label_money{left: 130px;width: 70px;}
+    .label_money2{left: 80px;width: 110px;text-align: right;}
+    .label_date{left: 8px;width: 70px;}
+    .label_date2{left: 12px;width: 110px;text-align: left; }
+
+
+    /*收益明细，交易明细*/
+    .label_w159_fs14{width: 159px;font-size: 14px;text-align: center;top: 10px;}
+    .label_l0_c4d4d4d{left: 0px;color: #f85050;}
+    .label_r0_c999999{right: 0px;color: #999999;}
+
+    .div_t150_w320{top:195px;width:320px;background-color: #F7F7F7;}
+
+   .div_w320{width: 320px;height: 150px; background-color: #F7F7F7;left: 0px;}
+
+
+      /*收益信息div*/
+   .div_t0_h190_w320{top:0px;height:180px;width:320px;background-color:#ffffff;}

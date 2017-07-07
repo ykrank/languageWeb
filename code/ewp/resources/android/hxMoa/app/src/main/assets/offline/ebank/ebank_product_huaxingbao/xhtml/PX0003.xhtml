@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+#{
+ this = ert.channel:get_page("ebank_product_huaxingbao","PX0003");
+ local data=this:get_data();
+ local table=json:objectFromJSON(data) or {};
+  table["body"] = table["body"] or {};
+ this.json=table;
+
+  local balance = table["body"]["balance"];
+  local date = table["body"]["date"];
+--华兴宝收益
+ local req_tbl_hx = ert.channel:get_request("ebank_product_huaxingbao","PX0003");
+ local rate_xp = req_tbl_hx["rate_xp"];
+ local profit_xp = req_tbl_hx["profit_xp"];
+ local BuyBalance = req_tbl_hx["BuyBalance"];
+
+}#
+   
+<content>
+<head>
+    <script type="text/x-lua" src="ebank_product_huaxingbao/lua/PX0003.lua"></script>
+    <link ref="ebank_public.css" type="text/css"/>
+    <link ref="ebank_product_huaxingbao/css/PX0003.css" type="text/css"/>
+    <style>
+    .div_l10_bffffff_w300{left:0px;width:320px;}
+
+    .bg#ffffff{background-color: #ffffff;height: 213px;}
+    /*图标*/
+    .img_l100_t25_w36_h36{left: 100px;top: 25px;width: 36px;height: 36px;}
+    .label_fs17_c4d4d4d{font-size: 17px;color: #4d4d4d;left: 145px;top: 31px;}
+    /*左右按扭*/
+    .button_left{width:140px;left:15px;top:243px;}
+    .button_right{width:140px;left:165px;top:243px;}
+    /*左右字体*/
+    .label_l15_h30{left: 15px;height: 30px;font-size: 12px;color: #666666;}
+    .label_r15_h30{right: 15px;height: 30px;font-size: 12px;color: #666666;}
+    /*变量粉红*/
+    .label_pink{right: 30px;font-size: 12px;color: #FF5A5F}
+    .table_t86{top: 86px;}
+
+    </style>
+</head>
+<body>
+  #{local str = ebank_public.header:set_header("华兴宝","0",'0','0')}#
+  #{= str}#
+  <div class="public_main_div,div_l10_bffffff_w300" border="0">
+
+    <div class="div_l10_bffffff_w300,bg#ffffff" border="0">
+          <img src="check-icon.png" class="img_l100_t25_w36_h36" />
+          <label class="label_fs17_c4d4d4d">申购成功！</label>
+          <table border="0" class="table_t86">
+            <tr>
+              <td>
+                <label class="label_l15_h30">产品名称</label>
+              </td>
+              <td>
+                <label class="label_r15_h30">华兴宝</label>
+              </td>
+            </tr>
+             <tr>
+              <td>
+                <label class="label_l15_h30">申购金额</label>
+              </td>
+              <td>
+                <label class="label_pink">#{=format_money(BuyBalance)}#</label>
+                <label class="label_r15_h30">元</label>
+              </td>
+            </tr>
+             <tr>
+              <td>
+                <label class="label_l15_h30">当前持有份额</label>
+              </td>
+              <td>
+                <label class="label_pink">#{=format_money(balance)}#</label>
+                <label class="label_r15_h30">元</label>
+              </td>
+            </tr>
+             <tr>
+              <td>
+                <label class="label_l15_h30">申购日期</label>
+              </td>
+              <td>
+              
+                <label class="label_r15_h30">#{=format_date(date)}#</label>
+              </td>
+            </tr>
+          </table>  
+          <label class="public_line_stroke_b1"></label>
+      </div> 
+      <input type="button" class="public_15_w290_h35,button_left" value="查看交易明细" onclick="turn_page_px0003('4','#{=rate_xp}#','#{=profit_xp}#')" border="0"></input>
+      <input type="button" class="public_15_w290_h35,button_right" value="继续申购" onclick="turn_page_px0003('2','#{=rate_xp}#','#{=profit_xp}#')" border="0"></input>
+      #{=ebank_public.new_broduct:new_broduct_show()}#
+  </div>
+</body>
+</content>

@@ -1,0 +1,16 @@
+.cmm_ui_h5{height: 5px;}
+
+.cmm_ui_unlock_table1{background-image: url(local:ebank_tied_card/images/rectangle_blue.png);width: 290px;height:81px;left: 15px;}
+.cmm_ui_unlock_table2{background-image: url(local:ebank_tied_card/images/rectangle_red.png);width: 290px;height:81px;left: 15px;}
+.cmm_ui_unlock_bankimg{left: 15px;top:15px;width: 30px;height: 30px;}
+.cmm_ui_name_bank{left:55px;top: 23px; font-size: 12px;color: #FFFFFF;}
+.cmm_ui_id_bank{left:55px;font-size: 12px;color: #FFFFFF;top: 50px;}
+.cmm_ui_bank_message{font-size: 14px;color: #FFFFFF;right: 15px;top: 33px;}
+
+.cmm_ui_bound_div{background-image: url(local:ebank_tied_card/images/bound.png);width: 290px;height:81px;left: 15px;}
+.cmm_ui_bound_bankimg{height: 9px;width: 9px;}
+.cmm_ui_bound_bank{font-size: 14px;color: #69C2FC;}
+
+.cmm_ui_h100{height: 100px;}
+.cmm_ui_tisdiv{left: 10px;width: 300px;}
+.cmm_ui_tis{text-align: center;}

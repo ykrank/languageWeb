@@ -6,8 +6,292 @@
 
 </head>
 <body>
-    <P>文本显示组件TextView</P>
-    <table>
+    <h3>简介</h3>
+    <p>部分图形组件</p>
+    <table border="1">
+        <tr>
+            <th>No.</th>
+            <th>组件名称</th>
+            <th>描述</th>
+        </tr>
+        <tr>
+            <th>1.</th>
+            <th>TextView</th>
+            <th>文本显示组件</th>
+        </tr>
+        <tr>
+            <th>2.</th>
+            <th>Button</th>
+            <th>按钮组件</th>
+        </tr>
+        <tr>
+            <th>3.</th>
+            <th>EditText</th>
+            <th>可编辑的文本框组件</th>
+        </tr>
+        <tr>
+            <th>4.</th>
+            <th>CheckBox</th>
+            <th>复选框组件</th>
+        </tr>
+        <tr>
+            <th>5.</th>
+            <th>RadioGroup</th>
+            <th>单选按钮组件</th>
+        </tr>
+        <tr>
+            <th>6.</th>
+            <th>Spinner</th>
+            <th>下拉列表框组件</th>
+        </tr>
+        <tr>
+            <th>7.</th>
+            <th>DatePicker</th>
+            <th>日期选择组件</th>
+        </tr>
+        <tr>
+            <th>8.</th>
+            <th>TimerPicker</th>
+            <th>时间选择组件</th>
+        </tr>
+        <tr>
+            <th>9.</th>
+            <th>ScrollView</th>
+            <th>滚动条组件</th>
+        </tr>
+        <tr>
+            <th>10.</th>
+            <th>ProgressBar</th>
+            <th>进度条处理组件</th>
+        </tr>
+        <tr>
+            <th>11.</th>
+            <th>SeekBar</th>
+            <th>拖动条组件</th>
+        </tr>
+        <tr>
+            <th>12.</th>
+            <th>RatingBar</th>
+            <th>评分组件</th>
+        </tr>
+        <tr>
+            <th>13.</th>
+            <th>ImageView</th>
+            <th>图片显示组件</th>
+        </tr>
+        <tr>
+            <th>14.</th>
+            <th>ImageButton</th>
+            <th>图片按钮组件</th>
+        </tr>
+        <tr>
+            <th>15.</th>
+            <th>AutoCompleteTextView</th>
+            <th>自动完成文本组件</th>
+        </tr>
+        <tr>
+            <th>16.</th>
+            <th>Dialog</th>
+            <th>对话框组件</th>
+        </tr>
+        <tr>
+            <th>17.</th>
+            <th>Toast</th>
+            <th>信息提示框组件</th>
+        </tr>
+        <tr>
+            <th>18.</th>
+            <th>Menu</th>
+            <th>莱单显示组件</th>
+        </tr>
+    </table>
+    <hr>
+    <p>View组件常用属性及操作方法</p>
+    <table border="1">
+        <tr>
+            <th>No.</th>
+            <th>属性名称</th>
+            <th>方法名称</th>
+            <th>描述</th>
+        </tr>
+        <tr>
+            <th>1.</th>
+            <th>android:background</th>
+            <th>public void setBackgroundResource(int resid)</th>
+            <th>设置组件背影</th>
+        </tr>
+        <tr>
+            <th>2.</th>
+            <th>android:clickable</th>
+            <th>public voidClickable(boolean clickable)</th>
+            <th>是否可以产生单击事件</th>
+        </tr>
+        <tr>
+            <th>3.</th>
+            <th>android:contentDescription</th>
+            <th>public void setContentDescription(charSequence contentDescription)</th>
+            <th>定义视图的内容描述</th>
+        </tr>
+        <tr>
+            <th>4.</th>
+            <th>android:drawingCacheQuality</th>
+            <th>public void setDrawingCacheQuality(int quality)</th>
+            <th>设置绘图时所震要的缓冲区大小</th>
+        </tr>
+        <tr>
+            <th>5.</th>
+            <th>android:focusable</th>
+            <th>public void setFocusable(boolean focusable)</th>
+            <th>设置是否可以获得焦点</th>
+        </tr>
+        <tr>
+            <th>6.</th>
+            <th>android:focusableInTouchMode</th>
+            <th>public void setFcousableInTouchMode(boolean focusableInTouchMode)</th>
+            <th>在触摸模式下配置是否可以获得焦点</th>
+        </tr>
+        <tr>
+            <th>7.</th>
+            <th>android:id</th>
+            <th>public void setId(int id)</th>
+            <th>设置组件的ID</th>
+        </tr>
+        <tr>
+            <th>8.</th>
+            <th>android:longClickable</th>
+            <th>public void setLongClickable(boolean longClickable)</th>
+            <th>设置长按事件是否可用</th>
+        </tr>
+        <tr>
+            <th>9.</th>
+            <th>android:minHeight</th>
+            <th>-</th>
+            <th>定义视图的最小高度</th>
+        </tr>
+        <tr>
+            <th>10.</th>
+            <th>android:minWidth</th>
+            <th>-</th>
+            <th>定义视图的最小宽度</th>
+        </tr>
+        <tr>
+            <th>11.</th>
+            <th>android:padding</th>
+            <th>public void setPadding(int left,int top,int right, int bottom)</th>
+            <th>填充所有的边缘</th>
+        </tr>
+        <tr>
+            <th>12.</th>
+            <th>android:paddingBottom</th>
+            <th>public void setPadding(int left,int top,int right, int bottom)</th>
+            <th>填充下边缘</th>
+        </tr>
+        <tr>
+            <th>13.</th>
+            <th>android:paddingLeft</th>
+            <th>public void setPadding(int left,int top,int right, int bottom)</th>
+            <th>填充左边缘</th>
+        </tr>
+        <tr>
+            <th>14.</th>
+            <th>android:paddingRight</th>
+            <th>public void setPadding(int left,int top,int right, int bottom)</th>
+            <th>填充右边缘</th>
+        </tr>
+        <tr>
+            <th>15.</th>
+            <th>android:paddingTop</th>
+            <th>public void setPadding(int left,int top,int right, int bottom)</th>
+            <th>填充上边缘</th>
+        </tr>
+        <tr>
+            <th>16.</th>
+            <th>android:scaleX</th>
+            <th>public void setScaleX(float scaleX)</th>
+            <th>设置X轴缩放</th>
+        </tr>
+        <tr>
+            <th>17.</th>
+            <th>android:scaleY</th>
+            <th>public void setScaleY(float scaleY)</th>
+            <th>设置Y轴缩放</th>
+        </tr>
+        <tr>
+            <th>18.</th>
+            <th>android:scrollbarSize</th>
+            <th>-</th>
+            <th>设置滚动条大小</th>
+        </tr>
+        <tr>
+            <th>19.</th>
+            <th>android:scrollbarStyle</th>
+            <th>public void setScrollBarStyle(int style)</th>
+            <th>设置滚动条样式</th>
+        </tr>
+        <tr>
+            <th>20.</th>
+            <th>android:visibility</th>
+            <th>public void setVisibility(int visibility)</th>
+            <th>设置是否显示组件</th>
+        </tr>
+        <tr>
+            <th>21.</th>
+            <th>android:layout_width</th>
+            <th>(fill_parent:填充整个容器；wrap_parent:包裹住文字)</th>
+            <th>定义组件显示的宽度</th>
+        </tr>
+        <tr>
+            <th>22.</th>
+            <th>android:layout_height</th>
+            <th>-</th>
+            <th>定义组件显示的高度</th>
+        </tr>
+        <tr>
+            <th>23.</th>
+            <th>android:layout_gravity</th>
+            <th>-</th>
+            <th>组件文字的对齐位置</th>
+        </tr>
+        <tr>
+            <th>24.</th>
+            <th>android:layout_margin</th>
+            <th>-</th>
+            <th>设置文字的边距</th>
+        </tr>
+        <tr>
+            <th>25.</th>
+            <th>android:layout_marginTop</th>
+            <th>-</th>
+            <th>上边距</th>
+        </tr>
+        <tr>
+            <th>26.</th>
+            <th>android:layout_marginBottom</th>
+            <th>-</th>
+            <th>下边距</th>
+        </tr>
+        <tr>
+            <th>27.</th>
+            <th>android:layout_marginLeft</th>
+            <th>-</th>
+            <th>左边距</th>
+        </tr>
+        <tr>
+            <th>28.</th>
+            <th>android:layout_marginRight</th>
+            <th>-</th>
+            <th>右边距</th>
+        </tr>
+        <tr>
+            <th>29.</th>
+            <th>android:background</th>
+            <th>-</th>
+            <th>设置背景颜色</th>
+        </tr>
+    </table>
+    <hr>
+    <h3>文本显示组件TextView</h3>
+    <table border="1">
         <tr>
             <th>No</th>
             <th>配置属性名称</th>
@@ -44,7 +328,7 @@
         <tr>
             <th>5</th>
             <th>android:textStyle</th>
-            <th></th>
+            <th>(正常:normal;粗体:bold;斜体:italic)</th>
             <th>设置文字显示的样式、粗体、斜体等</th>
         </tr>
         <tr>
@@ -60,36 +344,60 @@
             <th>按密文方式显示文本信息</th>
         </tr>
     </table>
-    <p>建立多本文本显示框</p>
-
+    <p>类继承</p>
+    <pre>
+        <code>
+java.lang.Object
+            android.view.View
+                    android.widget.TextView
+        </code>
+    </pre>
+    <p>1.建立多本文本显示框</p>
+    <p>2.背景按扭</p>
+    <p>3.文本增加超链接显示功能</p>
+    <p>4.用样式文件对组件进行显示控制</p>
+    <p>测试代码地址：languageWeb1/code/android/resources/view/TextView</p>
 
     <hr>
 
-    <P>按扭组件Button</P>
+    <h3>按扭组件Button</h3>
+    <p>类继承</p>
+    <pre>
+        <code>
+java.lang.Object
+            android.view.View
+                    android.widget.TextView
+                            android.widget.Button
+        </code>
+    </pre>
+    <p>测试代码地址：languageWeb1/code/android/resources/view/TextView</p>
+
+    <p>1.显示按钮</p>
+
     <hr>
 
-    <P>编辑框EditText</P>
+    <h3>编辑框EditText</h3>
     <hr>
 
-    <P>单选按钮RadioGroup</P>
+    <h3>单选按钮RadioGroup</h3>
     <hr>
 
-    <P>复选框checkBox</P>
+    <h3>复选框checkBox</h3>
     <hr>
 
-    <P>下拉列表框Spinner</P>
+    <h3>下拉列表框Spinner</h3>
     <hr>
 
-    <P>图片视图ImageView</P>
+    <h3>图片视图ImageView</h3>
     <hr>
 
-    <P>图片按扭ImageButton</P>
+    <h3>图片按扭ImageButton</h3>
     <hr>
 
-    <P>时间选择器TimePicker</P>
+    <h3>时间选择器TimePicker</h3>
     <hr>
 
-    <P>日期选择器DatePicker</P>
+    <h3>日期选择器DatePicker</h3>
     <hr>
 
 </body>

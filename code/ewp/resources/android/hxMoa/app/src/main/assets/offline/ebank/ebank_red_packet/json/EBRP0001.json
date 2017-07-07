@@ -1,0 +1,60 @@
+{
+  "header":
+      {
+        "tran_success": "111111",
+        "error_code": "111",
+        "error_msg":""
+      },
+  "body":
+      {
+        "redEnvelopeInfoList":[
+          {
+              "withdrawAmount": "3000",
+              "accIncome": "5000",
+              "totalAmount":"2000"
+          }
+        ],
+        "transactionlist":[
+          {
+              "transactionDate": "2015-02-24",
+              "transactionAmount": "2200",
+              "redPacketType":"1"
+          },
+          {
+              "transactionDate": "2015-02-24",
+              "transactionAmount": "1300",
+              "redPacketType":"2"
+          },
+          {
+              "transactionDate": "2015-02-24",
+              "transactionAmount": "44000",
+              "redPacketType":"1"
+          },
+          {
+              "transactionDate": "2015-02-14",
+              "transactionAmount": "3100",
+              "redPacketType":"1"
+          },
+          {
+              "transactionDate": "2015-02-14",
+              "transactionAmount": "4300",
+              "redPacketType":"2"
+          },
+          {
+              "transactionDate": "2015-02-14",
+              "transactionAmount": "2300",
+              "redPacketType":"2"
+          },
+          {
+              "transactionDate": "2015-02-14",
+              "transactionAmount": "3090",
+              "redPacketType":"1"
+          },
+          {
+              "transactionDate": "2015-11-14",
+              "transactionAmount": "4920",
+              "redPacketType":"2"
+          }
+        ]
+      }
+}

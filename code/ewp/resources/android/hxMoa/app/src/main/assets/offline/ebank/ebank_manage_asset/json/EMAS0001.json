@@ -1,0 +1,27 @@
+{
+  "header":
+      {
+        "tran_success": "111111",
+        "error_code": "111",
+        "error_msg":""
+      },
+  "body":
+      {
+        "custName":"欧阳峰",
+        "eAccountNo":"42222 90888******888888",
+        "totalAssets":"500000",
+        "accIncome":"1000",
+        "accBalance":"40000",
+
+        "hxbProduct":"华兴宝",
+        "hxbBalance":"4000",
+        "znckProduct":"智能存款",
+        "znckBalance":"9000",
+        "lygProduct":"0元购",
+        "lygBalance":"14000",
+        "p2pkProduct":"P2P平台",
+        "p2pBalance":"6000",
+        "hbProduct":"我的红包",
+        "hbBalance":"3000"
+      }
+}

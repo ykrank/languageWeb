@@ -1,0 +1,14 @@
+{
+  "header":
+      {
+        "tran_success": "01",
+        "error_code": "1",
+        "error_msg":""
+      },
+  "body":
+      {
+        "comment1":"手机号",
+        "MOBILE":"13800138000"
+        
+      }
+}

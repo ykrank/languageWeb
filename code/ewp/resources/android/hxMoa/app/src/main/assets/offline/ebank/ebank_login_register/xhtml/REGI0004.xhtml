@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+#{
+    this = ert.channel:get_page("ebank_login_register","REGI0004");
+    local data = this:get_data();
+    this.json = json:objectFromJSON(data) or {};
+    this.json["body"]=this.json["body"] or {};
+    local e_account=this.json["body"]["e_account"];
+    function account_form(peram)
+        if peram ~= "" then
+           return string.sub(peram, 1, 4) .. [[ ]] .. string.sub(peram, 5, 8) .. [[ ]] .. string.sub(peram, 9, 12).. [[ ]] .. string.sub(peram, 13, 16).. [[ ]] .. string.sub(peram, 17, 19);
+        else
+           return peram;
+        end
+    end
+    local e_account2=account_form(e_account);
+}#
+<content>
+    <head>
+        <link ref="ebank_public.css" type="text/css"/>
+        <link ref="ebank_login_register/css/REGI0003.css" type="text/css"/>
+        <link ref="ebank_login_register/css/REGI0002.css" type="text/css"/>
+        <script type="text/x-lua" src="RYTL.lua"></script>
+        <script type="text/x-lua" src="ebank_login_register/lua/REGI0004.lua"></script>
+    </head>
+    <body class="body">
+        #{local str = ebank_public.header:set_header("注册结果","5","0","0")}#
+        #{= str}#
+        <div class="public_main_div" border="0">
+            <div class="public_succeed_div,cmm_ui_h120" border="0" >
+                <img src='check-icon.png' class="public_succeed_img,cmm_ui_l50"/>
+                <label class="public_succeed_label,cmm_ui_w163">恭喜您，开户成功！</label>
+                <label class="public_succeed_label2">您的E账户为：</label>
+                <label class="public_succeed_label3">#{= e_account2}#</label>
+            </div>
+            <table class="public_main_table,cmm_ui_t150" border="0">
+                <tr class="public_main_tr">
+                    <td class="public_main_td">
+                        <label class="cmm_label_left">网银首次登陆，请点击下一步设置安全信息</label>
+                    </td>
+                </tr>
+            </table>
+            <div class="cmm_ui_h15"></div>
+            <input type="button" class="public_15_w290_h35" onclick="this.change_info()" value="下一步"/>
+        </div>
+    </body>
+</content>

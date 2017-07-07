@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+#{
+    local req_val = ert.channel:get_page("ebank_manage_asset","EMAS0021");
+}#
+<content>
+    <head>
+        <link ref="ebank_public.css" type="text/css"/>
+        <link ref="ebank_tied_card/css/BOUND011.css" type="text/css"/>
+        <script type="text/x-lua" src="RYTL.lua"></script>
+        <script type="text/x-lua" src="ebank_manage_asset/lua/EMAS0021.lua"></script>
+    </head>
+    <body class="body">
+        <div class="ebank_public_header_div" border="0">
+            <div border ="0" class="ebank_public_header_div_right" >
+                <input type="button" class="ebank_public_header_div_right" border ="0" onclick="next_page_home()"></input>
+                <label class="ebank_public_header_div_right_label">完成</label>
+            </div>
+            <label class="ebank_public_header_label">签约结果</label>
+            <label class="public_line_b1"></label>
+        </div>
+        <div class="public_main_div" border="0">
+        <table class="tabel_w320_bgFFFFFF" border="0">
+          <tr class="trtd25" border="1">
+              <td class="trtd25">
+              </td>
+            </tr>
+            <tr class="trtd36" border="1">
+              <td class="trtd36">
+                <img src="check-icon.png" class = "img_h36_w36_l74"></img>
+                <label class="label_l148_fs17_c4D4D4D">银行卡签约成功</label>
+              </td>
+            </tr>
+            <tr class="trtd15" border="1">
+              <td class="trtd15">
+              </td>
+            </tr>
+                  <tr class="trtd30" border="1">
+                    <td class="trtd30">
+                      <label class="label_fs12_c666666,left">银行账户：</label>
+                      <label class="label_fs12_c666666,right">#{=req_val.context["account"]}#</label>
+                    </td>
+                  </tr>
+                  <tr class="trtd30" border="1">
+                    <td class="trtd30">
+                      <label class="label_fs12_c666666,left">开户行：</label>
+                      <label class="label_fs12_c666666,right">#{=req_val.context["bankname"]}#</label>
+                    </td>
+                  </tr>
+            <tr class="trtd10" border="1">
+              <td class="trtd10">
+              </td>
+            </tr>
+             <tr class="trtd30,bgEBEBEE" border="1">
+              <td class="trtd30,bgEBEBEE">
+              </td>
+            </tr>
+            <tr class="trtd35,bgEBEBEE" border="1">
+              <td class="trtd35,bgEBEBEE">
+                <input type="button" class="public_15_w290_h35" onclick="next_page('#{=req_val.context["accBalance"]}#','#{=req_val.context["username"]}#')"  value="继续转入"/>
+              </td>
+            </tr>
+            <tr class="trtd45,bgEBEBEE" border="1">
+              <td class="trtd45,bgEBEBEE">
+              </td>
+            </tr>
+        </table>
+      </div>
+    </body>
+</content>

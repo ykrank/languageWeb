@@ -1,0 +1,23 @@
+{
+  "header":
+      {
+        "tran_success": "01",
+        "error_code": "1",
+        "error_msg":""
+      },
+  "body":
+      {
+        "hx_amount": "123456789",
+        "hx_rate": "0.1",
+        "profit": "1.2",
+        "zn_amount": "987654321",
+        "zn_rate": "0.2",
+        "start_amount": "50",
+        "list":[
+        {
+          "name":"iphone 1",
+          "price":"1000"
+        }
+        ]
+      }
+}

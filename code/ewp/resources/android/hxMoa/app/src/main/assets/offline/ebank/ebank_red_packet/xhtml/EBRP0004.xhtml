@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+#{
+    local req_value = ert.channel:get_request("ebank_red_packet","EBRP0004");
+}#
+<content>
+    <head>
+    <script type="text/x-lua" src="ebank_red_packet/lua/EBRP0004.lua"></script>
+    <link ref="ebank_manage_asset/css/EMAS0000.css" type="text/css"/>
+    <link ref="ebank_red_packet/css/EBRP0004.css" type="text/css"/>
+    <link ref="ebank_public.css" type="text/css"/>
+    </head>
+    <body class="body">
+      #{if req_value["tranType"] == "2" then}#
+        #{local str = ebank_public.header:set_header("已领取红包","2","0","0")}#
+        #{= str}#
+      #{else}#
+        #{local str = ebank_public.header:set_header("已发送红包","2","0","0")}#
+        #{= str}#
+      #{end}#
+      <div class="public_main_div" border="0">
+        <div class="div_t0_h34_w320,bgFFFFFF" border="0">
+          <input type="button" id="all_redpacket" class="input_t0_h34_fs12_cF85050,public_left" value="全部红包" onclick="red_packet_choice('2')"/>
+          <input type="button" id="stabdard_redpacket" class="input_t0_h34_fs12_c666666,left136" value="普通红包" onclick="red_packet_choice('0')"/>
+          <input type="button" id="random_redpacket" class="input_t0_h34_fs12_c666666,public_right" value="随机红包" onclick="red_packet_choice('1')"/>
+          <label class="public_line_b1"></label>
+        </div>
+        <div name="redpacketlist" class="div_t34_w320,bgFFFFFF" border="0"></div>
+      </div>
+  </body>
+</content>

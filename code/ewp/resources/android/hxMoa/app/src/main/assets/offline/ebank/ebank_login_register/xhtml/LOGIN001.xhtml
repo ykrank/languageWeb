@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+#{
+    this = ert.channel:get_page("ebank_login_register","LOGIN001");
+}#
+<content>
+    <head>
+        <link ref="ebank_public.css" type="text/css"/>
+        <link ref="ebank_login_register/css/LOGIN001.css" type="text/css"/>
+        <script type="text/x-lua" src="RYTL.lua"></script>
+        <script type="text/x-lua" src="ebank_login_register/lua/LOGIN001.lua"></script>
+    </head>
+    <body class="body">
+        <div class="ebank_public_header_div" border="0">
+            <div border="0">
+            <input type="button" id="delay_return" class="ebank_public_header_div_left" border ="0" onclick="this.return_home()" enable="true" ></input>
+            <img src="back.png" class="ebank_public_header_div_left_image2"></img>
+            </div>
+            <label class="ebank_public_header_label">登录</label>
+            <label class="public_line_b1"></label>
+        </div>
+        <div class="public_main_div" border="0">
+            <!-- <div class="cmm_ui_type_div" align="center" valign="middle"  border="0">
+                <input class="cmm_ui_left" type="button" id="select1" enable="false" onclick="this.checked(1)" value="普通登录"></input>
+                <input class="cmm_ui_right" type="button" id="select2" enable="true" onclick="this.checked(2)" value="用户名登录"></input>
+                <label class="cmm_ui_line_color"></label>
+                <label class="cmm_ui_line_left" id="select1_line"></label>
+                <label class="cmm_ui_line_right" id="select2_line"></label>
+            </div> -->
+            <div class="cmm_ui_main_div"  border="0">          
+                <!-- <table class="public_main_table" border="0">
+                    <tr class="public_main_tr">
+                        <td class="public_main_td">
+                            <img src="local:ebank_login_register/images/data.png" class="cmm_ui_left10"></img>
+                            <input class="public_right10,public_displayB" type="text" id="userId1" hold="E账户/身份证/手机号码"  border="0"/>
+                            <input class="public_right10,public_displayN" type="text" id="userId2" hold="用户名"  border="0"/>
+                            <label class="cmm_ui_line_c"></label>
+                        </td>
+                    </tr>
+                    <tr class="public_main_tr">
+                        <td class="public_main_td">
+                            <img src="local:ebank_login_register/images/privaty.png" class="cmm_ui_left10"></img>
+                            <input class="public_right10" type="password" id="password" maxleng="20" hold="登录密码" border="0" />
+                        </td>  
+                    </tr>
+                </table> -->
+                <table class="public_main_table" border="0">
+                    <tr class="public_main_tr">
+                        <td class="public_main_td">
+                            <img src="local:ebank_login_register/images/data.png" class="cmm_ui_left10"></img>
+                            <input class="public_right10" type="text" id="userId" maxleng="19" hold="E账户/身份证/手机号码/用户名"  border="0"/>
+                            <label class="cmm_ui_line_c"></label>
+                        </td>
+                    </tr>
+                    <tr class="public_main_tr">
+                        <td class="public_main_td">
+                            <img src="local:ebank_login_register/images/privaty.png" class="cmm_ui_left10"></img>
+                            <input class="public_right10" type="password-ASCII" id="password" maxleng="16" hold="登录密码" border="0" isorder="true"/>
+                        </td>  
+                    </tr>
+                </table>
+                <div class="cmm_ui_h15"></div>
+                <input type="button" class="public_15_w290_h35,btn_lg0001_next_page" value="登录"/>
+                <div border="0" class="cmm_ui_w290">
+                    <div class="cmm_ui_h5"></div>
+                    <input type="button" class="cmm_ui_f12b_l,btn_eregi_next_page" value="E账户注册" />
+                    <input type="button" class="cmm_ui_f12b_r,btn_wjmima_next_page" value="忘记密码" />
+                </div>
+            </div>
+        </div>
+        <div border="0" class="cmm_ui_b300" align="center">
+            <label class="public_tis">温馨提示：可直接使用网银账号登录。</label>
+        </div>
+        <img src="local:cebeijing.png" class="login_dibu_img" />
+    </body>
+</content>

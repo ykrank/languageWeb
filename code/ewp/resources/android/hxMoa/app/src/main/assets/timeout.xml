@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<content>
+    <head>
+        <style>
+            .div_title{position:fixed;top:0px;width:320px;height:50px;left:0px;background-image:url(title_02.png);}
+            .button_title {width:49px;height:35px;top:8px;left:4px;background-image:url(bankbt.png);}
+            .lable_title4 {color:#FFFFFF;font-weight:bold;height:30px;font-size:20px;top:11px;left:124px;}
+            .body {background-image:url(backgr1.png);}
+            .button1 {font-size:18px;color:#000000;width:124px;height:42px;left:100px;top:230px;background-color:#E0E0E0;}
+            .button2 {font-size:18px;color:#FFFFFF;width:124px;height:42px;left:100px;top:100px;background-color:#8E8E8E;}
+            .img_error{height: 60px;width: 60px;left: 130px;top: 70px;}
+            .div1 {height: 300px;top:140px; left:10px; width: 300px;}
+            .label5 {color:#000000;font-size:16px;left:40px;top:18px;}
+            .label6 {color:#000000;font-size:16px;left:110px;top:50px;}
+        </style>
+        <script type="text/x-lua" src="RYTL.lua"></script>
+        <script type="text/x-lua">
+            <![CDATA[
+                ryt = RYTL:new{};
+                local loadingtag=3;
+                function Backbt()
+                    local buttonbt = ryt:get{name="button_title_name"};
+                    buttonbt[1]:css("background-image","backbt_copy.png");
+                    quit();
+                end;
+                function quit()
+                   ryt:close();
+                end;
+                function restart()
+                    window:setPhysicalkeyListener("backspace",nil);
+                    location:replace("<content><head><style>.body1 {background-image:url(splashbg.png);}</style><script type='text/x-lua'> local emp = {}; utility:tls(emp);</script></head><body class='body1'></body></content>")
+                end;
+
+                window:setPhysicalkeyListener("backspace",quit);
+                ]]>
+        </script>
+    </head>
+    <body class="body">
+        <div class='div_title'  name='title'>
+            <input type='button' class='button_title' name="button_title_name" onclick='Backbt()'/>
+            <label class='lable_title4' >会话超时</label>
+        </div>
+        <img class="img_error" src="error.png"/>
+        <div class="div1">
+            <label class='label5'>很抱歉！会话超时，请重新登录</label>
+            <label class='label6'>或退出！</label>
+            <input type="button" value="重新登录"  class="button2" onclick="restart()" />
+            <input type="button" value="退出" class="button1" onclick="quit()"  />
+        </div>
+    </body>
+</content>

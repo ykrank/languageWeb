@@ -1,0 +1,29 @@
+/*七日年化收益，万份收益公共部分*/
+    .div_h116_w320_t0{height: 109px; width: 320px;top: 0;background-color: #ffffff;color: #FC646B;}/*外层*/
+    
+    .label_f40_w160{font-size: 32px;width: 160px;text-align: center;color: #f85050;top: 30px;}/*字体*/
+    .label_f14_w160{font-size: 12px;width: 160px;text-align: center;color: #666666;}
+    .div_t30{top:30px;}
+    .div_t80{top:75px;}
+    .div_l160{left: 160px;}
+
+    .line_2{height: 40px;width: 1px;left: 160px;top:40px;background-color: #4d4d4d;filter:progid(alpha='0.3');}/*中间线*/
+    /*中间图片*/
+
+
+    /*折线图div*/
+    .div_h120_w320_t124{height: 175px;width: 320px;top: 124px;background-color: #ffffff;}
+    /*收益表文字*/
+    .label_f14_c4d4d4d_l15{font-size: 14px;color: #4d4d4d;left: 15px;top:15px;}
+     /*折线图控制div*/
+    .div_table_l15{left: 10px;color:#4d4d4d;}
+    /*折线图*/
+    .plot21 {left:0px; width:300px; height:120px; top:10px; color:#f1f1f1;}/*框架*/
+    .2scale11 {font-size:9px; color:#4d4d4d; width:1px; background-color:#f1f1f1; margin-top:15px;}/*y轴数扭*/
+    .2scale21 {font-size:9px; color:#4d4d4d; width:1px; background-color:#f1f1f1; margin-top:38px;}/*x轴数扭*/
+    .line {width:1px; height: 10px; background-color:#FF5A5F; filter:progid(GradientType=3,StartColorStr='#FF5A5F',EndColorStr='#ffffff',alpha='0.5');}/*折线*/
+    .li21 {width:5px; height:5px; background-color:#FF5A5F;}/*节点*/
+
+
+    /*下方确定按扭*/
+    .buttom_b0{bottom: 0px;position: fixed;font-size: 14px;width: 320px;left: 0px;background-color: #FF5A5F;color: #ffffff;height: 40px;}

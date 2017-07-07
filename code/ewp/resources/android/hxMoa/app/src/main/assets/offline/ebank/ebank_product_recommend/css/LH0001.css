@@ -1,0 +1,44 @@
+    .top_w320_h24_t44{width: 320px;height: 24px;top: 44px;}
+    .div_w320_t44_l0{width: 320px;top: 44px;left: 0px;}
+    .div_w320_h24_t0_bf8f8f8{width: 320px;height: 24px;top:0px;background-color: #F8F8F8;}
+    .div_w320_h50{width: 320px;height: 50px;top:313px;}
+    .div_t24_l0{top: 24px;left: 0px;}
+    .div_t47_l0{top: 47px;left: 0px;}
+
+
+    .img_l15_w12_h12_t6{left: 15px;width: 12px;height: 12px;top: 6px;}
+    .img_r15_w12_h12_t6{right: 15px;width: 12px;height: 12px;top: 6px;}
+    .img_h234_w234_t0_l43{height: 234px;width: 234px;top: 0px;left:43px;}
+
+
+    .label_f24_c666666_t3_w266_l27{font-size: 12px;color: #666666;top:3px;width: 260px;left: 30px;}
+    .label_t15_w320_c66666_f21{top: 20px;width: 320px;color: #4d4d4d;font-size: 17px;text-align: center;}
+    .label_l15_f12_c666666_t296{left: 0px;font-size: 12px;color: #666666;top: 290px;text-align: center;width: 320px;}
+
+    /*华兴宝收益*/
+    .label_w320_t30{width: 320px;top: 35px;text-align: center;font-size: 32px;}
+    .label_w320_t51{width: 320px;top: 80px;text-align: center;font-size: 12px;}
+    .label_w320_t148{width: 320px;top: 135px;text-align: center;font-size: 32px;}
+    .label_w320_t178{width: 320px;top: 173px;text-align: center;font-size: 12px;}
+
+    .button_l15_h35{left: 15px;font-size: 17px;height: 35px;top: 365px;background-image: url(btn_bg.png);}
+
+    /*收益数字表 */
+    .div_t11_r30{top: 0px;right:70px;}
+    .label_img_w27_h27{width: 25px;height: 25px;left: 1px;top: 1px;}
+    .label_l8_t1{left: 0px;top: 0px;font-size: 21px;}
+    .label_color{color:#FC646B;}
+    .label_color_w{color:#ffffff;}
+
+    .div_line{inline-block:inline;width: 12px;}
+
+    .lable_txt{top: 10px;right: 55px;font-size: 12px;}
+
+
+    .label_t0_w320{left:0px;top: 0px;width: 300px;text-align: right;font-size: 21px;color: #f85050;}
+
+    /*公共底部文字样式*/
+    .ebank_public_label_goloal_text_1{font-size:10px;color:#FC646B;text-align:center;top:32px;left:20px;}
+    .ebank_public_label_goloal_text_2{font-size:10px;color:#999999;text-align:center;top:32px;left:20px;}
+    .ebank_public_label_goloal_text_3{font-size:10px;color:#999999;text-align:center;top:32px;left:20px;}
+    .ebank_public_label_goloal_text_4{font-size:10px;color:#999999;text-align:center;top:32px;left:20px;}

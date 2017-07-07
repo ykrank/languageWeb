@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+#{
+    this = ert.channel:get_page("ebank_other","MANU0001");
+}#
+<content>
+  <head>
+    <link ref="ebank_other/css/ebank_other_public.css" type="text/css"/>
+    <link ref="ebank_public.css" type="text/css"/>
+    <script type="text/x-lua" src="ebank_other/lua/MANU0001.lua"></script>
+  </head>
+   <body>
+    <!--Title-->
+    #{local str = ebank_public.header:set_header("账户管理","2")}#
+    #{= str}#
+    <div class="public_main_div" border="0">
+     <div class="div_kong" border="0"></div>
+    <table border="0">
+    <tr>
+      <td class="div_w320_h44" onclick="click(1)" >
+          <label class="public_line_t0"></label>
+          <label class="public_label_left">修改登录密码</label>
+          <img class="right,w7_h12" src="right_jt.png" />
+      </td>
+    </tr>
+   <tr>
+      <td class="div_w320_h44" onclick="click(2)">
+          <label class="public_line_t0"></label>
+          <label class="public_label_left">重置手机号码</label>
+          <img class="right,w7_h12" src="right_jt.png" />
+      </td>
+    </tr>
+    <tr>
+      <td class="div_w320_h44" onclick="click(3)">
+          <label class="public_line_t0"></label>
+          <label class="public_label_left">重置交易密码</label>
+          <img class="right,w7_h12" src="right_jt.png" />
+      </td>
+    </tr>
+   <tr>
+      <td class="div_w320_h44" onclick="click(4)">
+          <label class="public_line_t0"></label>
+          <label class="public_label_left">账户冻结/解冻</label>
+          <img class="right,w7_h12" src="right_jt.png" />
+          <label class="public_line_b1"></label>
+      </td>
+    </tr>
+    <!-- -1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1 -->
+    <!-- <tr>
+      <td class="div_w320_h44" onclick="click(5)">
+          <label class="public_label_left">通知</label>
+          <img class="right,w7_h12" src="right_jt.png" />
+          <label class="public_line_b1"></label>
+      </td>
+    </tr>
+    <tr>
+      <td class="div_w320_h44" onclick="click(6)">
+          <label class="public_label_left">修改预留信息</label>
+          <img class="right,w7_h12" src="right_jt.png" />
+          <label class="public_line_b1"></label>
+      </td>
+    </tr>
+    <tr>
+      <td class="div_w320_h44" onclick="click(8)">
+          <label class="public_label_left">测试</label>
+          <img class="right,w7_h12" src="right_jt.png" />
+          <label class="public_line_b1"></label>
+      </td>
+    </tr> -->
+   <!--  <tr>
+      <td class="div_w320_h44" onclick="click(7)">
+          <label class="public_label_left">0元购</label>
+          <img class="right,w7_h12" src="right_jt.png" />
+          <label class="public_line_b1"></label>
+      </td>
+    </tr> -->
+    <!-- -1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1 -->
+    </table>
+  </div>
+  </body>
+</content>

@@ -1,0 +1,40 @@
+{
+  "header":
+      {
+        "tran_success": "111111",
+        "error_code": "111",
+        "error_msg":""
+      },
+  "body":
+      {
+        "contactNum":"15607887632",
+        "receivedTime":"07-08(星期二)",
+        "banklist":[
+          {
+              "bankName": "工商银行",
+              "bankFlag": "0",
+              "bankAccNo":"6221798987687678909"
+          },
+          {
+              "bankName": "建设银行",
+              "bankFlag": "0",
+              "bankAccNo":"6221798987687678999"
+          },
+          {
+              "bankName": "交通银行",
+              "bankFlag": "0",
+              "bankAccNo":"6221798987687678888"
+          },
+          {
+              "bankName": "农业银行",
+              "bankFlag": "0",
+              "bankAccNo":"6221798987687676789"
+          },
+          {
+              "bankName": "华兴银行",
+              "bankFlag": "1",
+              "bankAccNo":"6221798987687673988"
+          }
+        ]
+      }
+}

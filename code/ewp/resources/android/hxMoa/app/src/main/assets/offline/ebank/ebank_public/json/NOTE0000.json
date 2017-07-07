@@ -1,0 +1,14 @@
+{
+  "header":
+      {
+        "tran_success":"0",
+        "error_code": "0",
+        "error_msg":"",
+        "error_num":"1"
+      },
+   "body":
+   {
+      "smsState":"00",
+      "OTPSEQNO":"asd123"
+   }
+}

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+#{    
+    this = ert.channel:get_page("ebank_red_packet","EBRP0005");
+    local json_data=this:get_data();
+    local json_tbl = json:objectFromJSON(json_data) or {};
+    json_tbl["body"] = json_tbl["body"] or {};
+
+    local totalAmount = json_tbl["body"]["totalAmount"] or 0;--红包总金额
+    local totalNum = json_tbl["body"]["totalNum"] or 0;--红包总个数
+    local remainNum = json_tbl["body"]["remainNum"] or 0;--红包剩余个数
+    local receivedAmount = json_tbl["body"]["receivedAmount"] or 0;--红包已领取金额
+    local claimNum = totalNum - remainNum;--已领取红包个数
+
+    local detailInfo_List = json_tbl["body"]["detailInfoList"] or {};
+    local postscript = json_tbl["body"]["postscript"] or"";
+
+    local req_value = ert.channel:get_request("ebank_red_packet","EBRP0005");
+
+    local ReceiveAmount = "0";--领取金额最高
+    for key,value in pairs(detailInfo_List) do
+          if tonumber(ReceiveAmount) <= tonumber(value["receiveAmount"]) then
+              ReceiveAmount = value["receiveAmount"];
+          end
+    end              
+}#
+
+<content>
+    <head>
+    <link ref="ebank_manage_asset/css/EMAS0000.css" type="text/css"/>
+    <link ref="ebank_red_packet/css/EBRP0005.css" type="text/css"/>
+    <link ref="ebank_public.css" type="text/css"/>
+    </head>
+    <body class="body">
+      #{local str = ebank_public.header:set_header("我的红包","2","0","0")}#
+      #{= str}#
+      <div class="public_main_div" border="0">
+        <div class="div_t0_h245_w320,bgFFFFFF" border="0">
+          <div class="div_t0_h74_w320" border="0"></div>
+          <div class="div_t52_h45_w45,left137" border="0"></div>
+          <div class="div_t101_l127" border="0" align="center" valign="middle">
+            <label class="label_t0_l0_fs12_c666666">#{= postscript}#的红包</label>
+          </div>
+          <div class="div_t128_w320" border="0">
+            <label class="label_t0_fs12_c666666,public_left">红包类型:</label>
+            <label class="label_t0_fs12_c666666,public_right">#{= req_value["redEnvelopeType"]}#</label>
+          </div>
+          <div class="div_t158_w320" border="0">
+            <label class="label_t0_fs12_c666666,public_left">红包个数:</label>
+            <label class="label_t0_fs12_c666666,public_right,colorF85050">#{= claimNum}#/#{= totalNum}#</label>
+          </div>
+           <div class="div_t188_w320" border="0">
+            <label class="label_t0_fs12_c666666,public_left">红包总金额:</label>
+            <label class="label_t0_fs12_c666666,right32,colorF85050">#{= format_money(totalAmount)}#</label>
+            <label class="label_t0_fs12_c666666,public_right">元</label>
+          </div>
+           <div class="div_t218_w320" border="0">
+            <label class="label_t0_fs12_c666666,public_left">已领取红包金额:</label>
+            <label class="label_t0_fs12_c666666,right32,colorF85050">#{= format_money(receivedAmount)}#</label>
+            <label class="label_t0_fs12_c666666,public_right">元</label>
+          </div>
+        </div>
+        <div class="div_t260_w320,bgFFFFFF" border="0">
+          <table class="tabel_t0_w320_bgFFFFFF" border="0">
+            #{for key,value in pairs(detailInfo_List) do}#
+              <tr class="trtd_h50_w320">
+                <td class="trtd_h50_w320">
+                  <img src="ebank_red_packet/images/head.png" class = "img_h30_w30_t10,public_left"></img>
+                  <label class="label_t10_fs12_c666666,left55">#{= value["receiveComments"]}#</label>
+                  <label class="label_t28_fs12_c666666,left55,color999999">#{= string.sub(value["receiveDate"], 1, 19)}#</label>
+                  <label class="label_t10_fs12_c666666,public_right">#{= value["receiveAmount"]}#元</label>
+                  #{if req_value["redEnvelopeType"]~="普通红包" and ReceiveAmount == value["receiveAmount"] then}#
+                      <label class="label_t28_fs12_c666666,public_right,colorF85050">手气最佳</label>
+                  #{end}#
+                  <label class="public_line_b1,width290,public_left"></label>
+                </td>
+              </tr>
+            #{end}#
+          </table>
+        </div>
+      </div>
+  </body>
+</content>

@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+#{
+    this = ert.channel:get_page("ebank_product_huaxingbao","PX0001");
+    local data=this:get_data();
+
+    local table=json:objectFromJSON(data) or {};
+    table["body"] = table["body"] or {};
+    local profitInfoList = table["body"]["list"] or {};  
+
+    if #profitInfoList==0 then
+       profitInfoList ={
+       { rate='0', date="2016----" },
+       { rate='0', date="2016----" },
+       { rate='0', date="2016----" },
+       { rate='0', date="2016----" },
+       { rate='0', date="2016----" },
+       { rate='0', date="2016----" },
+       { rate='0', date="2016----" }
+       }
+      -- window:alert("利率列表获取失败,请稍后再试");
+    end
+
+    --华兴宝收益
+    local req_tbl_hx = ert.channel:get_request("ebank_product_huaxingbao","PX0001");
+    local rate_xp = req_tbl_hx["rate_xp"];
+    local profit_xp = req_tbl_hx["profit_xp"];
+
+    if rate_xp == "" then
+      rate_xp = "-";
+    end
+
+    if profit_xp == "" then
+      profit_xp = "-";
+    end
+
+}#
+
+<content>
+<head>
+    <script type="text/x-lua" src="ebank_product_huaxingbao/lua/PX0001.lua"></script>
+    <link ref="ebank_public.css" type="text/css"/>
+    <link ref="ebank_product_huaxingbao/css/PX0001.css" type="text/css"/>
+</head>
+<body>
+  #{
+    local str = ebank_public.header:set_header("华兴宝","2",'0','0');
+    local str2 = ebank_public.header:set_header("华兴宝","6",'0','0');
+    local str3 = "";
+
+    --跳转产品超市首页
+    function call_back_ph0001()
+      ebank_public.bottom:get_page("ebank_product_homepage","PH0001")
+    end;
+
+    if product_back_flag == "1" then
+      str3 = str2;
+      product_back_flag = nil;
+      window:setPhysicalkeyListener("backspace", call_back_ph0001);
+    else
+      str3 = str;
+      ebank_public.allSuit:physicalkey_back();
+    end
+    }#
+    #{=str3}#
+  <div class="public_main_div" border="0" id="main_div">
+    <div border="0" class="div_t0">
+      <div class="div_h116_w320_t0" border="0">
+          <!--
+          <img src="ebank_product_huaxingbao/images/vertical_line.png" class="img_l160_t30_w1" />
+          -->
+          <label class="label_f40_w160,div_t30">#{=global_hx_rate}#</label>
+          <label class="label_f40_w160,div_t30,div_l160">#{=global_hx_profit}#</label>
+          <label class="label_f14_w160,div_t80">七日年化收益率</label>
+          <label class="label_f14_w160,div_t80,div_l160">万份收益</label>
+          <div class="line_2" border="0" ></div>
+          <!--table测试
+          <table border="0" class="table_n">
+            <tr><td><label class="label_f21_w160">#{=rate}#</label></td><td><label class="label_f21_w160">#{=profit}#</label></td></tr>
+            <tr><td><label class="label_f14_w160">七日年化收益</label></td><td><label class="label_f14_w160">万份收益</label></td></tr>
+          </table>
+          -->
+      </div>
+      <div class="div_h60_w320_t109" border="0">
+        <img src="ebank_product_huaxingbao/images/42.png" class="img_w32_h32,img_l30" />
+        <img src="ebank_product_huaxingbao/images/50.png" class="img_w32_h32,img_l80" />
+        <img src="ebank_product_huaxingbao/images/41.png" class="img_w32_h32,img_l145" />
+        <img src="ebank_product_huaxingbao/images/35.png" class="img_w32_h32,img_l210" />
+        <img src="ebank_product_huaxingbao/images/57.png" class="img_w32_h32,img_l275" />
+        <label class="label_w32_tc_t37">低风险</label>
+        <label class="label_w32_tc_t37">1元钱起投</label>
+        <label class="label_w32_tc_t37">天天分红</label>
+        <label class="label_w32_tc_t37">T+0实时提现</label>
+        <label class="label_w32_tc_t37">0手续费</label>
+        <label class="public_line_stroke_b1"></label>
+      </div>
+
+      <div class="div_h120_w320_t184" border="0">
+        <label class="public_line_stroke_t0"></label>
+
+      <!--折线图  -->
+        <label class="label_f14_c4d4d4d_l15">七日年化收益率(%)</label>
+            <div class="div_table_l15" border="0">
+                 <div type='plot' class='plot21' selectedType='0'>
+                  <ul type='yscale' class="2scale11">
+                    <li>6</li>
+                    <li>4</li>
+                    <li>2</li>
+                    <li>0</li>
+                  </ul>
+                  <ul type='xscale' class='2scale21'>
+                  #{for key,v in pairs(profitInfoList)do}#
+                    <li>#{=format_date_month_day(v["date"])}#</li>
+                  #{end}#
+
+                  </ul>
+                    <ul type='linePlot' class='line'>
+                      #{for key,v in pairs(profitInfoList)do}#
+                       <li class='li21' value='#{=v["rate"]}#' onclick="show_alert()"></li>
+                      #{end}#
+                      </ul>
+                 </div>  
+            </div>
+          
+        </div>
+        <label class="public_line_stroke_b1"></label>
+      </div>
+      <!--收缩文字-->
+      <div class="div_h100_w320" border="0" name="div_but" id="div_but">
+        <table border="0" class="table_t0">
+          <tr class="tr_h35_l15_t10_h15_f12_c69c2fc" onclick="show_detail('1')">
+            <td >
+              <label class="public_line_stroke_t0"></label>
+              <img src="ebank_product_huaxingbao/images/tip_1.png" class="img_l15_t8_h14" />
+              <label class="label_l15_t10">收益分配方式与计算方式</label>
+              <img src="ebank_product_huaxingbao/images/down.png" class="img_down_r15_h5_t15_w14" />
+            </td>
+          </tr>
+          <tr><td class="public_line"></td></tr>
+          <tr class="tr_h35_l15_t10_h15_f12_c69c2fc" onclick="show_detail('2')">
+            <td >
+              <img src="ebank_product_huaxingbao/images/tip_1.png" class="img_l15_t8_h14" />
+              <label class="label_l15_t10">转入(申购)规则</label>
+              <img src="ebank_product_huaxingbao/images/down.png" class="img_down_r15_h5_t15_w14" />
+            </td>
+          </tr>
+          <tr><td class="public_line"></td></tr>
+          <tr class="tr_h35_l15_t10_h15_f12_c69c2fc" onclick="show_detail('3')">
+            <td >
+              <img src="ebank_product_huaxingbao/images/tip_1.png" class="img_l15_t8_h14" />
+              <label class="label_l15_t10">转出(赎回)，支付规则</label>
+              <img src="ebank_product_huaxingbao/images/down.png" class="img_down_r15_h5_t15_w14" />
+              
+            </td>
+          </tr>
+        </table>
+      </div>
+  </div>
+  <input type="button" class="buttom_b0" value="立即申购" onclick="turn_page_PX0002('#{=rate_xp}#','#{=profit_xp}#')"></input>
+</body>
+</content>

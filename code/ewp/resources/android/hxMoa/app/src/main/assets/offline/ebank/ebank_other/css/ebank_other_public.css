@@ -1,0 +1,80 @@
+/*小标题div*/
+.div_w320_h44{width: 320px;height: 44px}
+/*小标题字体*/
+.label_fs14{font-size: 14px;color: #3A3A3A}
+/*空div*/
+.div_kong{width: 320px;height: 15px;background-color:#EBEBEE;}
+/**/
+.inline-block{inline-block: inline;}
+/*结果页面，图片和文字中间空格*/
+.w12{width: 12px ;}
+
+/*返显信息*/
+.text_bg{background-color: #EAEAEA;}
+/*结果页面*/
+.div_t25_w320{width: 320px;top: 25px}
+/*结果页面*/
+.w36_h36{width: 36px;height: 36px}
+
+.display_none{display: none;}
+.top0{top: 0px;}
+
+.cmm_ui_left{left:0px;width: 150px; font-size:14px;height: 42px;text-align: center;color: #FF5A5F;}
+.cmm_ui_right{right:0px;width: 150px; font-size:14px;height: 42px;text-align: center;color: #999999;}
+
+.cmm_ui_line_color{left: 0px;width: 320px;height: 1px;bottom: 1px;background-color:#FF5A5F; }
+.cmm_ui_line_left{left: 25px;width: 100px;height: 2px;bottom: 2px;background-color:#FF5A5F;display:block;}
+.cmm_ui_line_right{right: 25px;width: 100px;height: 2px;bottom: 2px;background-color:#FF5A5F;display: none;}
+
+
+/*消息*/
+.div_w270_h70_l10{width: 270px;height: 90px;left: 10px}
+.div_w40_h70_r10{width: 40px;height: 90px;right: 10px}
+.w300_h70_l10{width: 300px;height: 70px;left: 10px;}
+.img_w25_h25_t20{width: 25px;height: 25px;top: 20px}
+.msg_divk_h7{height: 7px}
+.label_w200_l60_fs14{width: 220px;left: 45px;font-size: 14px}
+.fs14{font-size: 14px}
+.fs17_4D4D4D{font-size: 17px;color: #4d4d4d}
+.date_w40_fs14{width: 40px;font-size: 12px;bottom: 15px ;text-align: left;color: #999999}
+.t10{top: 20px}
+.t31{top: 40px}
+.color{color: #999999;}
+.div_w300{width: 300px;left: 10px}
+.t19{top: 19px}
+
+/*帮助中心*/
+.div_w300_h280{width: 300px;height: 280px;left: 10px}
+/*预留信息*/
+.div_w290_h44{width: 290px;height: 44px;left: 15px}
+.div_w290_l15{width: 290px;left: 15px}
+
+.fs20{font-size:20px;font-weight:bold }
+
+.right{right: 15px}
+.w7_h12{width: 7px;height: 12px}
+/*长输入框
+.input_w188_l117{width: 188px;left: 117px}
+短信验证码输入框
+.input_w100_l117{width: 100px;left: 117px}
+*/
+.w290_l15{width: 290px;left: 15px;font-size:14px;color: #999999;}
+
+/*结果页面*/
+.trtd_h45_w320{height: 45px;width: 320px}
+.trtd_h15_w320{height: 15px;width: 320px;}
+.line_l0_w125_h1{left: 0px;width: 125px;height: 1px;bottom: 7px;}
+.line_r0_w125_h1{right: 0px;width: 125px;height: 1px;bottom: 7px;}
+.label_l132_fs14_c4D4D4D{left: 132px;font-size: 14px;color: #4D4D4D;}
+.trtd_h10_w320{height: 10px;width: 320px;}
+.trtd_h100_w320{height: 100px;width: 320px;}
+.img_h75_w150_l5{height: 75px;width: 150px;left: 5px;}
+.img_h75_w150_r5{height: 75px;width: 150px;right: 5px;}
+.label_l15_fs12{left: 15px;font-size: 12px;color: #666666;}
+.label_r15_fs12{right: 15px;font-size: 12px;color: #666666;}
+
+.bgEBEBEE{background-color: #EBEBEE;}
+.bgffffff{background-color: #ffffff}
+.bg999999{color: #999999;}
+.bg666666{content: #666666}
+.h25{height: 25px}

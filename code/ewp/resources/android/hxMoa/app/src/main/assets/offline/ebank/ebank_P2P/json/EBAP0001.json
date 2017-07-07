@@ -1,0 +1,65 @@
+{
+  "header":
+      {
+        "tran_success": "111111",
+        "error_code": "111",
+        "error_msg":""
+      },
+  "body":
+      {
+        "accBalance":"4000.00",
+        "recordCountNum": "40",
+        "platfromelist":[
+          {
+              "platfromeName": "哈哈平台2",
+              "platfromeAmount": "5000"
+          },
+          {
+              "platfromeName": "哈哈平台2",
+              "platfromeAmount": "6000"
+          }
+        ],
+        "transactionlist":[
+          {
+              "transactionDate": "2015-02-24",
+              "transactionAmount": "10003",
+              "transactionType":"转入"
+          },
+          {
+              "transactionDate": "2015-02-24",
+              "transactionAmount": "13300",
+              "transactionType":"转入"
+          },
+          {
+              "transactionDate": "2015-02-24",
+              "transactionAmount": "3000",
+              "transactionType":"转入"
+          },
+          {
+              "transactionDate": "2015-02-14",
+              "transactionAmount": "2100",
+              "transactionType":"转入"
+          },
+          {
+              "transactionDate": "2015-02-14",
+              "transactionAmount": "55100",
+              "transactionType":"转入"
+          },
+          {
+              "transactionDate": "2015-02-14",
+              "transactionAmount": "3700",
+              "transactionType":"转入"
+          },
+          {
+              "transactionDate": "2015-02-14",
+              "transactionAmount": "4100",
+              "transactionType":"转入"
+          },
+          {
+              "transactionDate": "2015-11-14",
+              "transactionAmount": "5000",
+              "transactionType":"转出"
+          }
+        ]
+      }
+}

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+#{
+    this = ert.channel:get_page("ebank_marketing","MARK0001");
+
+    ebank_public.allSuit:physicalkey_exit_back();
+}#
+<content>
+    <head>
+        <link ref="ebank_public.css" type="text/css"/>
+        <link ref="ebank_marketing/css/MARK0001.css" type="text/css"/>
+        <script type="text/x-lua" src="RYTL.lua"></script>
+    </head>
+    <body class="body">
+        #{local str = ebank_public.header:set_header("营销活动","1","0","0")}#
+        #{= str}#
+        <div class="cmm_ui_main_div" align="center" valign="middle"  border="0">
+            <img class="cmm_ui_img_div" src="ebank_marketing/images/yingxiao.png" />
+        </div>
+        #{local bottom = ebank_public.bottom:set_bottom("营销活动")}#
+        #{= bottom}#
+    </body>
+</content>

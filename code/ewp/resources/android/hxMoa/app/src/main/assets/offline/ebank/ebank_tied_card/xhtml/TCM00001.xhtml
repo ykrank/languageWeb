@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+#{
+    this = ert.channel:get_page("ebank_tied_card","TCM00001");
+    local data=this:get_data();
+    local table=json:objectFromJSON(data) or {};
+    table["body"]=table["body"] or {};
+    local account_list = table["body"]["list"] or {};
+    local mobile = table["body"]["mobile"];
+    local card_num = table["body"]["num"];
+}#
+<content>
+    <head>
+        <link ref="ebank_public.css" type="text/css"/>
+        <link ref="ebank_tied_card/css/TCM00001.css" type="text/css"/>
+        <script type="text/x-lua" src="RYTL.lua"></script>
+        <script type="text/x-lua" src="ebank_tied_card/lua/TCM00001.lua"></script>
+    </head>
+    <body class="body">
+        <div class="ebank_public_header_div" border="0">
+            <div border="0">
+                <input type="button" class="ebank_public_header_div_left" border ="0" onclick="this.next_homePage()"></input>
+                <img src="back.png" class="ebank_public_header_div_left_image2"></img>
+            </div>
+            <label class="ebank_public_header_label">银行卡管理</label>
+            <label class="public_line_b1"></label>
+        </div>
+        <div class="public_main_div" border="0">
+            <div class="cmm_ui_h5"></div>
+            #{ for key,news_list in pairs(account_list) do }#
+            <div class="cmm_ui_h5"></div>
+            #{ if news_list["bank"]=="华兴银行" then }#
+            <table class="cmm_ui_unlock_table2"  border="0">
+               <tr onclick="this.unlock_page('#{=news_list["bank"]}#','#{=news_list["account"]}#','#{=mobile}#')">
+                   <td>
+                        <img src="local:ebank_tied_card/images/hxbank.png" class="cmm_ui_unlock_bankimg" ></img>
+                        <label class="cmm_ui_name_bank">#{=news_list["bank"]}#</label>
+                        <label class="cmm_ui_id_bank">#{=format_account(news_list["account"])}#</label>
+                        <input type="button" class="cmm_ui_bank_message" onclick="this.unlock_page('#{=news_list["bank"]}#','#{=news_list["account"]}#','#{=mobile}#')" value="解绑"/>
+                   </td>
+               </tr>
+            </table>
+            #{ elseif news_list["bank"]=="工商银行" then }#
+            <table class="cmm_ui_unlock_table1"  border="0">
+               <tr onclick="this.unlock_page('#{=news_list["bank"]}#','#{=news_list["account"]}#','#{=mobile}#')">
+                   <td>
+                        <img src="local:ebank_tied_card/images/gsbank.png" class="cmm_ui_unlock_bankimg" ></img>
+                        <label class="cmm_ui_name_bank">#{=news_list["bank"]}#</label>
+                        <label class="cmm_ui_id_bank">#{=format_account(news_list["account"])}#</label>
+                        <input type="button" class="cmm_ui_bank_message" onclick="this.unlock_page('#{=news_list["bank"]}#','#{=news_list["account"]}#','#{=mobile}#')" value="解绑"/>
+                   </td>
+               </tr>
+            </table>
+            #{ elseif news_list["bank"]=="农业银行" then }#
+            <table class="cmm_ui_unlock_table1"  border="0">
+               <tr onclick="this.unlock_page('#{=news_list["bank"]}#','#{=news_list["account"]}#','#{=mobile}#')">
+                   <td>
+                        <img src="local:ebank_tied_card/images/nybank.png" class="cmm_ui_unlock_bankimg" ></img>
+                        <label class="cmm_ui_name_bank">#{=news_list["bank"]}#</label>
+                        <label class="cmm_ui_id_bank">#{=format_account(news_list["account"])}#</label>
+                        <input type="button" class="cmm_ui_bank_message" onclick="this.unlock_page('#{=news_list["bank"]}#','#{=news_list["account"]}#','#{=mobile}#')" value="解绑"/>
+                   </td>
+               </tr>
+            </table>
+            #{ elseif news_list["bank"]=="中国银行" then }#
+            <table class="cmm_ui_unlock_table1"  border="0">
+               <tr onclick="this.unlock_page('#{=news_list["bank"]}#','#{=news_list["account"]}#','#{=mobile}#')">
+                   <td>
+                        <img src="local:ebank_tied_card/images/zgbank.png" class="cmm_ui_unlock_bankimg" ></img>
+                        <label class="cmm_ui_name_bank">#{=news_list["bank"]}#</label>
+                        <label class="cmm_ui_id_bank">#{=format_account(news_list["account"])}#</label>
+                        <input type="button" class="cmm_ui_bank_message" onclick="this.unlock_page('#{=news_list["bank"]}#','#{=news_list["account"]}#','#{=mobile}#')" value="解绑"/>
+                   </td>
+               </tr>
+            </table>
+            #{ elseif news_list["bank"]=="建设银行" then }#
+            <table class="cmm_ui_unlock_table1"  border="0">
+               <tr onclick="this.unlock_page('#{=news_list["bank"]}#','#{=news_list["account"]}#','#{=mobile}#')">
+                   <td>
+                        <img src="local:ebank_tied_card/images/jsbank.png" class="cmm_ui_unlock_bankimg" ></img>
+                        <label class="cmm_ui_name_bank">#{=news_list["bank"]}#</label>
+                        <label class="cmm_ui_id_bank">#{=format_account(news_list["account"])}#</label>
+                        <input type="button" class="cmm_ui_bank_message" onclick="this.unlock_page('#{=news_list["bank"]}#','#{=news_list["account"]}#','#{=mobile}#')" value="解绑"/>
+                   </td>
+               </tr>
+            </table>
+            #{ else }#
+            <table class="cmm_ui_unlock_table1" border="0">
+               <tr onclick="this.unlock_page('#{=news_list["bank"]}#','#{=news_list["account"]}#','#{=mobile}#')">
+                   <td>
+                        <label class="cmm_ui_name_bank">#{=news_list["bank"]}#</label>
+                        <label class="cmm_ui_id_bank">#{=format_account(news_list["account"])}#</label>
+                        <input type="button" class="cmm_ui_bank_message" onclick="this.unlock_page('#{=news_list["bank"]}#','#{=news_list["account"]}#','#{=mobile}#')" value="解绑"/>
+                   </td>
+               </tr>
+            </table>
+            #{ end }#            
+            #{ end }#
+            <div class="cmm_ui_h5"></div>
+            <div valign="middle" align="center" class="cmm_ui_bound_div" onclick="this.bound_page('#{=card_num}#')" border="0">
+                <img src="local:ebank_tied_card/images/add.png" class="cmm_ui_bound_bankimg" ></img>
+                <input type="button" value="添加银行卡" class="cmm_ui_bound_bank" onclick="this.bound_page('#{=card_num}#')"></input>
+            </div>
+            <div class="cmm_ui_h100"></div>
+            <div border="0" class="cmm_ui_tisdiv" align="center">
+                <label class="public_tis,cmm_ui_tis">温馨提示：暂时只支持储蓄卡绑定。</label>
+            </div>
+        </div>
+    </body>
+</content>

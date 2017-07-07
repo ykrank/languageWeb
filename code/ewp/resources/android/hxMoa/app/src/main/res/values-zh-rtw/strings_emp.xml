@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- 以下是附件阅读中用到的内容   共5个 -->
+    <string name="progress">當前進度：%s</string>
+    <string name="progress_o">當前進度：20%</string>
+    <string name="open_failed">文件無法打開!</string>
+    <string name="enter_password">請輸入密碼</string>
+    <string name="searching_">查找中...</string>
+    <string name="text_not_found">內容未找到</string>
+
+    <!-- 以下是视频播放控件中用到的内容 -->
+    <string name="vedio_title">融易通信息技術有限公司</string>
+
+    <!-- 网络请求提示语 -->
+    <string name="http_exception">通信異常，無法連接服務器，請檢查手機的網絡設置和通訊情況。</string>
+    <string name="http_cancel_exception">本次網絡請求已被取消。</string>
+    <string name="err_system_res">系統資源不足，退出重新登錄可緩解這個問題。</string>
+    <string name="http_hmac_verify">數據接收不完整，請重試。</string>
+    <string name="http_app_upgrading">服務升級中，請稍後再試。</string>
+    <!-- 压缩相关提示语 -->
+    <string name="err_gunzip_data_format">壓縮數據格式錯誤。</string>
+    <string name="err_gunzip_data_method">壓縮數據方法錯誤。</string>
+    <string name="err_gunzip_fail">不能正確的壓縮數據。</string>
+    <!-- 离线相关提示语 -->
+    <string name="offline_prompt_update_finish">離線資源更新完成。</string>
+    <string name="offline_prompt_latest">離線資源已是最新版。</string>
+    <string name="offline_prompt_server_error">離線下載失敗，服務器返回錯誤信息。</string>
+    <string name="offline_prompt_optional_start">您有新的離線資源需要下載，是否更新？</string>
+    <string name="offline_prompt_must_start">有離線資源更新。</string>
+    <!-- 弹出框标题和按钮文本 -->
+    <string name="dialog_title_tip">提示</string>
+    <string name="dialog_btn_ok">確定</string>
+    <string name="dialog_btn_cancel">取消</string>
+    
+    <!-- 错误码标识，如果该字段为空值，则不会提示错误码 -->
+    <string name="error_code">错误码：</string>
+    <!-- 程序崩溃提示信息 -->
+    <string name="toast_crash">很抱歉，程式出現異常，即將退出。</string>
+    
+    <!-- 信道建立失败相关提示语 -->
+    <string name="tls_verify_certificate_fail">建立安全通道失敗，原因為證書校驗失敗。</string>
+    <string name="tls_verify_hmac_fail">建立安全通道失敗，原因為hmac校驗失敗。</string>
+    <string name="tls_verify_finish_data_fail">建立安全通道失敗，原因為finish校驗失敗。</string>
+    <string name="tls_http_connect_fail">建立安全通道失敗，請檢查手機的網絡設置及通訊情況。</string>
+    
+    <!-- 不支持功能提示语 -->
+    <string name="sys_function_unsupported">當前系統不支持該功能。</string>
+    <string name="sys_mail_unsupported">當前系統不支持收發郵件功能。</string>
+    <string name="sys_sms_unsupported">當前系統不支持收發短信功能。</string>
+    <string name="sys_tel_unsupported">當前系統不支持電話功能。</string>
+    
+    <!-- 颜色格式相关提示语 -->
+    <string name="color_code_start_standard">顏色代碼格式必須以‘#’開頭。</string>
+</resources>

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+#{
+    this = ert.channel:get_page("ebank_manage_asset","EMAS0004");
+    local json_data=this:get_data();
+    local json_tbl = json:objectFromJSON(json_data) or {};
+    json_tbl["body"] = json_tbl["body"] or {};
+    
+    local CustName = json_tbl["body"]["custName"];
+    local AccBalance = json_tbl["body"]["accBalance"];
+}#
+<content>
+    <head>
+    <script type="text/x-lua" src="ebank_manage_asset/lua/EMAS0004.lua"></script>
+    <link ref="ebank_manage_asset/css/EMAS0000.css" type="text/css"/>
+    <link ref="ebank_manage_asset/css/EMAS0004.css" type="text/css"/>
+    <link ref="ebank_public.css" type="text/css"/>
+    </head>
+    <body class="body">
+      #{local str = ebank_public.header:set_header("电子账户","2","0","0")}#
+      #{= str}#
+      <div class="public_main_div,bgFFFFFF" border="0">
+        <div class="div_t0_h185_w320" border="0">
+          <table class="tabel_w320_bgFFFFFF" border="0">
+            <tr class="trtd_h44_w320" border="1">
+              <td class="trtd_h44_w320">
+                <label class="public_label_left,top15">电子账户余额</label>
+                <label class="label_t15_r42_fs13_c999999,right32,colorF85050">#{= format_money(AccBalance)}#</label>
+                <label class="label_t17_r27_fs10_c999999,public_right,colorF85050">元</label>
+                <label class="public_line_b1"></label>
+              </td>
+            </tr>
+            <tr class="trtd_h44_w320" border="1">
+              <td class="trtd_h44_w320">
+                <label class="public_label_left,top15">账户名称</label>
+                <label class="label_t15_r42_fs13_c999999,public_right">#{= CustName}#</label>
+              </td>
+            </tr>
+            <tr class="trtd_h15_w320,bgEBEBEE" border="1">
+              <td class="trtd_h15_w320,bgEBEBEE">
+              </td>
+            </tr>
+            <tr class="trtd_h35_w320,bgFFFFFF" border="1">
+              <td class="trtd_h35_w320,bgFFFFFF">
+                <label class="label_t8_l15_fs17_c666666">交易明细查询</label>
+              </td>
+            </tr>
+            <tr class="trtd_h10_w320,bgFFFFFF" border="1">
+              <td class="trtd_h10_w320,bgFFFFFF">
+              </td>
+            </tr>
+            <tr class="trtd_h27_w320,bgFFFFFF" border="0">
+              <td class="trtd_h27_w320,bgFFFFFF">
+                <input type="text" style="-wap-input-format:'date'" showformat="yyyy-MM-dd" id="dateStart" class="input_t0_w97_h27_l8_fs10_c666666" border="0"/>
+                <div class="img_h17_w17_l83_t4" border="0"></div>
+                <input type="text" style="-wap-input-format:'date'" showformat="yyyy-MM-dd" id="dateEnd" class="input_t0_w97_h27_l120_fs10_c666666" border="0"/>
+                <div class="img_h17_w17_r108_t4" border="0"></div>
+                <input type="button" class="input_t0_h26_w83_r8_fs12_cF85050" value="查询" border="0" onclick="reference_list('2')" />
+              </td>
+            </tr>
+            <tr class="trtd_h10_w320,bgFFFFFF" border="1">
+              <td class="trtd_h10_w320,bgFFFFFF">
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="div_t185_h30_w304_l8,bgEBEBEE" border="0">
+          <label class="label_t9_r15_fs14_c666666">交易类型</label>
+          <label class="label_t9_l130_fs14_c666666">交易金额</label>
+          <label class="label_t9_l15_fs14_c666666">交易日期</label>
+        </div>
+        <div name="referencelist" class="div_t215_h250_w320" border="0"></div>
+      </div>
+      <div class="div_l0_b0_h50_w320_L5" border="0">
+        <input type="button" class = "input_t0_h35_w160_l0_fs14_cFFFFFF" value="转入" onclick="next_money_into('0','#{= AccBalance}#','#{= CustName}#')"></input>
+        <input type="button" class = "input_t0_h35_w160_r0_fs14_cFFFFFF" value="转出" onclick="next_money_into('1','#{= AccBalance}#','#{= CustName}#')"></input>
+      </div>
+  </body>
+</content>

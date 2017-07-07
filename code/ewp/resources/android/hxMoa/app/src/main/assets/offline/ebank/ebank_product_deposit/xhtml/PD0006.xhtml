@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+#{
+  this = ert.channel:get_page("ebank_product_deposit","PD0006");
+  local data=this:get_data();
+  local table=json:objectFromJSON(data) or {};
+  table["body"] = table["body"] or {};
+  local unit = table["body"]["unit"];
+
+  --智能存款收益
+  local req_tbl_zn = ert.channel:get_request("ebank_product_deposit","PD0006");
+  local zn_rate = req_tbl_zn["zn_rate"];
+  local zn_amount = req_tbl_zn["zn_amount"];
+  local backbalance = req_tbl_zn["backbalance"];
+}#
+<content>
+<head>
+    <script type="text/x-lua" src="ebank_product_deposit/lua/PD0006.lua"></script>
+    <link ref="ebank_public.css" type="text/css"/>
+    <link ref="ebank_product_huaxingbao/css/PX0003.css" type="text/css"/>
+    <style>
+    .table_t106{top: 96px;}
+    </style>
+</head>
+<body>
+  #{local str = ebank_public.header:set_header("智能存款","3","华兴投融资平台","2")}#
+  #{= str}#
+  <div class="public_main_div,div_l10_bffffff_w300" border="0">
+    <div class="div_l10_bffffff_w300,bg#ffffff" border="0">
+      <img src="check-icon.png" class="img_l100_t25_w36_h36" />
+      <label class="label_fs17_c4d4d4d">支取成功！</label>
+      <table border="0" class="table_t106">
+        <tr>
+          <td>
+            <label class="label_l15_h30">产品名称</label>
+          </td>
+          <td>
+            <label class="label_r15_h30">智能存款</label>
+          </td>
+        </tr>
+         <tr>
+          <td>
+            <label class="label_l15_h30">支取金额</label>
+          </td>
+          <td>
+            <label class="label_pink">#{=format_money(backbalance)}#</label>
+            <label class="label_r15_h30">元</label>
+          </td>
+        </tr>
+         <tr>
+          <td>
+            <label class="label_l15_h30">剩余持有份额</label>
+          </td>
+          <td>
+            <label class="label_pink">#{=format_money(unit)}#</label>
+            <label class="label_r15_h30">元</label>
+          </td>
+        </tr>
+      </table> 
+      <label class="public_line_stroke_b1"></label>
+    </div> 
+    <input type="button" class="public_15_w290_h35,button_left" value="查看交易明细" onclick="turn_page_pD0006('4','#{=zn_rate}#','#{=zn_amount}#')" border="0"></input>
+    <input type="button" class="public_15_w290_h35,button_right" value="继续支取" onclick="turn_page_pD0006('5','#{=zn_rate}#','#{=zn_amount}#')" border="0"></input>
+    #{=ebank_public.new_broduct:new_broduct_show()}#
+  </div>   
+</body>
+</content>

@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+#{
+    this = ert.channel:get_page("ebank_P2P","EBAP0001");
+    local json_data=this:get_data();
+    local json_tbl = json:objectFromJSON(json_data) or {};
+    json_tbl["body"] = json_tbl["body"] or {};
+
+    local platfrome_list = json_tbl["body"]["platfromelist"];
+
+    local totalBalance = 0;
+    for key,value in pairs(platfrome_list) do
+        totalBalance = totalBalance + value["accountBalance"];
+    end
+
+}#
+
+<content>
+    <head>
+    <script type="text/x-lua" src="ebank_P2P/lua/EBAP0001.lua"></script>
+    <link ref="ebank_manage_asset/css/EMAS0000.css" type="text/css"/>
+    <link ref="ebank_manage_asset/css/EMAS0004.css" type="text/css"/>
+    <link ref="ebank_P2P/css/EBAP0001.css" type="text/css"/>
+    <link ref="ebank_public.css" type="text/css"/>
+    </head>
+    <body class="body">
+      #{local str = ebank_public.header:set_header("我的P2P","2","0","0")}#
+      #{= str}#
+      <div class="public_main_div,bgFFFFFF" border="0">
+        <div class="div_t0_h44_w320" border="0">
+          <table class="tabel_w320_bgFFFFFF,bgF3F3F3" border="0">
+            <tr class="trtd_h44_w320" border="1">
+              <td class="trtd_h44_w320">
+                <label class="public_label_left">账户总余额</label>
+                <label class="label_t15_r42_fs14,right32,colorF85050">#{= totalBalance}#</label>
+                <label class="label_t17_fs10,public_right,colorF85050">元</label>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="div_t44_h120_w320,bgFFFFFF" border="0">
+          <table class="tabel_w320_bgFFFFFF" border="0">
+            #{for key,value in pairs(platfrome_list) do}#
+              <tr class="trtd_h40_w320" border="1">
+                <td class="trtd_h40_w320">
+                  <label class="public_label_left">#{= value["platfromeName"]}#</label>
+                  <label class="label_t15_r42_fs13_c999999,right32,colorF85050">#{= value["accountBalance"]}#</label>
+                  <label class="label_t17_fs10,public_right,colorF85050">元</label>
+                  <label class="public_line_b1"></label>
+                </td>
+              </tr>
+            #{end}#
+          </table>
+        </div>
+        <div class="div_t120_h15_w320,bgEBEBEE" border="0"></div>
+        <div class="div_t135_h82_w320,bgEBEBEE" border="0">
+          <table class="tabel_w320_bgFFFFFF" border="0">
+            <tr class="trtd_h35_w320,bgFFFFFF" border="1">
+              <td class="trtd_h35_w320,bgFFFFFF">
+                <label class="label_t8_l15_fs17_c666666">交易明细查询</label>
+                <img src="date.png" class = "img_h25_t8_w120_r15"></img>
+                <select id="choicebakn" class="select_h25_w120_r15_fs14_c666666">
+                 #{for key,value in pairs(platfrome_list) do}#
+                    <option name="option" id="merchantId" value="#{= value["merchantId"]}#" onclick="option_choice('#{= value["merchantId"]}#')">#{= value["platfromeName"]}#</option>
+                 #{end}#
+                </select>
+                <img src="get_down.png" class = "public_img_h7_w12_r15,right20,top16"></img>
+              </td>
+            </tr>
+            <tr class="trtd_h10_w320,bgFFFFFF" border="1">
+              <td class="trtd_h10_w320,bgFFFFFF">
+              </td>
+            </tr>
+            <tr class="trtd_h27_w320,bgFFFFFF" border="0">
+              <td class="trtd_h27_w320,bgFFFFFF">
+                <input type="text" style="-wap-input-format:'date'" showformat="yyyy-MM-dd" id="dateStart" class="input_t0_w97_h27_l8_fs10_c666666" border="0"/>
+                <div class="img_h17_w17_l83_t4" border="0"></div>
+                <input type="text" style="-wap-input-format:'date'" showformat="yyyy-MM-dd" id="dateEnd" class="input_t0_w97_h27_l120_fs10_c666666" border="0"/>
+                <div class="img_h17_w17_r108_t4" border="0"></div>
+                <input type="button" class="input_t0_h26_w83_r8_fs12_cF85050" value="查询" border="0" onclick="reference_list('2')" />
+              </td>
+            </tr>
+            <tr class="trtd_h10_w320,bgFFFFFF" border="1">
+              <td class="trtd_h10_w320,bgFFFFFF">
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="div_t216_h30_w304_l8,bgEBEBEE" border="0">
+          <label class="label_t9_r15_fs14_c666666">交易类型</label>
+          <label class="label_t9_l130_fs14_c666666">交易金额</label>
+          <label class="label_t9_l15_fs14_c666666">交易日期</label>
+        </div>
+        <div name="referencelist" class="div_t246_h255_w320" border="0"></div>
+      </div>
+  </body>
+</content>

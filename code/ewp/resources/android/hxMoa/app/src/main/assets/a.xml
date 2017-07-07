@@ -1,0 +1,161 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<content>
+  <head>
+    <style>
+      .lable_style{left: 10px;height: 40px;font-size: 15px;color: #ffffff;background-color: #445544;}
+      .button_style{width: 150px;height: 50px;}
+      .backg-color{background-color: #ff0000;}
+      .close_but{width:300px;height:30px;left:10px;font-size:20px;color:#000000;background-color:#ffff00;}
+    </style>
+    <link ref="eui.css" type="text/css"/>
+    <script type="text/x-lua" src="RYTL.lua"></script>
+    <script type="text/x-lua">
+      <![CDATA[
+        ryt = RYTL:new{};
+      ]]>
+    </script>
+  </head>
+  <body>
+      <!--测试leftimgpos属性 -->
+      <label class="lable_style">不加leftimgpos属性</label><br/>
+      <input type="button" border="1" leftimg="a.png" value="test"></input><br/><br/>
+
+      <label class="lable_style">加leftimgpos属性,leftimgpos="15,15,5,30,30"</label><br/>
+      <input type="button" border="1" leftimg="local:a.png" leftimgpos="15,15,5,30,30"
+      value="test"></input><br/><br/>
+
+      <label class="lable_style">修改left ,right的值</label><br/>
+      <label class="lable_style">leftimgpos="25,25,5,30,30"</label><br/>
+      <input type="button" border="1" leftimg="local:a.png" leftimgpos="25,25,5,30,30"
+      value="test"></input><br/>
+      <label class="lable_style">leftimgpos="0,15,5,30,30"</label><br/>
+      <input type="button" border="1" leftimg="local:a.png" leftimgpos="0,15,5,30,30"
+      value="test"></input><br/><br/>
+
+      <label class="lable_style">修改top,width,height的值</label><br/>
+      <label class="lable_style">leftimgpos="15,15,15,50,50"</label><br/>
+      <input type="button" border="1" leftimg="local:a.png" leftimgpos="15,15,15,50,50"
+      value="test"></input><br/>
+      <label class="lable_style">leftimgpos="15,15,0,0,0"</label><br/>
+      <input type="button" border="1" leftimg="local:a.png" leftimgpos="15,15,0,0,0"
+      value="test"></input><br/><br/>
+
+      <label class="lable_style">异常测试</label><br/>
+      <label class="lable_style">5个值不全,leftimgpos="15,15,5,30"</label><br/>
+      <input type="button" border="1" leftimg="local:a.png" leftimgpos="15,15,5,30"
+      value="5个值不全"></input><br/>
+      <label class="lable_style">有小数点,leftimgpos="1.5,15,5,30,30"</label><br/>
+      <input type="button" border="1" leftimg="local:a.png" leftimgpos="1.5,15,5,30,30"
+      value="有小数点"></input><br/>
+      <label class="lable_style">中文符号,leftimgpos="15，15,5,30,30"</label><br/>
+      <input type="button" border="1" leftimg="local:a.png" leftimgpos="15，15,5,30,30"
+      value="中文符号"></input><br/>
+      <label class="lable_style">有负数,leftimgpos="-15,15,5,30,30"</label><br/>
+      <input type="button" border="1" leftimg="local:a.png" leftimgpos="-15,15,5,30,30"
+      value="有负数"></input><br/>
+      <label class="lable_style">字母,leftimgpos="a,15,5,30,30"</label><br/>
+      <input type="button" border="1" leftimg="local:a.png" leftimgpos="a,15,5,30,30"
+      value="字母"></input><br/><br/>
+
+      <label class="lable_style">背景颜色</label><br/>
+      <input type="button" border="1" class="backg-color" leftimg="local:a.png" leftimgpos="15,15,5,10,10"
+      value="图片较小时，周围的颜色"></input><br/><br/>
+
+      <label class="lable_style">网络图片</label><br/>
+      <input type="button" border="1" class="backg-img"
+      leftimg="http://h.hiphotos.baidu.com/zhidao/pic/item/6a63f6246b600c3320b14bb3184c510fd8f9a185.jpg"
+      leftimgpos="15,15,5,30,30" value="test"></input><br/><br/>
+
+      <label class="lable_style">指定button样式后,不加leftimgpos属性</label><br/>
+      <input class="button_style" border="1" type="button" leftimg="local:a.png"
+      value="test"></input><br/><br/>
+
+      <label class="lable_style">指定button样式后,加leftimgpos属性,leftimgpos="15,15,5,30,30"</label><br/>
+      <input class="button_style" border="1" type="button" leftimg="local:a.png"
+      leftimgpos="15,15,5,30,30" value="test"></input><br/><br/>
+
+      <label class="lable_style">指定button样式后,修改width,height,top</label><br/>
+      <label class="lable_style">leftimgpos="15,15,30,30,30"</label><br/>
+      <input class="button_style" border="1" type="button" leftimg="local:a.png"
+      leftimgpos="15,15,30,30,30" value="test"></input><br/>
+      <label class="lable_style">leftimgpos="15,15,5,30,70"</label><br/>
+      <input class="button_style" border="1" type="button" leftimg="local:a.png"
+      leftimgpos="15,15,5,30,70" value="test"></input><br/>
+      <label class="lable_style">leftimgpos="15,15,5,30,30"</label><br/>
+      <input class="button_style" border="1" type="button" leftimg="local:a.png"
+      leftimgpos="15,15,5,30,30" value="一段超过button宽度的文字，用于测试文字省略情况"></input><br/><br/><br/>
+
+
+      <!--测试rightimgpos属性 -->
+      <label class="lable_style">不加rightimgpos属性</label><br/>
+      <input type="button" border="1" rightimg="local:a.png" value="test"></input><br/><br/>
+
+      <label class="lable_style">加rightimgpos属性,rightimgpos="15,15,5,30,30"</label><br/>
+      <input type="button" border="1" rightimg="local:a.png" rightimgpos="15,15,5,30,30"
+      value="test"></input><br/><br/>
+
+      <label class="lable_style">修改left ,right的值</label><br/>
+      <label class="lable_style">rightimgpos="25,25,5,30,30"</label><br/>
+      <input type="button" border="1" rightimg="local:a.png" rightimgpos="25,25,5,30,30"
+      value="test"></input><br/>
+      <label class="lable_style">rightimgpos="15,0,5,30,30"</label><br/>
+      <input type="button" border="1" rightimg="local:a.png" rightimgpos="15,0,5,30,30"
+      value="test"></input><br/><br/>
+
+      <label class="lable_style">修改top,width,height的值</label><br/>
+      <label class="lable_style">rightimgpos="15,15,15,50,50"</label><br/>
+      <input type="button" border="1" rightimg="local:a.png" rightimgpos="15,15,15,50,50"
+      value="test"></input><br/>
+      <label class="lable_style">rightimgpos="15,15,0,0,0"</label><br/>
+      <input type="button" border="1" rightimg="local:a.png" rightimgpos="15,15,0,0,0"
+      value="test"></input><br/><br/>
+
+      <label class="lable_style">异常测试</label><br/>
+      <label class="lable_style">5个值不全,rightimgpos="15,15,5,30"</label><br/>
+      <input type="button" border="1" rightimg="local:a.png" rightimgpos="15,15,5,30"
+      value="5个值不全"></input><br/>
+      <label class="lable_style">有小数点,rightimgpos="1.5,15,5,30,30"</label><br/>
+      <input type="button" border="1" rightimg="local:a.png" rightimgpos="1.5,15,5,30,30"
+      value="有小数点"></input><br/>
+      <label class="lable_style">中文符号,rightimgpos="15，15,5,30,30"</label><br/>
+      <input type="button" border="1" rightimg="local:a.png" rightimgpos="15，15,5,30,30"
+      value="中文符号"></input><br/>
+      <label class="lable_style">有负数,rightimgpos="-15,15,5,30,30"</label><br/>
+      <input type="button" border="1" rightimg="local:a.png" rightimgpos="-15,15,5,30,30"
+      value="有负数"></input><br/>
+      <label class="lable_style">字母,rightimgpos="a,15,5,30,30"</label><br/>
+      <input type="button" border="1" rightimg="local:a.png" rightimgpos="a,15,5,30,30"
+      value="字母"></input><br/><br/>
+
+      <label class="lable_style">背景颜色</label><br/>
+      <input type="button" border="1" class="backg-color" rightimg="local:a.png" rightimgpos="15,15,5,10,10"
+      value="图片较小时，周围的颜色"></input><br/><br/>
+
+      <label class="lable_style">网络图片</label><br/>
+      <input type="button" border="1" class="backg-img"
+      rightimg="http://h.hiphotos.baidu.com/zhidao/pic/item/6a63f6246b600c3320b14bb3184c510fd8f9a185.jpg"
+      rightimgpos="15,15,5,30,30" value="test"></input><br/><br/>
+
+      <label class="lable_style">指定button样式后,不加rightimgpos属性</label><br/>
+      <input class="button_style" border="1" type="button" rightimg="local:a.png"
+      value="test"></input><br/><br/>
+
+      <label class="lable_style">指定button样式后,加rightimgpos属性,rightimgpos="15,15,5,30,30"</label><br/>
+      <input class="button_style" border="1" type="button" rightimg="local:a.png"
+      rightimgpos="15,15,5,30,30" value="test"></input><br/><br/>
+
+      <label class="lable_style">指定button样式后,修改width,height,top</label><br/>
+      <label class="lable_style">rightimgpos="15,15,30,30,30"</label><br/>
+      <input class="button_style" border="1" type="button" rightimg="local:a.png"
+      rightimgpos="15,15,30,30,30" value="test"></input><br/>
+      <label class="lable_style">rightimgpos="15,15,5,30,70"</label><br/>
+      <input class="button_style" border="1" type="button" rightimg="local:a.png"
+      rightimgpos="15,15,5,30,70" value="test"></input><br/>
+      <label class="lable_style">rightimgpos="15,15,5,30,30"</label><br/>
+      <input class="button_style" border="1" type="button" rightimg="local:a.png"
+      rightimgpos="15,15,5,30,30" value="一段超过button宽度的文字，用于测试文字省略情况"></input>
+
+      <!-- 关闭按钮 -->
+      <input type="button" border="1" class="close_but" value="关闭" onclick="close()"/><br/>
+  </body>
+</content>

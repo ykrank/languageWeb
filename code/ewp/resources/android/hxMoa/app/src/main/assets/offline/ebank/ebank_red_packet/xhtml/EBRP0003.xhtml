@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+#{
+    this = ert.channel:get_page("ebank_red_packet","EBRP0003");
+    local json_data=this:get_data();
+    local json_tbl = json:objectFromJSON(json_data) or {};
+    json_tbl["body"] = json_tbl["body"] or {};
+
+    local AvailableBalance = json_tbl["body"]["availableBalance"];
+
+    local req_value = ert.channel:get_request("ebank_red_packet","EBRP0002");
+}#
+
+<content>
+    <head>
+    <script type="text/x-lua" src="ebank_red_packet/lua/EBRP0003.lua"></script>
+    <link ref="ebank_manage_asset/css/EMAS0000.css" type="text/css"/>
+    <link ref="ebank_manage_asset/css/EMAS0003.css" type="text/css"/>
+    <link ref="ebank_public.css" type="text/css"/>
+    </head>
+    <body class="body">
+      #{local str = ebank_public.header:set_header("提现结果","3","0","0")}#
+      #{= str}#
+      <div class="public_main_div" border="0">
+        <table class="tabel_w320_bgFFFFFF" border="0">
+          <tr class="trtd_h25_w320" border="1">
+              <td class="trtd_h25_w320">
+              </td>
+            </tr>
+            <tr class="trtd_h36_w320" border="1">
+              <td class="trtd_h36_w320">
+                <img src="check-icon.png" class = "img_h36_w36_l100"></img>
+                <label class="label_l148_fs17_c4D4D4D">提现成功</label>
+              </td>
+            </tr>
+            <tr class="trtd_h15_w320" border="1">
+              <td class="trtd_h15_w320">
+              </td>
+            </tr>
+            <tr class="trtd_h30_w320" border="1">
+              <td class="trtd_h30_w320">
+                <label class="label_fs12_c666666,public_left">提现金额:</label>
+                <label class="label_fs12_cF85050,right32">#{= format_money(req_value["WithdrawAmount"])}#</label>
+                <label class="label_fs12_c666666,public_right">元</label>
+              </td>
+            </tr>
+            <tr class="trtd_h30_w320" border="1">
+              <td class="trtd_h30_w320">
+                <label class="label_fs12_c666666,public_left">E账户可用金额:</label>
+                <label class="label_fs12_cF85050,right32">#{= format_money(AvailableBalance)}#</label>
+                <label class="label_fs12_c666666,public_right">元</label>
+              </td>
+            </tr>
+            <tr class="trtd_h10_w320" border="1">
+              <td class="trtd_h10_w320">
+              </td>
+            </tr>
+            <tr class="trtd_h30_w320,bgEBEBEE" border="1">
+              <td class="trtd_h30_w320,bgEBEBEE">
+              </td>
+            </tr>
+            <tr class="trtd_h35_w320,bgEBEBEE" border="1">
+              <td class="trtd_h35_w320,bgEBEBEE">
+                <input type="button" class = "public_15_w290_h35" value="确定" onclick="sure_inquiry()"></input>
+              </td>
+            </tr>
+            <tr class="trtd_h45_w320,bgEBEBEE" border="1">
+              <td class="trtd_h45_w320,bgEBEBEE">
+              </td>
+            </tr>
+        </table>
+      </div>
+      #{=ebank_public.new_broduct:new_broduct_show()}#
+  </body>
+</content>

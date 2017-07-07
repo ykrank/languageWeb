@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<content>
+    <head>
+    <script type="text/x-lua" src="ebank_product_recommend/lua/LH0001.lua"></script>
+    <link ref="ebank_public.css" type="text/css"/>
+    <link ref="ebank_product_recommend/css/LH0001.css" type="text/css"/>
+    </head>
+    <body class="body">
+      #{local str = ebank_public.header:set_header("每日推荐","1")}#
+      #{= str}#
+      <div class="div_w320_t44_l0" border="0" name="main1">
+        <!--标语-->
+        <div name="main" class="div_w320_h24_t0_bf8f8f8" id="main" border="0">
+          <img src="ebank_product_recommend/images/notice.png" class="img_l15_w12_h12_t6"/>
+          <label class="label_f24_c666666_t3_w266_l27" loop="true" id ="news" velocity="25"></label>
+          <img src="ebank_product_recommend/images/noticeclose.png" class="img_r15_w12_h12_t6" onclick="close_welcome_news()"/>
+        </div>
+        <!--产品收益-->
+        <div border="0" class="div_t24_l0">
+          <label class="label_t15_w320_c66666_f21">
+          </label>
+            <div border="0" class="div_t47_l0">
+              <img src="ebank_product_recommend/images/databg.png" class="img_h234_w234_t0_l43"/>
+              <label class="label_w320_t30,label_color">#{=global_hx_rate}#</label>
+              <label class="label_w320_t51,label_color">七日年化收益率</label>
+              <label class="label_w320_t148,label_color_w">#{=global_hx_profit}#</label>
+              <label class="label_w320_t178,label_color_w">万份收益</label>
+            </div>
+            <label class="label_l15_f12_c666666_t296">已累计为客户创造收益</label>
+              <div class="div_w320_h50" border="0" >
+                <!--用户收益数组
+                  1.获取收益金额长度
+                  2.循环获取每个字符，判断是否为数字，若为数字，加背景图标
+                -->
+                  <div class="div_t11_r30" border="0">
+               
+                  </div>
+                  <!--<label class="label_t0_w320">8,201,588.88</label>-->
+                  <label class="lable_txt,label_color">元</label>
+              </div>
+          <input class="public_15_w290_h35,button_l15_h35" type="button" value="申购" border="0" onclick="turn_page_hxp('#{=productId}#','#{=rate}#','#{=profit}#')"></input>
+        </div>
+      </div>
+      #{local bottom = ebank_public.bottom:set_bottom("每日推荐")}#
+      #{= bottom}#
+  </body>
+</content>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+#{
+this = ert.channel:get_page("ebank_password_manager","LPM00001");
+}#
+<content>
+  <head>
+    <link ref="ebank_password_manager/css/ebank_password_manager_public.css" type="text/css"/>
+    <link ref="ebank_public.css" type="text/css"/>
+    <script type="text/x-lua" src="ebank_password_manager/lua/LPM00002.lua"/>
+  </head>
+  <body>
+    #{local str = ebank_public.header:set_header("结果","3")}#
+    #{= str}#
+    <div class="public_main_div" border="0">
+      <table class="" border="0" >
+        <tr>
+          <td>
+            <div valign="middle" align="center" class="div_t25_w320" border="0" >   <img src='check-icon.png' class="w36_h36"/>
+              <div class="w12,inline-block"></div>
+              <label class="">交易密码修改成功！</label>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div class="div_kong,h25,bgffffff" border="0"></div>
+            <div class="div_kong" border="0"></div>
+            <div class="div_kong" border="0"></div>
+          </td>
+        </tr>
+      </table>
+      <div border="0" >
+        <input type="button" class="public_15_w290_h35" border="0"  value="确认并返回" onclick="click()" />
+      </div>
+     
+    </div>
+    #{=ebank_public.new_broduct:new_broduct_show()}#
+  </body>
+</content>
+

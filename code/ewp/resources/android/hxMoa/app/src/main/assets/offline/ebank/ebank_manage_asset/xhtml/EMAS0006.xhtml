@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+#{
+    local req_value = ert.channel:get_request("ebank_manage_asset","EMAS0006");
+}#
+
+<content>
+    <head>
+    <script type="text/x-lua" src="ebank_manage_asset/lua/EMAS0006.lua"></script>
+    <link ref="ebank_manage_asset/css/EMAS0000.css" type="text/css"/>
+    <link ref="ebank_manage_asset/css/EMAS0003.css" type="text/css"/>
+    <link ref="ebank_public.css" type="text/css"/>
+    </head>
+    <body class="body">
+      #{local str = ebank_public.header:set_header("配置结果","3","0","0")}#
+      #{= str}#
+      <div class="public_main_div" border="0">
+        <table class="tabel_w320_bgFFFFFF" border="0">
+          <tr class="trtd_h25_w320" border="1">
+              <td class="trtd_h25_w320">
+              </td>
+            </tr>
+            <tr class="trtd_h36_w320" border="1">
+              <td class="trtd_h36_w320">
+                <img src="check-icon.png" class = "img_h36_w36_l100,left69"></img>
+                #{if req_value["successSign"] == "N" then}#
+                  #{if req_value["Sign"] == "2" then}#
+                      <label class="label_l148_fs17_c4D4D4D,left117">资产配置修改成功</label>
+                  #{else}#
+                      <label class="label_l148_fs17_c4D4D4D,left117">资产配置签约成功</label>
+                  #{end}#
+                #{else}#
+                  <label class="label_l148_fs17_c4D4D4D,left117">资产配置撤销成功</label>
+                #{end}#
+              </td>
+            </tr>
+            <tr class="trtd_h10_w320" border="1">
+              <td class="trtd_h10_w320">
+              </td>
+            </tr>
+            <tr class="trtd_h30_w320,bgEBEBEE" border="1">
+              <td class="trtd_h30_w320,bgEBEBEE">
+              </td>
+            </tr>
+            <tr class="trtd_h35_w320,bgEBEBEE" border="1">
+              <td class="trtd_h35_w320,bgEBEBEE">
+                <input type="button" class = "public_15_w290_h35" value="确定" onclick="sure_asset()"></input>
+              </td>
+            </tr>
+        </table>
+      </div>
+      #{=ebank_public.new_broduct:new_broduct_show()}#
+  </body>
+</content>

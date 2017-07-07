@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- 以下是附件阅读中用到的内容 -->
+    <string name="progress">Current progress：%s</string>
+    <string name="progress_o">Current progress：20%</string>
+    <string name="open_failed">File could not be opened!</string>
+    <string name="enter_password">Please enter a password.</string>
+    <string name="searching_">Searching...</string>
+    <string name="text_not_found">Content not found.</string>
+
+    <!-- 以下是视频播放控件中用到的内容 -->
+    <string name="vedio_title">RYTong Information Technology Company</string>
+
+    <!-- 网络请求提示语 -->
+    <string name="http_exception">Communication is abnormal, unable to connect to the server, Please check the network settings and communication of mobile phone.</string>
+    <string name="http_cancel_exception">The network request has been canceled.</string>
+    <string name="err_system_res"> Out of memory or system resources. Please exit and login again, wihch may alleviate this problem.</string>
+    <string name="http_hmac_verify">The data is incomplete, plese try again.</string>
+    <string name="http_app_upgrading">Service is upgrading, please try again later.</string>
+    <!-- 压缩相关提示语-->
+    <string name="err_gunzip_data_format">The format of the compressed data error.</string>
+    <string name="err_gunzip_data_method">The method of the compressing data error.</string>
+    <string name="err_gunzip_fail">Cannot pressure data correcttly.</string>
+    <!-- 离线相关提示语 -->
+    <string name="offline_prompt_update_finish">Offline updating is finished.</string>
+    <string name="offline_prompt_latest">Offline resources are the latest.</string>
+    <string name="offline_prompt_server_error">Offline download failed, server returns the error message.</string>
+    <string name="offline_prompt_optional_start">You have new offline resources to download, whether update or not?</string>
+    <string name="offline_prompt_must_start">You have offline resources to update.</string>
+    <!-- 弹出框标题和按钮文本 -->
+    <string name="dialog_title_tip">Tip</string>
+    <string name="dialog_btn_ok">OK</string>
+    <string name="dialog_btn_cancel">Cancel</string>
+    
+    <!-- 错误码标识，如果该字段为空值，则不会提示错误码 -->
+    <string name="error_code">errorcode:</string>
+    
+    <!-- 信道建立失败相关提示语 -->
+    <string name="tls_verify_certificate_fail">TLS failed, because the certificate verify failded.</string>
+    <string name="tls_verify_hmac_fail">TLS failed, because hmac verify failded.</string>
+    <string name="tls_verify_finish_data_fail">TLS failed, because hmac verify finish failded.</string>
+    <string name="tls_http_connect_fail">TLS failed.</string>
+    
+    <!-- 不支持功能提示语 -->
+    <string name="sys_function_unsupported">The system does not support the function.</string>
+    <string name="sys_mail_unsupported">The system does not support email function.</string>
+    <string name="sys_sms_unsupported">The system does not support sms function.</string>
+    <string name="sys_tel_unsupported">The system does not support phone function.</string>
+	
+    <!-- 颜色格式相关提示语 -->
+    <string name="color_code_start_standard">The Color code must start at \'#\'</string>
+</resources>
