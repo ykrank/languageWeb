@@ -6,7 +6,7 @@
 
 </head>
 <body>
-    <h3>简介</h3>
+    <a name="main"><h3>简介</h3></a>
     <p>部分图形组件</p>
     <table border="1">
         <tr>
@@ -16,42 +16,42 @@
         </tr>
         <tr>
             <th>1.</th>
-            <th>TextView</th>
+            <th><a href="#TextView">TextView</a></th>
             <th>文本显示组件</th>
         </tr>
         <tr>
             <th>2.</th>
-            <th>Button</th>
+            <th><a href="#Button">Button</a></th>
             <th>按钮组件</th>
         </tr>
         <tr>
             <th>3.</th>
-            <th>EditText</th>
+            <th><a href="#editTex">EditText</a></th>
             <th>可编辑的文本框组件</th>
         </tr>
         <tr>
             <th>4.</th>
-            <th>CheckBox</th>
+            <th><a href="#CheckBox">CheckBox</a></th>
             <th>复选框组件</th>
         </tr>
         <tr>
             <th>5.</th>
-            <th>RadioGroup</th>
+            <th><a href="#RadioGroup">RadioGroup</a></th>
             <th>单选按钮组件</th>
         </tr>
         <tr>
             <th>6.</th>
-            <th>Spinner</th>
+            <th><a href="#Spinner">Spinner</a></th>
             <th>下拉列表框组件</th>
         </tr>
         <tr>
             <th>7.</th>
-            <th>DatePicker</th>
+            <th><a href="#DatePicker">DatePicker</a></th>
             <th>日期选择组件</th>
         </tr>
         <tr>
             <th>8.</th>
-            <th>TimerPicker</th>
+            <th><a href="#TimePicker">TimePicker</a></th>
             <th>时间选择组件</th>
         </tr>
         <tr>
@@ -76,12 +76,12 @@
         </tr>
         <tr>
             <th>13.</th>
-            <th>ImageView</th>
+            <th><a href="#ImageView">ImageView</a></th>
             <th>图片显示组件</th>
         </tr>
         <tr>
             <th>14.</th>
-            <th>ImageButton</th>
+            <th><a href="#ImageButton">ImageButton</a></th>
             <th>图片按钮组件</th>
         </tr>
         <tr>
@@ -106,6 +106,7 @@
         </tr>
     </table>
     <hr>
+    <a href="#main">返回头部</a>
     <p>View组件常用属性及操作方法</p>
     <table border="1">
         <tr>
@@ -290,7 +291,8 @@
         </tr>
     </table>
     <hr>
-    <h3>文本显示组件TextView</h3>
+    <a href="#main">返回头部</a>
+    <a name="TextView"><h3>文本显示组件TextView</h3></a>
     <table border="1">
         <tr>
             <th>No</th>
@@ -359,8 +361,9 @@ java.lang.Object
     <p>测试代码地址：languageWeb1/code/android/resources/view/TextView</p>
 
     <hr>
+    <a href="#main">返回头部</a>
 
-    <h3>按扭组件Button</h3>
+    <a name="Button"><h3>按扭组件Button</h3></a>
     <p>类继承</p>
     <pre>
         <code>
@@ -375,29 +378,446 @@ java.lang.Object
     <p>测试代码地址：languageWeb1/code/android/resources/view/Buttom_Text</p>
 
     <hr>
+    <a href="#main">返回头部</a>
 
-    <h3>编辑框EditText</h3>
+    <a name="editTex"><h3>编辑框EditText</h3></a>
+    <p>类继承</p>
+    <pre>
+        <code>
+java.lang.Object
+            android.view.View
+                    android.widget.TextView
+                            android.widget.EditText
+        </code>
+    </pre>
+    <p>EditText类的常用方法</p>
+    <table border="1">
+        <tr>
+            <th>No.</th>
+            <th>方法</th>
+            <th>类型</th>
+            <th>描述</th>
+        </tr>
+        <tr>
+            <th>1.</th>
+            <th>public EditText(Context context)</th>
+            <th>构造</th>
+            <th>创建EditText</th>
+        </tr>
+        <tr>
+            <th>2.</th>
+            <th>public void selectAll()</th>
+            <th>普通</th>
+            <th>选择全部内容</th>
+        </tr>
+        <tr>
+            <th>3.</th>
+            <th>public final void append(CharSequence text)</th>
+            <th>普通</th>
+            <th>追加内容</th>
+
+        </tr>
+        <tr>
+            <th>4.</th>
+            <th>public final void setTransformationMethod(TransformationMethod method)</th>
+            <th>普通</th>
+            <th>设置文本的显示方式,如按照密文方式显示</th>
+        </tr>
+    </table>
+    <p>文本框定义</p>
+    <p>文本框不可辑编状态</p>
+    <p>文本框样式（密码格式）</p>
+    <p>测试代码地址：languageWeb1/code/android/resources/view/Edit_Text</p>
     <hr>
+    <a href="#main">返回头部</a>
 
-    <h3>单选按钮RadioGroup</h3>
+    <a name="RadioGroup"></a><h3>单选按钮RadioGroup</h3>
+    <p>类继承</p>
+    <pre>
+        <code>
+java.lang.Object
+            android.view.View
+                    android.view.ViewGroup
+                            android.widget.LinearLayout
+                                    android:widget.RadioGroup
+        </code>
+    </pre>
+    <table>
+        <tr>
+            <th>No.</th>
+            <th>方法</th>
+            <th>类型</th>
+            <th>描述</th>
+        </tr>
+        <tr>
+            <th>1.</th>
+            <th>public void check(int id)</th>
+            <th>普通</th>
+            <th>设置要选中的单选按钮编号</th>
+        </tr>
+        <tr>
+            <th>2.</th>
+            <th>public void clearCheck()</th>
+            <th>普通</th>
+            <th>清空选中状态</th>
+        </tr>
+        <tr>
+            <th>3.</th>
+            <th>public int getCheckedRadioButtonId()</th>
+            <th>普通</th>
+            <th>取得选中按钮的ID</th>
+        </tr>
+        <tr>
+            <th>4.</th>
+            <th>public void setOnCheckedChangeListener(RadioGroup.OnCheckedChangeListener listener)</th>
+            <th>普通</th>
+            <th>设置选中单选按钮的操作事件</th>
+        </tr>
+    </table>
+    <p>引用RadioButton类</p>
+    <pre>
+        <code>
+java.lang.Object
+    android.view.View
+            android.widget.TextView
+                android.widget.Button
+                    android.widget.CompoundButton
+                        android.widget.RadioButton
+        </code>
+    </pre>
+    <p>画出两个单选按钮上下或左右对齐</p>
+    <p>测试代码地址：languageWeb1/code/android/resources/view/RadioGroup_text</p>
+
     <hr>
+    <a href="#main">返回头部</a>
 
-    <h3>复选框checkBox</h3>
+    <a name="CheckBox"><h3>复选框checkBox</h3></a>
+    <pre>
+        <code>
+            java.lang.Object
+                android.view.View
+                    android.widget.TextView
+                        android.widget.Button
+                            android.widget.CompoundButton
+                                android.widget.CheckBox
+        </code>
+    </pre>
+    <table border="1">
+        <tr>
+            <th>No.</th>
+            <th>方法</th>
+            <th>类型</th>
+            <th>描述</th>
+        </tr>
+        <tr>
+            <th>1.</th>
+            <th>public CheckBox(Context context)</th>
+            <th>构造</th>
+            <th>实例化CheckBox组件</th>
+        </tr>
+        <tr>
+            <th>2.</th>
+            <th>public void setChecked(boolean checked)</th>
+            <th>普通</th>
+            <th>设置默认选中</th>
+        </tr>
+    </table>
+    <p>定义一个复选框，默认第二个选中,并改动文字</p>
+    <p>测试代码地址：languageWeb1/code/android/resources/view/CheckBox_text</p>
+
     <hr>
+    <a href="#main">返回头部</a>
 
-    <h3>下拉列表框Spinner</h3>
+    <a name="Spinner"></a><h3>下拉列表框Spinner</h3>
+    <p>类继承</p>
+    <pre>
+        <code>
+            java.lang.Object
+                android.view.View
+                    android.widget.ViewGroup
+                        android.widget.AdapterView<T extends android.widget.Adapter></T>
+                            android.widget.AbsSpinner
+                                android.widget.Spinner
+        </code>
+    </pre>
+    <p>Spinner类的常用方法</p>
+    <table border="1">
+        <tr>
+            <th>No.</th>
+            <th>方法</th>
+            <th>类型</th>
+            <th>描述</th>
+        </tr>
+        <tr>
+            <th>1.</th>
+            <th>public CharSequence getPrompt()</th>
+            <th>普通</th>
+            <th>取得提示文字</th>
+        </tr>
+        <tr>
+            <th>2.</th>
+            <th>public void setPrompt(CharSequence prompt)</th>
+            <th>普通</th>
+            <th>设置组件的提示文字</th>
+        </tr>
+        <tr>
+            <th>3.</th>
+            <th>public void setAdapter(SpinnerAdapter adapter)</th>
+            <th>普通</th>
+            <th>设置下拉列表项</th>
+        </tr>
+        <tr>
+            <th>4.</th>
+            <th>public CharSquence getPrompt()</th>
+            <th>普通</th>
+            <th>得到提示信息</th>
+        </tr>
+        <tr>
+            <th>5.</th>
+            <th>public void setOnItemClickListener(AdapterView.OnItemClickListener I)</th>
+            <th>普通</th>
+            <th>设置选项单击事件</th>
+        </tr>
+    </table>
+    <p>配置下拉列表框中的列表项的两种配置方式</p>
+    <p>1.通过资源文件配置</p>
+    <p>2.通过android.widget.ArrayAdapter读取资源文件或者指定具体设置的数据；类的定义如下：</p>
+    <pre>
+        <code>
+            java.lang.Object
+                android.widget.BaseAdapter
+                    android.widget.ArrayAdapter
+        </code>
+    </pre>
+    <p>ArrayAdapter类的常用方法</p>
+    <table border="1">
+        <tr>
+            <th>No.</th>
+            <th>方法</th>
+            <th>类型</th>
+            <th>描述</th>
+        </tr>
+        <tr>
+            <th>1</th>
+            <th>public ArrayAdapter(Context context,int textViewResourceld,list objects)</th>
+            <th>构造</th>
+            <th>定义ArrayAdapter对象，同时向其中传入一个Activity实例（this）、列表项的风格（每次只显示一行数据）、List集合数据</th>
+        </tr>
+        <tr>
+            <th>2</th>
+            <th>public ArrayAdapter(Context context,int textViewResourceld,T[] objects)</th>
+            <th>构造</th>
+            <th>定义ArrayAdapter对象、同时向其中传入一个Activity实例（this）、列表项的显示风格（每次只显示一行数据）、List集合数据</th>
+        </tr>
+        <tr>
+            <th>3</th>
+            <th>public static ArrayAdapter<CharSequence>createFromResource(Context context,int textArrayResid, int textViewResld)</th>
+            <th>普通</th>
+            <th>通过静态方法取得ArrayAdapter对象，传入Activity实例、资源文件的ID、列表项的显示风格</th>
+        </tr>
+        <tr>
+            <th>4</th>
+            <th>public void setDropDownViewResource(int resource)</th>
+            <th>普通</th>
+            <th>设置下拉列表项的显示风格</th>
+        </tr>
+    </table>
+    <p>1.调用value下的文件显示下拉列表</p>
+    <p>2.在java文件中调用value下的文件显示下拉列表</p>
+    <p>3.在java文件中设置并显示下拉列表</p>
+
+    <p>测试代码地址：languageWeb1/code/android/resources/view/Spinner</p>
+
     <hr>
+    <a href="#main">返回头部</a>
 
-    <h3>图片视图ImageView</h3>
+    <a name="ImageView"><h3>图片视图ImageView</h3></a>
+    <p>类继承</p>
+    <pre>
+        <code>
+            java.lang.Object
+                android.view.View
+                    android.widget.imageView
+        </code>
+    </pre>
+    <p>imagView定义的属性及操作方法</p>
+    <table border="1">
+        <tr>
+            <th>NO.</th>
+            <th>配置属性名称</th>
+            <th>对应方法</th>
+            <th>描述</th>
+        </tr>
+        <tr>
+            <th>1.</th>
+            <th>android:maxHeight</th>
+            <th>public void setMaxHeight(int maxHeight)</th>
+            <th>定义图片的最大高度</th>
+        </tr>
+        <tr>
+            <th>2.</th>
+            <th>android:maxWidth</th>
+            <th>public void setMaxWidth(int maxWidth)</th>
+            <th>定义图片的最大宽度</th>
+        </tr>
+        <tr>
+            <th>3.</th>
+            <th>android:src</th>
+            <th>public void setImageResource(int resId)</th>
+            <th>定义显示图片的ID</th>
+        </tr>
+    </table>
+    <p>定义ImageView组件 注：图片名称只能由字母、数字、“——”、“.”组成</p>
+    <p>测试代码地址：languageWeb1/code/android/resources/view/ImageView_text</p>
+
     <hr>
+    <a href="#main">返回头部</a>
 
-    <h3>图片按扭ImageButton</h3>
+    <a name="ImageButton"><h3>图片按扭ImageButton</h3></a>
+    <p>类继承</p>
+    <pre>
+        <code>
+            java.lang.Object
+                android.view.View
+                    android.widget.ImageButton
+        </code>
+    </pre>
+    <p>显示两张图片</p>
+    <p>测试代码地址：languageWeb1/code/android/resources/view/ImageButton_test</p>
+
     <hr>
+    <a href="#main">返回头部</a>
 
-    <h3>时间选择器TimePicker</h3>
+    <a name="TimePicker"><h3>时间选择器TimePicker</h3></a>
+    <p>类继承</p>
+    <pre>
+        <code>
+            java.lang.Object
+                android.view.View
+                    android.view.ViewGroup
+                        android.widget.FrameLayout
+                            android.widget.TimePicker
+        </code>
+    </pre>
+    <p>TimePicker的常用方法</p>
+    <table>
+        <tr>
+            <th>N0.</th>
+            <th>方法</th>
+            <th>类型</th>
+            <th>描述</th>
+        </tr>
+        <tr>
+            <th>1.</th>
+            <th>public Integer getCurrentHour()</th>
+            <th>普通</th>
+            <th>返回当前设置的小时</th>
+        </tr>
+        <tr>
+            <th>2.</th>
+            <th>public Integer getCurrentMinute()</th>
+            <th>普通</th>
+            <th>返回当前设置的分钟</th>
+        </tr>
+        <tr>
+            <th>3.</th>
+            <th>public boolean is24HourView()</th>
+            <th>普通</th>
+            <th>判断是否是24小时制</th>
+        </tr>
+        <tr>
+            <th>4.</th>
+            <th>public void setCurrentHour(Integer currentHour)</th>
+            <th>普通</th>
+            <th>设置当前的小时数</th>
+        </tr>
+        <tr>
+            <th>5.</th>
+            <th>public void setCurrentMinute(Integer currentMinute)</th>
+            <th>普通</th>
+            <th>设置当前的分钟数</th>
+        </tr>
+        <tr>
+            <th>6.</th>
+            <th>public void setEnabled(Boolean enabled)</th>
+            <th>普通</th>
+            <th></th>
+        </tr>
+        <tr>
+            <th>7.</th>
+            <th>public void setIs24HourView(Boolean is24HourView)</th>
+            <th>普通</th>
+            <th>设置时间为24小时制</th>
+        </tr>
+        <tr>
+            <th>8.</th>
+            <th>public void setOnTimeChangeListener(TimePicker.OnTimeChangedListenner on TimeChangedListener)</th>
+            <th>普通</th>
+            <th>当时间修改时触发此事件</th>
+        </tr>
+
+    </table>
+    <p>测试代码地址：languageWeb1/code/android/resources/view/TimePicker_test</p>
+
     <hr>
+    <a href="#main">返回头部</a>
 
-    <h3>日期选择器DatePicker</h3>
+    <a name="DatePicker"><h3>日期选择器DatePicker</h3></a>
+    <p>类继承</p>
+    <pre>
+        <code>
+            java.lang.Object
+                android.view.View
+                    android.view.ViewGroup
+                        android.widget.FrameLayout
+                            android.widget.DatePicker
+        </code>
+    </pre>
+    <table border="1">
+        <tr>
+            <th>No.</th>
+            <th>方法</th>
+            <th>类型</th>
+            <th>描述</th>
+        </tr>
+        <tr>
+            <th>1.</th>
+            <th>public int getYear()</th>
+            <th>普通</th>
+            <th>取得设置的年</th>
+        </tr>
+        <tr>
+            <th>2.</th>
+            <th>public int getMonth()</th>
+            <th>普通</th>
+            <th>取得设置的月</th>
+        </tr>
+        <tr>
+            <th>3.</th>
+            <th>public int getDayOfMonth()</th>
+            <th>普通</th>
+            <th>取得设置的日</th>
+        </tr>
+        <tr>
+            <th>4.</th>
+            <th>public void setEnabled(boolean enabled)</th>
+            <th>普通</th>
+            <th>设置组件是否可用</th>
+        </tr>
+        <tr>
+            <th>5.</th>
+            <th>public void updateDate(int year,int monthOfYear,int dayOfMonth)</th>
+            <th>普通</th>
+            <th>设置一个指定的日期</th>
+        </tr>
+        <tr>
+            <th>6.</th>
+            <th>public void init(int year,int monthOfYear,int dayOfMonth,DatePicker.OnDateChangedListeneronDateChangedListener)</th>
+            <th>普通</th>
+            <th>初始化日期并制定操作的监听器</th>
+        </tr>
+    </table>
+    <p>1.编写Activity程序设置一个日期</p>
+    <p>测试代码地址：languageWeb1/code/android/resources/view/ImageButton_test</p>
     <hr>
-
 </body>

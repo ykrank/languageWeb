@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="zhangyongfeng.edit_text.Edit_Text">
+    <!--默认选中，并设为焦点-->
+    <EditText
+        android:id="@+id/my_EditText"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="asd"
+        android:selectAllOnFocus="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintVertical_bias="0.205" />
+
+    <!---->
+    <EditText
+        android:id="@+id/my_EditText2"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="www.baidu.com"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintVertical_bias="0.405" />
+
+    <!--显示密码格式-->
+    <EditText
+        android:id="@+id/my_EditText3"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="0000000"
+        android:password="true"
+        android:inputType="numberPassword"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintVertical_bias="0.605" />
+
+    <!--只显示数字-->
+    <EditText
+        android:id="@+id/my_EditText4"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="123456"
+        android:numeric="integer"
+        android:inputType="number"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintVertical_bias="0.805" />
+
+    <!--设置不可选状态-->
+    <EditText
+        android:id="@+id/my_EditText5"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="设置不可选状态"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintVertical_bias="0.905" />
+
+</android.support.constraint.ConstraintLayout>
