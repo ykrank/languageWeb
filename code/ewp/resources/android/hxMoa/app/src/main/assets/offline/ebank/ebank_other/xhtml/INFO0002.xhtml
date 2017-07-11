@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+#{
+this = ert.channel:get_page("ebank_other","INFO0002");
+local title = this.context["title"] or "";
+local cont = this.context["cont"] or "";
+--cont = string.format('%q',cont)
+local date = this.context["date"] or "";
+}#
+<content>
+  <head>
+    <link ref="ebank_other/css/ebank_other_public.css" type="text/css"/>
+    <link ref="ebank_public.css" type="text/css"/>
+    <script type="text/x-lua" src="ebank_other/lua/INFO0001.lua"></script>
+  </head>
+  <body class="bgffffff">
+    <!--Title-->
+    #{local str = ebank_public.header:set_header("消息中心","2")}#
+    #{= str}#
+    <div class="public_main_div,div_w300_l10,bgffffff" border="0">
+   <!--  <div class="div_kong,bgffffff" border="0"></div> -->
+     <table border="0">
+       <tr>
+        <td class="div_w320_h44">
+         <div border="0" class="" valign="middle">
+         <label class="public_label_left,fs17_4D4D4D">#{=title}#</label>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div border="0">
+          <label class="public_label_left,bg999999">#{=date}#</label> 
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div class="div_kong,bgffffff" border="0"></div>
+        <div class="div_w300,t19" border="0" >
+        <richtext class="label_fs14,bg666666">　　#{=cont}#</richtext>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</content>

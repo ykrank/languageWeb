@@ -1,0 +1,15 @@
+    .div_l10_bffffff_w300{left:0px;width:320px;}
+
+    .bg#ffffff{background-color: #ffffff;height: 213px;}
+    /*图标*/
+    .img_l100_t25_w36_h36{left: 100px;top: 25px;width: 36px;height: 36px;}
+    .label_fs17_c4d4d4d{font-size: 17px;color: #4d4d4d;left: 145px;top: 30px;}
+    /*左右按扭*/
+    .button_left{width:140px;left:15px;top:243px;}
+    .button_right{width:140px;left:165px;top:243px;}
+    /*左右字体*/
+    .label_l15_h30{left: 15px;height: 30px;font-size: 12px;color: #666666;}
+    .label_r15_h30{right: 15px;height: 30px;font-size: 12px;color: #666666;}
+    /*变量粉红*/
+    .label_pink{right: 30px;font-size: 12px;color: #FF5A5F}
+    .table_t86{top: 86px;}

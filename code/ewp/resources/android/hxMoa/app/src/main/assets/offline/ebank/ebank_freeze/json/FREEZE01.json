@@ -1,0 +1,18 @@
+{
+  "header":
+      {
+        "tran_success": "01",
+        "error_code": "1",
+        "error_msg":""
+      },
+  "body":
+      {
+        "comment1":"账户状态",
+        "flag":"1",
+        "comment2":"E账户",
+        "eAccountNo":"6200 2078 0123456789",
+        "comment3":"手机号",
+        "MOBILE":"13800138000"
+
+      }
+}

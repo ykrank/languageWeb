@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+#{
+    this = ert.channel:get_page("ebank_other","FREEZE01");
+    local json_data = ert.channel:get_response("ebank_freeze", "FREEZE01");
+    local json_tbl = json:objectFromJSON(json_data) or {};
+    local t_body = json_tbl["body"] or {};
+    local eAccountNo = t_body["eAccountNo"];
+    local flag = t_body["flag"];
+    local flag1 
+    if flag == "0" then
+      flag1="未冻结"
+    else
+      flag1="已冻结"
+    end
+}#
+<content>
+  <head>
+    <link ref="ebank_freeze/css/ebank_freeze_public.css" type="text/css"/>
+    <link ref="ebank_public.css" type="text/css"/>
+    <script type="text/x-lua" src="ebank_freeze/lua/FREEZE01.lua"></script>
+  </head>
+   <body>
+    <!--Title-->
+    #{local str = ebank_public.header:set_header("账户冻结管理","2")}#
+    #{= str}#
+    <div class="public_main_div" border="0">
+     <div class="div_kong" border="0"></div>
+    <table border="0">
+    <tr>
+      <td class="div_w320_h44">
+          <label class="public_line_t0"></label>
+          <label class="public_label_left">E账号</label>
+          <label class="public_input_w188_l117" id="eAccountNo" border="1">#{=eAccountNo}#</label>
+          <label class="public_line_b1"></label>
+      </td>
+    </tr>
+   <tr>
+      <td class="div_w320_h44">
+          <label class="public_label_left">当前状态</label>
+          <label class="public_input_w188_l117" id="flag" border="1">#{=flag1}#</label>
+          <label class="public_line_b1"></label>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div class="div_kong" border="0"></div>
+        <div class="div_kong" border="0"></div>
+      </td>
+    </tr>
+    #{if flag == "0" then}# 
+    <tr name="freeze">
+      <td class="div_kong,div_w320_h44">
+        <input type="button" class="public_15_w290_h35" id="div_input_1" border="0" enable="true" value="冻结" onclick="click()" /> 
+      </td>
+    </tr>
+    #{else }#
+    <tr name="unfreeze" >
+      <td class="div_kong,div_w320_h44">
+        <input type="button" class="public_15_w290_h35" id="div_input_2" border="0" enable="true" value="解冻" onclick="unfreeze()" /> 
+      </td>
+    </tr>
+    #{end}#
+    </table>
+  </div>
+  </body>
+</content>

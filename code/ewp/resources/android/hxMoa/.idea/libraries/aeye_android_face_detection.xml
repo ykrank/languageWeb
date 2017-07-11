@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="aeye_android_face_detection">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/app/libs/aeye_android_face_detection.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

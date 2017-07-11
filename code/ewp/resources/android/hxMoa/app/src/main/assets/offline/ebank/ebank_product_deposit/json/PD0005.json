@@ -1,0 +1,13 @@
+{
+  "header":
+      {
+        "tran_success": "01",
+        "error_code": "1",
+        "error_msg":""
+      },
+  "body":
+      {
+        "balance": "3333",
+        "atdate": "1020"
+      }
+}

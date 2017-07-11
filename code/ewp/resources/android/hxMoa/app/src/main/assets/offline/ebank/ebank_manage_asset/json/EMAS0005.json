@@ -1,0 +1,16 @@
+{
+  "header":
+      {
+        "tran_success": "111111",
+        "error_code": "111",
+        "error_msg":""
+      },
+  "body":
+      {
+        "sign":"0",
+        "eAccountNo":"42222 90888******888888",
+        "remaAmount":"500",
+        "Hpercentage":"11-28",
+        "Zpercentage":"5000"
+      }
+}

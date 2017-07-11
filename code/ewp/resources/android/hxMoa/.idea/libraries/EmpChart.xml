@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="EmpChart">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/app/libs/EmpChart.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

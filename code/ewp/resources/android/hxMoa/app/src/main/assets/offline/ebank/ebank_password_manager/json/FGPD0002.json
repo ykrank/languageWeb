@@ -1,0 +1,18 @@
+{
+  "header":
+      {
+        "tran_success": "01",
+        "error_code": "1",
+        "error_msg":""
+      },
+  "body":
+      {
+        "comment1":"有没有账号的标识",
+        "flag":"01",
+        "comment2":"E账号",
+        "eAccountNo":"622202001234567890",
+        "comment3":"手机号",
+        "MOBILE":"13800138000"
+        
+      }
+}

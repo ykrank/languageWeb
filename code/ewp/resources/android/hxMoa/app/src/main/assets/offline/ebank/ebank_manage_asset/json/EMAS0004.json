@@ -1,0 +1,66 @@
+{
+  "header":
+      {
+        "tran_success": "111111",
+        "error_code": "111",
+        "error_msg":""
+      },
+  "body":
+      {
+        "custName":"欧阳峰",
+        "accBalance":"40000",
+        "recordCountNum": "40",
+        "transactionlist":[
+          {
+              "transactionDate": "2015-02-24",
+              "transactionAmount": "1200",
+              "transactionType":"转入"
+          },
+          {
+              "transactionDate": "2015-02-24",
+              "transactionAmount": "1400",
+              "transactionType":"转入"
+          },
+          {
+              "transactionDate": "2015-02-24",
+              "transactionAmount": "1000",
+              "transactionType":"转入"
+          },
+          {
+              "transactionDate": "2015-02-14",
+              "transactionAmount": "1900",
+              "transactionType":"转入"
+          },
+          {
+              "transactionDate": "2015-02-14",
+              "transactionAmount": "3100",
+              "transactionType":"转入"
+          },
+          {
+              "transactionDate": "2015-02-14",
+              "transactionAmount": "3100",
+              "transactionType":"转入"
+          },
+          {
+              "transactionDate": "2015-02-14",
+              "transactionAmount": "3100",
+              "transactionType":"转入"
+          },
+          {
+              "transactionDate": "2015-02-14",
+              "transactionAmount": "3100",
+              "transactionType":"转入"
+          },
+          {
+              "transactionDate": "2015-02-14",
+              "transactionAmount": "3100",
+              "transactionType":"转入"
+          },
+          {
+              "transactionDate": "2015-11-14",
+              "transactionAmount": "4000",
+              "transactionType":"转出"
+          }
+        ]
+      }
+}

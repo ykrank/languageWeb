@@ -1,0 +1,15 @@
+{
+  "header":
+      {
+        "tran_success": "1",
+        "error_code": "1",
+        "error_msg":""
+      },
+  "body":
+      {
+        "comment1":"获取成功标志",
+        "flag":"1",
+        "comment2":"验证序列号",
+        "OTPSEQNO":"asd001"
+      }
+}

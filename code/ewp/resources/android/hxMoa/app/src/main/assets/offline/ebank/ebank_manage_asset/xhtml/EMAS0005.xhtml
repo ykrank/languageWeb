@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+#{
+    local req_value = ert.channel:get_request("ebank_manage_asset","EMAS0005");
+    this = ert.channel:get_page("ebank_manage_asset","EMAS0005");
+    local json_data=this:get_data();
+    local json_tbl = json:objectFromJSON(json_data);
+
+    local json_tbl = json:objectFromJSON(json_data) or {};
+    json_tbl["body"] = json_tbl["body"] or {};
+   
+    if req_value["falg"] == "0" then
+        Sign = "N";
+    else
+        Sign = json_tbl["body"]["sign"];--"N"未配置,"Y"已配置
+    end
+
+    if globalSign == "1" then
+        Sign = "Y";
+    end
+
+    local EAccountNo = json_tbl["body"]["eAccountNo"];
+    local RemaAmount = json_tbl["body"]["remaAmount"];
+    local List = json_tbl["body"]["list"];
+
+    local percent_value_hxb;
+    local percent_value_znck;
+    if Sign == "Y" then
+        for key,value in pairs(List) do
+              if value["productId"] == "0900200100202" then
+                  percent_value_hxb = value["Hpercentage"];
+              else
+                  percent_value_znck = value["Hpercentage"];
+              end
+        end
+    else
+        if req_value["falg"] == "0" then
+            for key,value in pairs(List) do
+                  if value["productId"] == "0900200100202" then
+                      percent_value_hxb = value["Hpercentage"];
+                  else
+                      percent_value_znck = value["Hpercentage"];
+                  end
+            end
+        else
+            percent_value_hxb = "0.5";
+            percent_value_znck = "0.5";
+        end
+    end
+}#
+
+<content>
+    <head>
+    <script type="text/x-lua" src="ebank_manage_asset/lua/EMAS0005.lua"></script>
+    <link ref="ebank_manage_asset/css/EMAS0000.css" type="text/css"/>
+    <link ref="ebank_manage_asset/css/EMAS0005.css" type="text/css"/>
+    <link ref="ebank_public.css" type="text/css"/>
+    </head>
+    <body class="body">
+      <div class="ebank_public_header_div" border="0">
+       <div border ="0">
+          <input type="button" class="ebank_public_header_div_left" border ="0" enable="true" onclick="back_fun()"/>
+          <img src="back.png" class="ebank_public_header_div_left_image2"></img>
+       </div>
+       <label class="ebank_public_header_label">资产配置</label>
+       <label class="public_line_b1"></label>
+      </div>
+      <div class="public_main_div" border="0">
+        <table class="tabel_t15_w320_bgFFFFFF" border="0">
+          <tr class="trtd_h44_w320,bgF3F3F3" border="1">
+            <td class="trtd_h44_w320,bgF3F3F3">
+              <label class="public_label_left">电子账户</label>
+              <label class="label_fs14_c4D4D4D,public_right">#{= format_account(EAccountNo)}#</label>
+              <label class="public_line_b1"></label>
+            </td>
+          </tr>
+          #{if Sign == "N" then}#
+            <tr class="trtd_h44_w320" id="tr_balance" border="1">
+              <td class="trtd_h44_w320">
+                <label class="public_label_left">留存金额</label>
+                <input type="text" id="inuput_money" class="public_input_w188_l117" style="-wap-input-format:'n'" hold="请输入留存金额" border="0" onchange="input_onchange()" onblur="input_onblur()"/>
+                <label class="public_line_b1"></label>
+              </td>
+            </tr>
+            <tr class="trtd_h15_w320,bgEBEBEE" border="1">
+              <td class="trtd_h15_w320,bgEBEBEE">
+              </td>
+            </tr>
+            <tr class="trtd_h44_w320" border="1">
+              <td class="trtd_h44_w320">
+                <label class="public_label_left">配置比例</label>
+                <label class="label_l117__fs14_c3A3A3A"></label>
+              </td>
+            </tr>
+            <tr class="trtd_h15_w320" border="1">
+              <td class="trtd_h15_w320">
+                <slider class="slider_l15_h25_w290" id="percent_value" startColor="#ffaf60" centerColor="#ff8000" endColor="#ff0000" value="#{= percent_value_hxb}#" border="0" onchange="onchange_calback()"></slider>
+              </td>
+            </tr>
+            <tr class="trtd_h44_w320" border="1">
+              <td class="trtd_h44_w320">
+                  <div name="percent" class="trtd_h44_w320" border="0">
+                    <label class="label_c4D4D4D_t15,public_left">华兴宝</label>
+                    <label class="label_c4D4D4D_t15,right55">智能存款</label>
+                    <label id="percent_hxb" class="label_cF85050_t15,left67">#{= percent_value_hxb*100}#%</label>
+                    <label id="percent_znck" class="label_cF85050_t15,public_right">#{= percent_value_znck*100}#%</label>
+                  </div>
+              </td>
+            </tr>
+            <tr class="trtd_h15_w320,bgEBEBEE" border="1">
+              <td class="trtd_h15_w320,bgEBEBEE">
+              </td>
+            </tr>
+            <tr class="trtd_h44_w320" border="1">
+              <td class="trtd_h44_w320">
+                <label class="public_label_left">交易密码</label>
+                <input type="password-num" id="tran_password" isorder="true" class="public_input_w188_l117" maxleng="6" hold="请输入6位交易密码" border="0"></input>
+              </td>
+            </tr>
+            <tr class="trtd_h20_w320,bgEBEBEE" border="1">
+              <td class="trtd_h20_w320,bgEBEBEE">
+              </td>
+            </tr>
+            <tr class="trtd_h10_w320,bgEBEBEE" border="1">
+              <td class="trtd_h10_w320,bgEBEBEE">
+              </td>
+            </tr>
+            <tr class="trtd_h40_w320,bgEBEBEE" border="0">
+              <td class="trtd_h40_w320,bgEBEBEE">
+                  <input type="button" class="public_15_w290_h35" value="确定" onclick="sure_result('N','#{= req_value["falg"]}#')"></input>
+              </td>
+            </tr>
+          #{else}#
+            <tr class="trtd_h44_w320,bgF3F3F3" id="tr_balance" border="1">
+              <td class="trtd_h44_w320,bgF3F3F3">
+                <label class="public_label_left">留存金额</label>
+                <label class="label_fs14_c4D4D4D,public_right">#{= format_money(RemaAmount)}#</label>
+                <label class="public_line_b1"></label>
+              </td>
+            </tr>
+            <tr class="trtd_h44_w320,bgF3F3F3" border="1">
+              <td class="trtd_h44_w320,bgF3F3F3">
+                <label class="public_label_left">配置比例</label>
+              </td>
+            </tr>
+            <tr class="trtd_h15_w320,bgF3F3F3" border="0">
+              <td class="trtd_h15_w320,bgF3F3F3">
+                <slider class="slider_l15_h25_w290" startColor="#ffaf60" centerColor="#ff8000" endColor="#ff0000" enable="false" id="percent_value" value= "#{= percent_value_hxb}#" border="0" onchange="onchange_calback()"></slider>
+              </td>
+            </tr>
+            <tr class="trtd_h44_w320,bgF3F3F3" border="1">
+              <td class="trtd_h44_w320,bgF3F3F3">
+                  <div name="percent" class="trtd_h44_w320" border="0">
+                    <label class="label_c4D4D4D_t15,public_left">华兴宝</label>
+                    <label class="label_c4D4D4D_t15,right55">智能存款</label>
+                    <label id="percent_hxb" class="label_cF85050_t15,left67">#{= percent_value_hxb*100}#%</label>
+                    <label id="percent_znck" class="label_cF85050_t15,public_right">#{= percent_value_znck*100}#%</label>
+                  </div>
+              </td>
+            </tr>
+            <tr class="trtd_h30_w320,bgEBEBEE" border="1">
+              <td class="trtd_h30_w320,bgEBEBEE">
+              </td>
+            </tr>
+            <tr class="trtd_h40_w320,bgEBEBEE" border="0">
+              <td class="trtd_h40_w320,bgEBEBEE">
+                  <input type="button" class = "public_h35_w140_l15_fs17_cFFFFFF" value="修改配置" onclick="asset_allocation()"></input>
+                  <input type="button" class = "public_h35_w140_r15_fs17_cFFFFFF" value="撤销配置" onclick="cancle_result('Y')"></input>
+              </td>
+            </tr>
+          #{end}#
+        </table>
+      </div>
+  </body>
+</content>

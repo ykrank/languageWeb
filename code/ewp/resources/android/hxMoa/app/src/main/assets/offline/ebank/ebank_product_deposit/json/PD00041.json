@@ -1,0 +1,54 @@
+  {
+  "header":
+      {
+        "tran_success": "01",
+        "error_code": "1",
+        "error_msg":""
+      },
+  "body":
+      {
+        "recordCountNum": "16",
+        "transDetailList" :[
+        {
+          "amount":"100",
+          "tranDate":"1001",
+          "tranType":"1"
+        },
+        {
+          "amount":"200",
+          "tranDate":"1003",
+          "tranType":"1"
+        },
+        {
+          "amount":"300",
+          "tranDate":"1003",
+          "tranType":"1"
+        },
+        {
+          "amount":"400",
+          "tranDate":"1003",
+          "tranType":"1"
+        },
+        {
+          "amount":"400",
+          "tranDate":"1003",
+          "tranType":"1"
+        },
+        {
+          "amount":"400",
+          "tranDate":"1003",
+          "tranType":"1"
+        },
+        {
+          "amount":"400",
+          "tranDate":"1003",
+          "tranType":"1"
+        },
+        {
+          "amount":"500",
+          "tranDate":"1002",
+          "tranType":"2 "
+        }
+        ]
+      }
+}

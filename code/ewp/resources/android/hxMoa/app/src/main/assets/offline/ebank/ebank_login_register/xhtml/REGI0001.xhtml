@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+#{
+    this = ert.channel:get_page("ebank_login_register","REGI0001");
+}#
+<content>
+    <head>
+        <link ref="ebank_public.css" type="text/css"/>
+        <link ref="ebank_login_register/css/LOGIN001.css" type="text/css"/>
+        <link ref="ebank_login_register/css/REGI0001.css" type="text/css"/>
+        <script type="text/x-lua" src="RYTL.lua"></script>
+        <script type="text/x-lua" src="ebank_login_register/lua/REGI0001.lua"></script>
+    </head>
+    <body class="body">
+        #{local str = ebank_public.header:set_header("身份验证","2","0","0")}#
+        #{= str}#
+        <div class="public_main_div" border="0">
+            <table class="public_main_table,cmm_ui_t15" border="0">
+                    <tr class="public_main_tr">
+                        <td class="public_main_td">
+                            <label class="public_label_left10">姓名</label>
+                            <input class="public_right10,cmm_ui_w200" maxleng="20" type="text" id="username" hold="请输入姓名" border="0" value=""/>
+                            <label class="public_line_b1"></label>
+                        </td>
+                    </tr>
+                    <tr class="public_main_tr">
+                        <td class="public_main_td">
+                            <label class="public_label_left10">身份证号码</label>
+                            <input class="public_right10,cmm_ui_w200" type="text" id="cardId" hold="请输入身份证号码" onblur="onblur_empty_format('cardId')" border="0" maxleng="18" value=""/>
+                        </td>  
+                    </tr>
+                </table>
+                <div class="cmm_ui_h10"></div>
+                <input type="button" class="public_15_w290_h35" onclick="this.next_page()" value="下一步"/>
+        </div>
+    </body>
+</content>

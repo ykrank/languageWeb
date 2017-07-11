@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+#{
+    this = ert.channel:get_page("ebank_manage_asset","EMAS0002");
+    local json_data=this:get_data();
+    local json_tbl = json:objectFromJSON(json_data) or {};
+    json_tbl["body"] = json_tbl["body"] or {};
+
+    local MobilePhoneNumber = json_tbl["body"]["MobilePhoneNumber"] or {};
+    local ReceivedDate = json_tbl["body"]["nextWorkTime"];
+
+    local bindCard_list = json_tbl["body"]["bindCardList"] or {};--绑卡列表
+    local req_value = ert.channel:get_request("ebank_manage_asset","EMAS0002");
+}#
+
+<content>
+    <head>
+    <script type="text/x-lua" src="ebank_manage_asset/lua/EMAS0002.lua"></script>
+    <link ref="ebank_manage_asset/css/EMAS0000.css" type="text/css"/>
+    <link ref="ebank_manage_asset/css/EMAS0002.css" type="text/css"/>
+    <link ref="ebank_public.css" type="text/css"/>
+    </head>
+    <body class="body">
+      #{if req_value["signValue"] == "0" then}#
+        #{local str = ebank_public.header:set_header("资金转入","2","0","0")}#
+        #{= str}#
+      #{else}#
+        #{local str = ebank_public.header:set_header("资金转出","2","0","0")}#
+        #{= str}#
+      #{end}#
+      <div class="public_main_div" border="0">
+        <table class="tabel_t15_w320_bgFFFFFF" border="0">
+          <tr class="trtd_h44_w320" border="1">
+            <td class="trtd_h44_w320">
+              #{if req_value["signValue"] == "0" then}#
+                <label class="public_label_left,top15">转出账户</label>
+              #{else}#
+                <label class="public_label_left,top15">转出到账户</label>
+              #{end}#
+              <img src="get_down.png" class = "public_img_h7_w12_r15,top20"></img>
+              <select id="choicebakn" class="select_h30_w180_t8_fs14_c3A3A3A,left123">
+               <option name="option1" value="请选择">请选择</option>
+               #{for key,value in pairs(bindCard_list) do}#
+                  #{if value["bankName"] == "" or value["bankName"] == nil then}#
+                      <option name="option2" id="option2" onclick="option_choice('#{= value["cardNo"]}#','#{= value["otherBankFlag"]}#','#{= req_value["signValue"]}#','#{= value["bankName"]}#')">#{= format_account_num(value["cardNo"])}#</option>
+                  #{else}#
+                      <option name="option2" onclick="option_choice('#{= value["cardNo"]}#','#{= value["otherBankFlag"]}#','#{= req_value["signValue"]}#','#{= value["bankName"]}#')">#{= value["bankName"]}##{= acc_sub_four(value["cardNo"])}#</option>
+                  #{end}#
+               #{end}#
+              </select>
+              <label class="public_line_b1"></label>
+            </td>
+          </tr>
+          <tr class="trtd_h44_w320" id="tr_balance" border="1">
+            <td class="trtd_h44_w320">
+              #{if req_value["signValue"] == "0" then}#
+                <label class="public_label_left,top15">账户余额</label>
+              #{else}#
+                <label class="public_label_left,top15">可转出金额</label>
+              #{end}#
+              <label class="label_fs14_c4D4D4D,left123,top15">#{= format_money(req_value["AccBalance"])}#</label>
+              <label class="public_line_b1"></label>
+            </td>
+          </tr>
+          <tr class="trtd_h44_w320" border="1">
+            <td class="trtd_h44_w320">
+            #{if req_value["signValue"] == "0" then}#
+                <label class="public_label_left,top15">转入金额</label>
+            #{else}#
+                <label class="public_label_left,top15">转出金额</label>
+            #{end}#
+              <input type="text" id="inuput_money" class="public_input_w100_l117,color_money,width290,top12" maxleng="20" style="-wap-input-format:'n'" hold="请输入金额" border="0" onchange="input_onchange()" onblur="get_bank_money()"/>
+            <label class="public_line_b1"></label>
+            </td>
+          </tr>
+          #{if req_value["signValue"] == "1" then}#
+            <tr id="bank_tr" class="trtd_h44_w320,public_displayN" border="1">
+                <td class="trtd_h44_w320">
+                  <div name="select_bank" class="trtd_h44_w320" border="0" onclick="get_bank_name()">
+                    <img src="right_jt.png" class = "public_img_h12_w7_r15,top16"></img>
+                    <label class="public_label_left,top15">开户行</label>
+                    <label id="select_bank_label" class="public_input_w100_l117,width290,top15,left123">请选择开户行</label>
+                  </div>
+                  <label class="public_line_b1"></label>
+                </td>
+              </tr>
+              <tr id="con_nullblank" class="trtd_h15_w320,bgEBEBEE,public_displayN" border="1">
+                <td class="trtd_h15_w320,bgEBEBEE">
+                </td>
+              </tr>
+              <tr id="con_tr" class="trtd_h44_w320,public_displayN" border="1">
+                <td class="trtd_h44_w320">
+                  <div name="select_con" class="trtd_h44_w320" border="0">
+                    <label class="public_label_left,top15">汇路</label>
+                    <select class="select_h30_w180_t8_fs14_c3A3A3A,left117">
+                    </select>
+                </div>
+                <label class="public_line_b1"></label>
+            </td>
+          </tr>
+          #{end}#
+          <tr id="nullblank" class="trtd_h15_w320,bgEBEBEE" border="1">
+            <td class="trtd_h15_w320,bgEBEBEE">
+            </td>
+          </tr>
+          <tr id="receivedtime" class="trtd_h35_w320,bgEBEBEE,public_displayN" border="1">
+            <td class="trtd_h35_w320,bgEBEBEE">
+              <img src="ebank_manage_asset/images/ts.png" class = "img_t10_h12_w12_l15"></img>
+              <label class="label_t8_l32_fs12_c666666">预计到账时间</label>
+              <label class="label_t8_l109_fs12_cFF5A5F">#{= format_date_to_chinse(ReceivedDate)}#</label>
+            </td>
+          </tr>
+          #{if req_value["signValue"] == "1" then}#
+            <tr id="province_tr" class="trtd_h44_w320,public_displayN" border="1">
+                <td class="trtd_h44_w320">
+                  <div name="select_province" class="trtd_h44_w320" border="0">
+                    <label class="public_label_left,top15">省份</label>
+                    <select class="select_h30_w180_t8_fs14_c3A3A3A,left117">
+                        <option name="option5" id="option5" value="请先选择省">请选择省</option>
+                    </select>
+                  </div>
+                  <label class="public_line_b1"></label>
+                </td>
+              </tr>
+              <tr id="city_tr" class="trtd_h44_w320,public_displayN" border="1">
+                <td class="trtd_h44_w320">
+                  <div name="select_city" class="trtd_h44_w320" border="0">
+                    <img src="get_down.png" class = "public_img_h7_w12_r15,top16"></img>
+                    <label class="public_label_left,top15">城市</label>
+                    <select class="select_h30_w180_t8_fs14_c3A3A3A,left117">
+                        <option name="option6" id="option6" value="请选择市">请选择市</option>
+                    </select>
+                  </div>
+                  <label class="public_line_b1"></label>
+                </td>
+              </tr>
+              <tr id="network_tr" class="trtd_h44_w320,public_displayN" border="1">
+                <td class="trtd_h44_w320">
+                  <div name="select_network" class="trtd_h44_w320" border="0" onclick="get_network_name()">
+                    <img src="right_jt.png" class = "public_img_h12_w7_r15,top16"></img>
+                    <label class="public_label_left,top15">网点</label>
+                    <label id="select_network_label" class="public_input_w100_l117,top15,left123">请选择网点</label>
+                  </div>
+                  <label class="public_line_b1"></label>
+                </td>
+            </tr>
+            <tr id="null_tr" class="trtd_h15_w320,bgEBEBEE,public_displayN" border="1">
+              <td class="trtd_h15_w320,bgEBEBEE">
+              </td>
+            </tr>
+          #{end}#
+          <tr id="username_val" class="trtd_h44_w320" border="1">
+            <td class="trtd_h44_w320">
+              <label class="public_label_left,top15">用户名</label>
+              <label class="label_fs14_c4D4D4D,left123,top15">#{= req_value["CustName"]}#</label>
+              <label id="div_line" class="public_line_b1"></label>
+            </td>
+          </tr>
+          #{if req_value["signValue"] == "0" then}#
+            <tr id="phone_val" class="trtd_h44_w320,public_displayN" border="1">
+              <td class="trtd_h44_w320">
+                <label class="public_label_left,top15">预留手机号码</label>
+                <label class="label_fs14_c4D4D4D,left123">#{= format_mobile(MobilePhoneNumber)}#</label>
+                <label id="MOBILE" class="label_fs14_c4D4D4D,left123,public_displayN">#{= MobilePhoneNumber}#</label>
+                <label class="public_line_b1"></label>
+              </td>
+            </tr>
+            <tr id="tr_code" class="trtd_h44_w320,public_displayN" border="1">
+              <td class="trtd_h44_w320">
+               #{local msgStr = ebank_public.msg.msg_page()}#
+               #{= msgStr}#
+              </td>
+            </tr>
+          #{else}#
+            <tr id="phone_val" class="trtd_h44_w320" border="1">
+              <td class="trtd_h44_w320">
+                <label class="public_label_left,top15">预留手机号码</label>
+                <label class="label_fs14_c4D4D4D,left123,top15">#{= format_mobile(MobilePhoneNumber)}#</label>
+                <label id="MOBILE" class="label_fs14_c4D4D4D,left123,public_displayN">#{= MobilePhoneNumber}#</label>
+                <label class="public_line_b1"></label>
+              </td>
+            </tr>
+            <tr id="tr_code" class="trtd_h44_w320" border="1">
+              <td class="trtd_h44_w320">
+                #{local msgStr = ebank_public.msg.msg_page()}#
+                #{= msgStr}#
+              </td>
+            </tr>
+          #{end}#
+          <tr class="trtd_h15_w320,bgEBEBEE" border="1">
+            <td class="trtd_h15_w320,bgEBEBEE">
+            </td>
+          </tr>
+          <tr class="trtd_h44_w320" border="1">
+            <td class="trtd_h44_w320">
+              <label class="public_label_left,top15">交易密码</label>
+              <input type="password-num" id="tran_password" isorder="true" class="public_input_w188_l117,top12" maxleng="6" hold="请输入6位交易密码" border="0"></input>
+            </td>
+          </tr>
+          <tr class="trtd_h15_w320,bgEBEBEE" border="1">
+            <td class="trtd_h15_w320,bgEBEBEE">
+            </td>
+          </tr>
+          <tr class="trtd_h44_w320" border="1">
+            <td class="trtd_h44_w320">
+              <label class="public_label_left,top15">手续费</label>
+              <img src="ebank_manage_asset/images/tips.png" class = "img_h28_w105_r53"></img>
+              <label class="label_fs17_cFF5A5F,public_right">0.00</label>
+            </td>
+          </tr>
+          <tr class="trtd_h30_w320,bgEBEBEE" border="1">
+            <td class="trtd_h30_w320,bgEBEBEE">
+            </td>
+          </tr>
+          <tr class="trtd_h40_w320,bgEBEBEE" border="0">
+            <td class="trtd_h40_w320,bgEBEBEE">
+              #{if req_value["signValue"] == "0" then}#
+                <input type="button" class="public_15_w290_h35" value="转入" onclick="click_into('#{= req_value["signValue"]}#')"></input>
+              #{else}#
+                <input type="button" class="public_15_w290_h35" value="转出" onclick="click_into('#{= req_value["signValue"]}#','#{= req_value["AccBalance"]}#')"></input>
+              #{end}#
+            </td>
+          </tr>
+        </table>
+        <div class="div_h20_w320" border="0"></div>
+      </div>
+  </body>
+</content>

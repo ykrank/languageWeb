@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+#{
+    this = ert.channel:get_page("ebank_login_register","REGI0005");
+    
+}#
+<content>
+    <head>
+        <link ref="ebank_public.css" type="text/css"/>
+        <link ref="ebank_login_register/css/REGI0003.css" type="text/css"/>
+        <script type="text/x-lua" src="RYTL.lua"></script>
+        <script type="text/x-lua" src="ebank_login_register/lua/REGI0005.lua"></script>
+    </head>
+    <body class="body">
+        #{local str = ebank_public.header:set_header("设置信息结果","3","0","0")}#
+        #{= str}#
+        <div class="public_main_div" border="0">
+            <div class="public_succeed_div,cmm_ui_h85" align="center" border="0" >
+                <img src='check-icon.png' class="public_succeed_img"/>
+                <label class="public_succeed_label4">恭喜您，修改安全信息成功！</label>
+            </div>
+            <div class="cmm_ui_h15"></div>
+            <input type="button" class="public_15_w290_h35" onclick="this.tied_card()" value="绑定银行卡"/>
+        </div>
+    </body>
+</content>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+#{
+
+}#
+<content>
+  <head>
+    <link ref="ebank_public.css" type="text/css"/>
+    <link ref="ebank_password_manager/css/ebank_password_manager_public.css" type="text/css"/>
+    <script type="text/x-lua" src="ebank_password_manager/lua/FGPD0001.lua"></script>
+  </head>
+  <body>
+    <!--Title-->
+    #{local str = ebank_public.header:set_header("身份验证","2")}#
+    #{= str}#
+    <div class="public_main_div" border="0">
+     <div class="div_kong" border="0"></div>
+    <table border="0">
+    <tr>
+      <td class="div_w320_h44">
+          <label class="public_line_t0"></label>
+          <label class="public_label_left">姓名</label>
+          <input type="text" maxleng="30" class="public_input_w188_l117" id="username" hold="请输入姓名" border="0"/>
+         <!--  <input type="text"  class="public_input_w188_l117" id="username" hold="请输入姓名" border="0" value="王五" /> -->
+          <label class="public_line_b1"></label>
+      </td>
+    </tr>
+   <tr>
+      <td class="div_w320_h44">
+          <label class="public_label_left">身份证号码</label>
+          <input type="text" maxleng="18" class="public_input_w188_l117" id="ID_card" hold="请输入身份证" border="0" onblur="onblur_empty_format('ID_card')" />
+          <!-- <input type="text" maxleng="18" class="public_input_w188_l117" id="ID_card" hold="请输入身份证" border="0"  value="120101198506020056" /> -->
+          <label class="public_line_b1"></label>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div class="div_kong" border="0"></div>
+        <div class="div_kong" border="0"></div>
+      </td>
+    </tr>
+    <tr>
+      <td class="div_w320_h44,div_kong">
+        <input type="button" class="public_15_w290_h35" id="div_input_1" border="0" enable="true" value="下一步" onclick="click()" /> 
+      </td>
+    </tr>
+    </table>
+  </div>
+    <div border="0" class="cmm_ui_w320" align="center">
+        <label class="cmm_ui_f14r" id="error_msg"></label>
+      </div>
+  </body>
+</content>

@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+#{
+    this = ert.channel:get_page("ebank_login_register","REGI0013");
+    local mobile = this.context["mobile"];
+}#
+<content>
+    <head>
+        <link ref="ebank_public.css" type="text/css"/>
+        <link ref="ebank_login_register/css/REGI0002.css" type="text/css"/>
+        <script type="text/x-lua" src="RYTL.lua"></script>
+        <script type="text/x-lua" src="ebank_login_register/lua/REGI0013.lua"></script>
+    </head>
+    <body class="body">
+        #{local str = ebank_public.header:set_header("设置信息","5","0","0")}#
+        #{= str}#
+        <div class="public_main_div" border="0">
+            <table class="public_main_table,cmm_ui_t15" border="0">
+                <tr class="public_main_tr">
+                    <td class="public_main_td">
+                        <label class="cmm_label_left">网银首次登陆，请设置安全信息。</label>
+                    </td>
+                </tr>
+                <tr class="tr_bEBEBEE,cmm_ui_h10">
+                    <td>
+                    </td>
+                </tr>
+                <tr class="public_main_tr">
+                    <td class="public_main_td">
+                        <label class="public_label_left10,cmm_ui_w100">原登录密码</label>
+                        <input class="public_right10,cmm_ui_w190" type="password-ASCII" id="lg_pwd"  hold="请输入原登录密码"  border="0" isorder="true" />
+                        <label class="public_line_b1"></label>
+                    </td>
+                </tr>
+                <tr class="public_main_tr">
+                    <td class="public_main_td">
+                        <label class="public_label_left10,cmm_ui_w100">新登录密码</label>
+                        <input class="public_right10,cmm_ui_w190" type="password-ASCII" id="new_lg_pwd" maxleng="16" hold="请输入新登录密码" border="0" isorder="true"/>
+                        <label class="public_line_b1"></label>
+                    </td>
+                </tr>
+                <tr class="public_main_tr">
+                    <td class="public_main_td">
+                        <label class="public_label_left10,cmm_ui_w100">确认新登录密码</label>
+                        <input class="public_right10,cmm_ui_w190" type="password-ASCII" id="new_lg_pwd2" maxleng="16" hold="请再次输入新登录密码" border="0" isorder="true"/>
+                        <label class="public_line_b1"></label>
+                    </td>
+                </tr>
+                <tr class="public_main_tr">
+                    <td class="public_main_td">
+                        <label class="public_label_left10,cmm_ui_w100">私密问题1</label>
+                        <input class="public_right10,cmm_ui_w190" type="text" id="QUESTION1" hold="请输入私密问题1" border="0" value=""/>
+                        <label class="public_line_b1"></label>
+                    </td>
+                </tr>
+                <tr class="public_main_tr">
+                    <td class="public_main_td">
+                        <label class="public_label_left10,cmm_ui_w100">私密答案1</label>
+                        <input class="public_right10,cmm_ui_w190" type="text" id="ANSWER1" hold="请输入私密答案1" border="0" value=""/>
+                        <label class="public_line_b1"></label>
+                    </td>
+                </tr>
+                <tr class="public_main_tr">
+                    <td class="public_main_td">
+                        <label class="public_label_left10,cmm_ui_w100">私密问题2</label>
+                        <input class="public_right10,cmm_ui_w190" type="text" id="QUESTION2" hold="请输入私密问题2" border="0" value=""/>
+                        <label class="public_line_b1"></label>
+                    </td>
+                </tr>
+                <tr class="public_main_tr">
+                    <td class="public_main_td">
+                        <label class="public_label_left10,cmm_ui_w100">私密答案2</label>
+                        <input class="public_right10,cmm_ui_w190" type="text" id="ANSWER2" hold="请输入私密答案2" border="0" value=""/>
+                        <label class="public_line_b1"></label>
+                    </td>
+                </tr>
+                <tr class="public_main_tr">
+                    <td class="public_main_td">
+                        <label class="public_label_left10,cmm_ui_w100">网银登录昵称</label>
+                        <input class="public_right10,cmm_ui_w190" type="text" id="USERID" hold="请输入网银登录昵称" border="0" value=""/>
+                        <label class="public_line_b1"></label>
+                    </td>
+                </tr>
+                <tr class="public_main_tr">
+                    <td class="public_main_td">
+                        <label class="public_label_left10,cmm_ui_w100">预留信息</label>
+                        <input class="public_right10,cmm_ui_w190" type="text" id="LABEL" hold="请输入预留信息" border="0" value=""/>
+                        <label class="public_line_b1"></label>
+                    </td>
+                </tr>
+                <tr class="public_main_tr">
+                    <td class="public_main_td">
+                        <label class="public_label_left10,cmm_ui_w100">手机号码</label>
+                            <label class="public_right10,cmm_ui_w190,text_bg,cmm_ui_h35" >#{=format_mobile(mobile)}#</label> 
+                            <label class="public_right10,cmm_ui_w190,text_bg,cmm_ui_h35,public_displayN" id="MOBILE">#{=mobile}#</label>
+                        <label class="public_line_b1"></label>
+                    </td>
+                </tr>
+                <tr class="public_main_tr">
+                    <td class="public_main_td">
+                       #{local msgStr = ebank_public.msg.msg_page()}#
+                       #{= msgStr}#
+                       <label class="public_line_b1"></label>
+                    </td>
+                </tr>
+            </table>
+            <div class="cmm_ui_h10"></div>
+            <input type="button" class="public_15_w290_h35" onclick="this.next_page()" value="下一步"/>
+            
+        </div>
+        <div class="cmm_ui_h10"></div>
+        <div class="cmm_ui_h10"></div>
+        <div class="div_showContent" name="showcontent_div" border="0"></div>
+    </body>
+</content>

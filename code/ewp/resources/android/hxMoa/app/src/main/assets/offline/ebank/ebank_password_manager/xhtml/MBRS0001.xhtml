@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+#{
+local json_data = ert.channel:get_response("ebank_password_manager","MBRS0001");
+local json_tbl = json:objectFromJSON(json_data) or {};
+local t_body = json_tbl["body"] or {};
+local MOBILE = t_body["MOBILE"];
+local MOBILE1 = format_mobile(MOBILE);
+}#
+<content>
+  <head>
+    <link ref="ebank_password_manager/css/ebank_password_manager_public.css" type="text/css"/>
+    <link ref="ebank_public.css" type="text/css"/>
+    <script type="text/x-lua" src="ebank_password_manager/lua/MBRS0001.lua"></script>
+  </head>
+  <body>
+   #{local str = ebank_public.header:set_header("手机号码变更","2")}#
+   #{= str}#
+   <div class="public_main_div" border="0">
+    <table border="0">
+    <tr>
+      <td>
+        <div border="0" class="div_w320_h44" align="center" valign="middle">
+          <label class="label_fs14,h14" name="title2" >您正在重置手机号码!</label>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div class="div_kong" border="0"></div>
+      </td>
+    </tr>
+    <tr>
+      <td class="div_w320_h44">
+        <label class="public_label_left">原手机是否还在使用？</label>
+          <input type="switch" class="right" name="switch1" onclick="switch()" />
+          <input type="switch" class="right" name="switch1" onclick="switch()" />
+      </td>
+    </tr>
+    </table>
+    <table border="0" name="tb2">
+    <tr>
+      <td class="div_w320_h44">
+          <label class="public_line_t0"></label>
+          <label class="public_label_left">姓名</label>
+          <input type="text"  class="public_input_w188_l117" id="customerName" hold="请输入姓名" border="0" />
+          <label class="public_line_b1"></label>
+      </td>
+    </tr>
+   <tr>
+      <td class="div_w320_h44">
+          <label class="public_label_left">身份证号码</label>
+          <input type="text"  class="public_input_w188_l117" minleng="16" maxleng="18" id="IDNO" hold="请输入身份证" border="0" onblur="onblur_empty_format('IDNO')" />
+          <label class="public_line_b1"></label>
+      </td>
+    </tr>
+    <tr>
+      <td class="div_w320_h44">
+          <label class="public_label_left">交易密码</label>
+          <input type="password-num"  class="public_input_w188_l117,password" minleng="6" maxleng="6" id="tranPassword" hold="请输入交易密码" border="0" isorder="true" style="-wap-input-format:'N'" />
+          <label class="public_line_b1"></label>
+      </td>
+    </tr>
+    </table>
+    <table border="0" class="display_none" name="tb1">
+    <!-- 用原手机验证 -->
+    <tr>
+      <td class="div_w320_h44">
+          <label class="public_label_left">原手机号码</label>
+          <input type="text"  class="public_input_w188_l117,text_bg" border="0" enable="false" value="#{=MOBILE1}#" />
+          <label hide='true' id="MOBILE">#{=MOBILE}#</label>
+          <label class="public_line_b1"></label>
+      </td>
+    </tr>
+   <tr>
+      <td class="div_w320_h44">
+          <label class="public_label_left">短信验证码</label>
+          <input type="text" maxleng="6"  class="public_input_w100_l117" id="OTPNO" hold="请输入验证码" border="0" style="-wap-input-format:'N'" onfocus="msg_onblur(1)" />
+          <input type="button" class="public_button_node" border="0" enable="true" value="获取验证码" onclick="get_msg_code(1)" id="msg_code_1"  name="msg_code_1" />
+          <label class="public_line_b1"></label>
+      </td>
+    </tr>
+    </table>
+    <table border="0">
+    <!-- 固定 -->
+    <tr>
+      <td class="div_w320_h44">
+          <label class="public_line_t0"></label>
+          <label class="public_label_left">新手机号码</label>
+          <input type="text" class="public_input_w188_l117" id="MOBILE2" hold="请输入新手机" border="0" style="-wap-input-format:'N'" minleng="11" maxleng="11" onblur="onblur_empty_format('MOBILE2')" />
+          <label class="public_line_b1"></label>
+      </td>
+    </tr>
+    <tr>
+      <td class="div_w320_h44">
+          <label class="public_label_left">短信验证码</label>
+          <input type="text"  class="public_input_w100_l117" id="OTPNO2" hold="请输入验证码" maxleng="6" border="0" style="-wap-input-format:'N'" onfocus="msg_onblur(2)" />
+          <input type="button" class="public_button_node" border="0" enable="true" value="获取验证码" onclick="get_msg_code(2)"  id="msg_code_2" name="msg_code_2" />
+          <label class="public_line_b1"></label>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div class="div_kong" border="0"></div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div class="div_kong" border="0"></div>
+      </td>
+    </tr>
+    </table>
+  </div>
+  <input type="button" class="public_15_w290_h35" id="div_input_1" border="0" enable="true" value="下一步" onclick="click()" /> 
+</body>
+</content>
+
+

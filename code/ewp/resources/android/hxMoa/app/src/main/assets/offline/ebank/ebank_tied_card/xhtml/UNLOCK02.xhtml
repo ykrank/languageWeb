@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+#{
+    this = ert.channel:get_page("ebank_tied_card","UNLOCK02");
+    local req_val  = ert.channel:get_request("ebank_tied_card","UNLOCK02");
+}#
+<content>
+    <head>
+        <link ref="ebank_public.css" type="text/css"/>
+        <link ref="ebank_tied_card/css/BOUND011.css" type="text/css"/>
+        <script type="text/x-lua" src="RYTL.lua"></script>
+        <script type="text/x-lua" src="ebank_tied_card/lua/UNLOCK02.lua"></script>
+    </head>
+    <body class="body">
+        <div class="ebank_public_header_div" border="0">
+            <div border ="0" class="ebank_public_header_div_right" >
+                <input type="button" class="ebank_public_header_div_right" border ="0" onclick="this.next_cardList()" ></input>
+                <label class="ebank_public_header_div_right_label">完成</label>
+            </div>
+            <label class="ebank_public_header_label">银行卡管理</label>
+            <label class="public_line_b1"></label>
+        </div>
+        
+        <div class="public_main_div" border="0">
+            <table class="tabel_w320_bgFFFFFF" border="0">
+            <tr class="trtd25" border="1">
+              <td class="trtd25">
+              </td>
+            </tr>
+            <tr class="trtd36" border="1">
+              <td class="trtd36">
+                <img src="check-icon.png" class = "img_h36_w36_l74"></img>
+                <label class="label_l148_fs17_c4D4D4D">解绑银行卡成功！</label>
+              </td>
+            </tr>
+            <tr class="trtd15" border="1">
+              <td class="trtd15">
+              </td>
+            </tr>
+                  <tr class="trtd30" border="1">
+                    <td class="trtd30">
+                      <label class="label_fs12_c666666,left">解绑账户：</label>
+                      <label class="label_fs12_c666666,right">#{=format_account(req_val["account"])}#</label>
+                    </td>
+                  </tr>
+                  <tr class="trtd30" border="1">
+                    <td class="trtd30">
+                      <label class="label_fs12_c666666,left">银行名称：</label>
+                      <label class="label_fs12_c666666,right">#{=req_val["bank"]}#</label>
+                    </td>
+                  </tr>
+            <tr class="trtd10" border="1">
+              <td class="trtd10">
+              </td>
+            </tr>
+            <tr class="trtd30,bgEBEBEE" border="1">
+              <td class="trtd30,bgEBEBEE">
+              </td>
+            </tr>
+            <tr class="trtd35,bgEBEBEE" border="1">
+              <td class="trtd35,bgEBEBEE">
+                 <input type="button" class="public_15_w290_h35" onclick="this.next_cardList()"  value="确定"/>
+              </td>
+            </tr>
+            <tr class="trtd45,bgEBEBEE" border="1">
+              <td class="trtd45,bgEBEBEE">
+              </td>
+            </tr>
+        </table>
+        </div>
+        #{=ebank_public.new_broduct:new_broduct_show()}#
+    </body>
+</content>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<content>
+	<!-- <head> <style> .body1 {background-image:url(loading_02.png);} .seal 
+		{top:160px;left:100px;width:125px;height:125px;background-image:url(loading.png);} 
+		.loaddiv {width:320px;height:460px;top:0px;background-color:#000000;} .labelload 
+		{left:133px;top:300px;color:#FFFFFF;font-size:18px;} </style> <script type="text/x-lua" 
+		src="RYTL.lua"></script> <script type="text/x-lua"> <![CDATA[ function loading() 
+		local loadimg = document:getElementsByProperty{name="loadseal"}; local loaddiv 
+		= document:getElementsByProperty{name="loaddiv"}; transition:setRepeatCount(loadimg[1],-1); 
+		transition:rotate(loadimg[1], 360, 'z', 2); end; loading(); utility:tls(); 
+		]]> </script> </head> <body name='body'> <div class='loaddiv' name='loaddiv' 
+		border='0' > <img class='seal' name='loadseal' /> <label class='labelload' 
+		name='loadnote' >加载中...</label> </div> </body> -->
+
+	<head>
+		<style>
+			.body {background-color:#ffffff;}
+			.title {left:3px;top:5px;color:#FF3300;font-size:18px;}
+			.wrap {width:320px;background-color:#FFFFFF;}
+			.inputurl {left:3px;width:260px;height:40px;top:200px;}
+			.buttoncss
+			{width:55px;height:40px;top:200px;background-image:url(backButtonBg.png);}
+		</style>
+		<script type="text/x-lua" src="RYTL.lua"></script>
+		<script type="text/x-lua">
+            <![CDATA[
+                ryt = RYTL:new{};
+                local emp = {""};
+				utility:tls(emp);
+                local input = document:getElementsByProperty{name="url"};
+                function update()
+                
+                local url = input[1]:getPropertyByName("value");
+                local content = http:postSyn(nil, url, nil);
+                local result = string.find(content, "<html>");
+                print(result);
+                if result == nil then
+                history:add(content);
+                location:replace(content, nil);
+                else
+                window:alert(content);
+                end
+                
+                
+                end;
+            ]]>
+		</script>
+	</head>
+	<body name='body'>
+
+		<input type="text" class='inputurl' name='url' value="/entrance.xml" />
+		<input type="button" class="buttoncss" text="访问" onclick="update()" />
+
+	</body>
+
+</content>

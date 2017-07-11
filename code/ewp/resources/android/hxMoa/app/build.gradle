@@ -1,0 +1,49 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 19
+    buildToolsVersion "25.0.3"
+
+    defaultConfig {
+        applicationId "com.ghbank.moas"
+        minSdkVersion 8
+        targetSdkVersion 17
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
+        }
+    }
+}
+
+dependencies {
+    compile 'com.android.support:support-v4:19.1.0'
+    compile 'com.google.code.gson:gson:2.1'
+    compile 'com.google.code.gson:gson:2.3.1'
+    compile files('libs/Android_2DMapApi_V2.5.0.jar')
+    compile files('libs/EmpChart.jar')
+    compile files('libs/EmpQRCode.jar')
+    compile files('libs/EmpReader.jar')
+    compile files('libs/MapApiLocation_1.3.3.jar')
+    compile files('libs/MapApiServices.jar')
+    compile files('libs/SangforSDK.jar')
+    compile files('libs/aeye_android_face_detection.jar')
+    compile files('libs/aeyehuaxingsdk.jar')
+    compile files('libs/androidpn-client.jar')
+    compile files('libs/commons-codec-1.7.jar')
+    compile files('libs/emp_out.jar')
+    compile files('libs/empeditor.jar')
+    compile files('libs/fastjson-1.1.27.jar')
+    compile files('libs/gifview.jar')
+    compile files('libs/nq-ent-sdk-v1.1-20140822.jar')
+    compile files('libs/office_read.jar')
+    compile files('libs/opencv library - 2.4.10.jar')
+    compile files('libs/poi-3.8-20120326.jar')
+    compile files('libs/poi-ooxml-3.8-20120326.jar')
+    compile files('libs/poi-scratchpad-3.8-20120326.jar')
+    compile files('libs/ryttrack.jar')
+    compile files('libs/tagsoup-1.2.1.jar')
+    compile files('libs/viewserver.jar')
+}

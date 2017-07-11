@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+#{
+  this = ert.channel:get_page("ebank_product_deposit","PD0005");
+  local data=this:get_data();
+  local table=json:objectFromJSON(data) or {};
+  table["body"] = table["body"] or {};
+  local balance = table["body"]["balance"];
+
+
+  local atdate = table["body"]["atdate"];
+
+  --智能存款收益
+  local req_tbl_zn = ert.channel:get_request("ebank_product_deposit","PD0005");
+  local zn_rate = req_tbl_zn["zn_rate"];
+  local zn_amount = req_tbl_zn["zn_amount"];
+}#
+<content>
+<head>
+    <script type="text/x-lua" src="ebank_product_deposit/lua/PD0005.lua"></script>
+    <link ref="ebank_public.css" type="text/css"/>
+    <link ref="ebank_product_huaxingbao/css/PX0001.css" type="text/css"/>
+    <link ref="ebank_product_huaxingbao/css/PX0002.css" type="text/css"/>
+    <style>
+ 
+    .buttom_b0{bottom: 0px;position: fixed;font-size: 14px;left:0px;width:320px;}
+    .input_l80_w160{left:80px;width:160px;height:30px;}
+
+    /*radio*/
+    .radio_1{height: 20px;width: 80px;font-size: 12px;top:10px;color: #666666;}
+    .radio_left{left:150px;}
+    .radio_right{left: 245px;}
+
+    </style>
+</head>
+<body>
+  #{local str = ebank_public.header:set_header("智能存款","2",'0','0')}#
+  #{= str}#
+  <div class="public_main_div" border="0">
+        <div class="div_h116_w320_t0" border="0">
+          <!--
+              <img src="ebank_product_huaxingbao/images/vertical_line.png" class="img_l160_t30_w1" />
+              -->
+              <label class="label_f40_w160,div_t30">#{=format_money(global_zn_rate)}#</label>
+              <label class="label_f40_w160,div_t30,div_l160">#{=format_money(global_zn_amount)}#</label>
+              <label class="label_f14_w160,div_t80">最高年化收益率(%)</label>
+              <label class="label_f14_w160,div_t80,div_l160">起购金额(元)</label>
+              <div class="line_2" border="0" ></div>
+              <label class="public_line_stroke_b1"></label>
+        </div>
+
+        <div class="div_w320_t131" border="0">
+          <label class="public_line_stroke_t0"></label>
+
+          <table border="0">
+            <tr class="tr_bEBEBEE">
+              <td>
+                <label class="label_l15_f14">当前持有余额</label>
+                <label class="label_right,cF85050">#{=format_money(balance)}#</label>
+                <label class="label_right">元</label>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <label class="public_line_stroke_t0"></label>
+                <label class="label_l15_f14">支取金额</label>
+                <input type="text" hold="请输入金额" id="inuput_money" style="-wap-input-format:'n'" maxleng="20" border="0" class="input_l46_w80" onchange="input_onchange()" onblur="input_onblur()"></input><br/>
+                <label class="label_chinse" id="show_as_china"></label>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <label class="public_line_stroke_t0"></label>
+                <label class="label_l15_f14">交易密码</label>
+                <input type="password-num" id="passoword_id" hold="请输入密码" isorder="true" border="0" maxleng="6" class="input_l46_w80"></input><br/>
+                <label class="public_line_stroke_b1"></label>
+              </td>
+            </tr>
+          </table>
+        </div>
+  </div>
+   <div class="div_h10" border="0">
+  </div>
+  <input type="button" class="public_15_w290_h35" value="支取" onclick="trun_page_PD0006('#{=zn_rate}#','#{=zn_amount}#','#{=balance}#')"></input>
+ 
+</body>
+</content>

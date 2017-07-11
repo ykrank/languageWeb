@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+#{
+    this = ert.channel:get_page("ebank_manage_asset","EMAS0003");
+    local json_data=this:get_data();
+    local json_tbl = json:objectFromJSON(json_data) or {};
+    json_tbl["body"] = json_tbl["body"] or {};
+
+    local ReceivedDate = json_tbl["body"]["nextWorkTime"];
+    local AccBalance = json_tbl["body"]["accBalance"];
+
+    local req_value = ert.channel:get_request("ebank_manage_asset","EMAS0003");
+    local req_name = ert.channel:get_request("ebank_manage_asset","EMAS0002");
+}#
+
+<content>
+    <head>
+    <script type="text/x-lua" src="ebank_manage_asset/lua/EMAS0003.lua"></script>
+    <link ref="ebank_manage_asset/css/EMAS0000.css" type="text/css"/>
+    <link ref="ebank_manage_asset/css/EMAS0003.css" type="text/css"/>
+    <link ref="ebank_public.css" type="text/css"/>
+    </head>
+    <body class="body">
+      #{if req_value["SignValue"] == "0" then}#
+        #{local str = ebank_public.header:set_header("转入结果","3","0","0")}#
+        #{= str}#
+      #{else}#
+        #{local str = ebank_public.header:set_header("转出结果","3","0","0")}#
+        #{= str}#
+      #{end}#
+      <div class="public_main_div" border="0">
+        <table class="tabel_w320_bgFFFFFF" border="0">
+          <tr class="trtd_h25_w320" border="1">
+              <td class="trtd_h25_w320">
+              </td>
+            </tr>
+            <tr class="trtd_h36_w320" border="1">
+              <td class="trtd_h36_w320">
+                <img src="check-icon.png" class = "img_h36_w36_l100"></img>
+                #{if req_value["SignValue"] == "0" then}#
+                  #{if req_value["BankFlag"] == "0" then}#
+                    <label class="label_l148_fs17_c4D4D4D">受理成功</label>
+                  #{else}#
+                    <label class="label_l148_fs17_c4D4D4D">转入资金成功</label>
+                  #{end}#
+                #{else}#
+                  <label class="label_l148_fs17_c4D4D4D">受理成功</label>
+                #{end}#
+              </td>
+            </tr>
+            <tr class="trtd_h15_w320" border="1">
+              <td class="trtd_h15_w320">
+              </td>
+            </tr>
+            #{if req_value["SignValue"] == "0" then}#
+              <tr class="trtd_h30_w320" border="1">
+                <td class="trtd_h30_w320">
+                  <label class="label_fs12_c666666,public_left">转入账号:</label>
+                  <label class="label_fs12_c666666,public_right">#{= format_account(req_value["account"])}#</label>
+                </td>
+              </tr>
+              <tr class="trtd_h30_w320" border="1">
+                <td class="trtd_h30_w320">
+                  <label class="label_fs12_c666666,public_left">本次转入金额:</label>
+                  <label class="label_fs12_cF85050,right32">#{= format_money(req_value["amountIn"])}#</label>
+                  <label class="label_fs12_c666666,public_right">元</label>
+                </td>
+              </tr>
+              #{if req_value["BankFlag"] == "1" then}#
+                <tr class="trtd_h30_w320" border="1">
+                  <td class="trtd_h30_w320">
+                    <label class="label_fs12_c666666,public_left">E账户当前余额:</label>
+                    <label class="label_fs12_cF85050,right32">#{= format_money(AccBalance)}#</label>
+                    <label class="label_fs12_c666666,public_right">元</label>
+                  </td>
+                </tr>
+              #{else}#
+                <tr class="trtd_h30_w320" border="1">
+                  <td class="trtd_h30_w320">
+                    <label class="label_fs12_c666666,public_left">预计#{= format_date_to_chinse(ReceivedDate)}#后资金到账</label>
+                  </td>
+                </tr>
+              #{end}#
+            #{else}#
+              <tr class="trtd_h30_w320" border="1">
+                <td class="trtd_h30_w320">
+                  <label class="label_fs12_c666666,public_left">收款账号:</label>
+                  <label class="label_fs12_c666666,public_right">#{= format_account(req_value["account"])}#</label>
+                </td>
+              </tr>
+              <tr class="trtd_h30_w320" border="1">
+                <td class="trtd_h30_w320">
+                  <label class="label_fs12_c666666,public_left">所属银行:</label>
+                  <label class="label_fs12_c666666,public_right">#{= req_value["BankName_c"]}#</label>
+                </td>
+              </tr>
+              <tr class="trtd_h30_w320" border="1">
+                <td class="trtd_h30_w320">
+                  <label class="label_fs12_c666666,public_left">本次转出金额:</label>
+                  <label class="label_fs12_cF85050,right32">#{= format_money(req_value["amountIn"])}#</label>
+                  <label class="label_fs12_c666666,public_right">元</label>
+                </td>
+              </tr>
+              <tr class="trtd_h30_w320" border="1">
+                <td class="trtd_h30_w320">
+                  <label class="label_fs12_c666666,public_left">E账户可用余额:</label>
+                  <label class="label_fs12_cF85050,right32">#{= format_money(AccBalance)}#</label>
+                  <label class="label_fs12_c666666,public_right">元</label>
+                </td>
+              </tr>
+              #{if req_value["BankFlag"] == "0" then}#
+                <tr class="trtd_h30_w320" border="1">
+                  <td class="trtd_h30_w320">
+                    <label class="label_fs12_c666666,public_left">预计到账日期:</label>
+                    <label class="label_fs12_c666666,public_right">#{= format_date_to_chinse(ReceivedDate)}#</label>
+                  </td>
+                </tr>
+              #{end}#
+              <!--
+              <tr class="trtd_h30_w320" border="1">
+                <td class="trtd_h30_w320">
+                  <label class="label_fs12_c666666,public_left">交易日期:</label>
+                  <label class="label_fs12_c666666,public_right">#{= MarketDate}#</label>
+                </td>
+              </tr>
+              -->
+            #{end}#
+            <tr class="trtd_h10_w320" border="1">
+              <td class="trtd_h10_w320">
+              </td>
+            </tr>
+            <tr class="trtd_h30_w320,bgEBEBEE" border="1">
+              <td class="trtd_h30_w320,bgEBEBEE">
+              </td>
+            </tr>
+            #{if req_value["SignValue"] == "0" then}#
+              <tr class="trtd_h35_w320,bgEBEBEE" border="1">
+                <td class="trtd_h35_w320,bgEBEBEE">
+                  <input type="button" class = "public_h35_w140_l15_fs17_cFFFFFF" value="明细查询" onclick="detail_inquiry()"></input>
+                  <input type="button" class = "public_h35_w140_r15_fs17_cFFFFFF" value="继续转入" onclick="next_money_into('0','#{= AccBalance}#','#{= req_name["CustName"]}#')"></input>
+                </td>
+              </tr>
+            #{else}#
+              <tr class="trtd_h35_w320,bgEBEBEE" border="1">
+                <td class="trtd_h35_w320,bgEBEBEE">
+                  <input type="button" class = "public_15_w290_h35" value="确定" onclick="detail_inquiry()"></input>
+                </td>
+              </tr>
+            #{end}#
+        </table>
+      </div>
+      #{=ebank_public.new_broduct:new_broduct_show()}#
+  </body>
+</content>

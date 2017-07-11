@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+#{
+local json_data = ert.channel:get_response("ebank_freeze", "FREEZE01");
+local json_tbl = json:objectFromJSON(json_data) or {};
+local t_body = json_tbl["body"] or {};
+local eAccountNo = t_body["eAccountNo"];
+local MOBILE = t_body["MOBILE"];
+local MOBILE1 = format_mobile(MOBILE);
+}#
+<content>
+  <head>
+    <link ref="ebank_freeze/css/ebank_freeze_public.css" type="text/css"/>
+    <link ref="ebank_public.css" type="text/css"/>
+    <script type="text/x-lua" src="ebank_freeze/lua/UNFZ0001.lua"></script>
+  </head>
+  <body>
+    <!--Title-->
+    #{local str = ebank_public.header:set_header("解冻确认","2")}#
+    #{= str}#
+    <div class="public_main_div" border="0">
+     <div class="div_kong" border="0"></div>
+     <table border="0">
+      <tr>
+        <td class="div_w320_h44">
+          <label class="public_line_t0"></label>
+          <label class="public_label_left">E账号</label>
+          <label class="public_input_w188_l117" id="eAccountNo" border="1">#{=eAccountNo}#</label>
+          <label class="public_line_b1"></label>
+        </td>
+      </tr>
+      <tr>
+        <td class="div_w320_h44">
+          <label class="public_label_left">手机号</label>
+          <label class="public_input_w188_l117" id="MOBILE1" border="1">#{=MOBILE1}#</label>
+          <label hide='true' id="MOBILE">#{=MOBILE}#</label>
+          <label class="public_line_b1"></label>
+        </td>
+      </tr>
+      <tr>
+        <td class="div_w320_h44">
+          #{local msgStr = ebank_public.msg.msg_page()}#
+          #{= msgStr}#
+        </td>
+      </tr>
+      <tr>
+        <td class="div_w320_h44">
+         <label class="public_line_b1"></label>
+          <label class="public_label_left">交易密码</label>
+          <input type="password-num"  class="public_input_w188_l117,password" minleng="6" maxleng="6" id="tranPassword" hold="请输入" border="0" isorder="true" style="-wap-input-format:'N'" />
+          <label class="public_line_b1"></label>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="div_kong" border="0"></div>
+          <div class="div_kong" border="0"></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="div_kong,div_w320_h44">
+          <input type="button" class="public_15_w290_h35" id="div_input_1" border="0" enable="true" value="确认解冻" onclick="click()" /> 
+        </td>
+      </tr>
+    </table>
+  </div>
+</body>
+</content>

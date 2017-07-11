@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="EmpQRCode">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/app/libs/EmpQRCode.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

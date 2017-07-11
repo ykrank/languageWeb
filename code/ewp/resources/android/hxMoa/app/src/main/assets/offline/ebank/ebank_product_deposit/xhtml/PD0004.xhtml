@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+#{
+  --this = ert.channel:get_page("ebank_product_deposit","PD0004");
+  --local data=this:get_data();
+  --local table=json:objectFromJSON(data) or {};
+  --table["body"] = table["body"] or {};
+  --local income = table["body"]["income"];
+  --local balance = table["body"]["balance"];
+
+    --智能存款收益
+  local req_tbl_zn = ert.channel:get_request("ebank_product_deposit","PD0004");
+  local zn_rate = req_tbl_zn["zn_rate"];
+  local zn_amount = req_tbl_zn["zn_amount"];
+  --window:alert(zn_rate.."-----------------"..zn_amount);
+
+}#
+<content>
+<head>
+    <script type="text/x-lua" src="ebank_product_deposit/lua/PD0004.lua"></script>
+    <link ref="ebank_public.css" type="text/css"/>
+    <link ref="ebank_product_deposit/css/PD0001.css" type="text/css"/>
+    <link ref="ebank_product_deposit/css/PD0004.css" type="text/css"/>
+    <style>
+    .label_t9_r15_fs14_c666666{top: 9px;right: 15px;font-size: 12px;color: #666666;}
+    .label_t9_l130_fs14_c666666{top: 9px;left: 130px;font-size: 12px;color: #666666;}
+    .label_t9_l15_fs14_c666666{top: 9px;left: 15px;font-size: 12px;color: #666666;}
+    .tr_td40{height: 40px;}
+
+    .input_t0_h35_w160_l0_fs14_cFFFFFF{top: 0px;height: 40px;width: 160px;left: 0px;font-size: 14px;color: #FFFFFF;}
+    .input_t0_h35_w160_r0_fs14_cFFFFFF{top: 0px;height: 40px;width: 160px;right: 0px;font-size: 14px;color: #FFFFFF;}
+
+    .img_date1{width:20px;height: 20px;left: 80px;top: 12px; }
+    .img_date2{width:20px;height: 20px;left: 180px;top: 12px; }
+
+    .tabel_w320_bgFFFFFF{width: 320px;background-color: #F7F7F7;height: 150px;top:0px;}
+
+    /*中间线*/
+    .div_l40_w240_h1{left: 80px;width: 160px;height: 1px;background-color: #f1f1f1;top:94px;}
+
+    /*总资产 金额及字体*/
+    .label_1_w320_t50_f32_cf85050{width: 320px;top: 25px;font-size: 32px;color: #f85050;text-align: center;}
+    .label_2_f12_c666666_t67{font-size: 12px;color: #666666;top: 67px;}
+
+    /*累计收益 金额及字体*/
+    .label_w160_l0_t106{width: 320px;font-size: 17px;color: #f85050;left: 0px;top: 106px;text-align: center;}
+    .label_f14_c66666{font-size: 12px;color: #666666;top:133px;}
+
+    </style>
+</head>
+<body>
+  #{local str = ebank_public.header:set_header("智能存款","7",'0','0')}#
+  #{= str}#
+  <div class="public_main_div" border="0">
+      <!--产品收益信息-->
+      <div class="div_t0_h190_w320" border="0">
+      <!--<img src="ebank_product_huaxingbao/images/vertical_line.png" class="img_l160_t30_w1" />-->
+        <label class="label_1_w320_t50_f32_cf85050" id="balance"></label>
+        <label class="label_w160_l0_t106" id="income"></label>
+        <label class="label_1_w320_t50_f32_cf85050,label_2_f12_c666666_t67">智能存款总资产(元)</label>
+        <label class="label_w160_l0_t106,label_f14_c66666">累计收益(元)</label>
+        <div class="div_l40_w240_h1" border="0"></div>
+        <label class="public_line_stroke_b1"></label>
+      </div>
+
+      <div class="div_t150_w320" border="0">
+      <img src = 'menology.png' />
+        <div class="div_left_l0_h35_w160_t0" id="div_1" border="0" onclick="change_color('1')"><label id="lab_1" class="label_w159_fs14,label_r0_c999999">收益明细</label></div>
+        <div class="div_right_l160_h35_w160_t0" id="div_2" border="0" onclick="change_color('2')"><label id="lab_2" class="label_w159_fs14,label_l0_c4d4d4d">交易明细</label></div>
+        <div class="div_t35_h46_l0_w320" border="0">
+          <input type="text" style="-wap-input-format:'date'" showformat="yyyy-MM-dd" id="dateStart" class="input_t10_w97_fs12_c666666,input_l8" border="0"/>
+          <input type="text" style="-wap-input-format:'date'" showformat="yyyy-MM-dd" id="dateEnd" class="input_t10_w97_fs12_c666666,input_l110" border="0" hold="截止日期"/>
+             <img src="menology.png" class = "img_date1"></img>
+             <img src="menology.png" class = "img_date2"></img>
+          <input type="button" class="input_t10_h26_w93_l219_fs12_cFFFFFF" value="查询" border="0" onclick="alert_show()"/>
+        </div>
+
+        <div class="div_t81_h30_w304_l8_bgEBEBEE" border="0">
+          <label class="label_t9_r15_fs14_c666666" id="lab_33"></label>
+          <label class="label_t9_l130_fs14_c666666" id="lab_32"></label>
+          <label class="label_t9_l15_fs14_c666666" id="lab_31"></label>
+        </div>
+        <div name="mindro" class="div_w320" border="0"></div>
+      </div>
+
+  </div>
+  <div class="div_but" border="0">
+      <input type="button" id = "butpx0002" class = "input_t0_h35_w160_l0_fs14_cFFFFFF" value="买入" onclick="turn_page_PD0002_PD0005('2','#{=zn_rate}#','#{=zn_amount}#')"></input>
+      <input type="button" id = "butpx0005" class = "input_t0_h35_w160_r0_fs14_cFFFFFF" value="支取" onclick="turn_page_PD0002_PD0005('5','#{=zn_rate}#','#{=zn_amount}#')"></input>
+  </div>
+</body>
+</content>

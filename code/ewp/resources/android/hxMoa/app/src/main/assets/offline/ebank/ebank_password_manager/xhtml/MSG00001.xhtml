@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+#{
+this = ert.channel:get_page("ebank_password_manager","MSG00001");
+local data=this:get_data() or {};
+local json_tbl=json:objectFromJSON(data) or{};
+local t_body = json_tbl["body"] or {};
+local MSG = t_body["msg"];
+}#
+
+<content>
+  <head>
+    <link ref="ebank_password_manager/css/ebank_password_manager_public.css" type="text/css"/>
+    <link ref="ebank_public.css" type="text/css"/>
+    <script type="text/x-lua" src="ebank_password_manager/lua/MSG00001.lua"></script>
+  </head>
+  <body>
+   #{local str = ebank_public.header:set_header("预留信息变更","2")}#
+   #{= str}#
+   <div class="public_main_div,div_w290_l15" border="0">
+    <div class="div_kong" border="0"></div>
+    <table border="0">
+    <tr>
+      <td class="div_w290_h44">
+          <label class="public_line_t0"></label>
+          <input type="text"  class="w275_l15" id="msg" hold="请输入预留信息,最多可输入10个汉字" border="0" value="#{=MSG}#" />
+          <label class="public_line_b1"></label>
+      </td>
+    </tr>
+    </table>
+  </div>
+   <div class="div_kong" border="0"></div>
+   <input type="button" class="public_15_w290_h35" id="div_input_1" border="0" enable="true" value="确认修改" onclick="click()" /> 
+</body>
+</content>

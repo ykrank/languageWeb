@@ -1,0 +1,122 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<content>
+  <head>
+    <style>
+      .body {width:320px;height:460px;background-color:#FF0A0B;}
+      .div_ctrl{width:300px;left:10px;height:300px;color:#000000;font-size:20px;}
+      .input_test{width:200px;left:50px;height:50px;background-color:#0575c9;}
+      .close_but {width:300px;height:30px;left:10px;font-size:20px;color:#000000;background-color:#ffff00;}
+    </style>
+    <script type="text/x-lua" src="RYTL.lua"></script>
+    <script type="text/x-lua">
+      <![CDATA[
+            
+            ryt = RYTL:new{};
+            
+            -- 仅作测试。
+            function touchstartCallbackTest(event)
+                local touchList = event["touches"];
+                local touch = touchList[1];
+                
+                local identifier = touch["identifier"];
+                local target = touch["target"]; -- 获得触摸控件。
+                local clientX = touch["clientX"];
+                local clientY = touch["clientY"];
+                local pageX = touch["pageX"];
+                local pageY = touch["pageY"];
+                local viewX = touch["viewX"];
+                local viewY = touch["viewY"];
+                local contentX = touch["contentX"];
+                local contentY = touch["contentY"];
+                local tapCount = touch["tapCount"];
+                
+                -- window:alert(identifier .. "," .. target:getPropertyByName("tagName") .. "," .. clientX  .. "," ..  clientY  .. "," .. pageX .. "," ..  pageY  .. "," .. viewX  .. "," .. viewY  .. "," .. contentX  .. "," .. contentY  .. "," .. tapCount);
+                
+                local test = "3";
+                local result = 3 + test;
+                window:alert(result);
+            end;
+            
+            -- 以下是正式的测试：
+            
+            function testClick()
+                window:alert("测试已有的onclick属性。");
+            end;
+            
+            local touch; -- 需要监测的触摸点。
+            local target; -- 触摸到的控件。
+            local preX = 0; -- 触摸点在整个屏幕上的X坐标，初始状态。
+            local preY = 0; -- 触摸点在整个屏幕上的Y坐标，初始状态。
+            local currentX = 0; -- 当前控件的左边距。
+            local currentY = 0; -- 当前控件的右边距。
+            
+            local scaleX = screen:width() / 320.0;
+            local scaleY = screen:height() / 480.0;
+            
+            function touchstartListener(event)
+            	touch = event["targetTouches"][1]; -- 获取一个 touch 对象
+            	target = touch["target"]; -- 获取被点击的控件.
+            	preX = touch["clientX"];
+            	preY = touch["clientY"];
+            	local leftStr = target:getStyleByName("left");
+            	local topStr = target:getStyleByName("top");
+            	-- 去掉px后缀。
+            	currentX = string.gsub(leftStr, "px", "");
+            	currentY = string.gsub(topStr, "px", "");
+            end;
+            	
+            function touchmoveListener(event)
+            	touch = event["targetTouches"][1]; -- 获取一个 touch 对象(此处可以不重复定义)
+            	target = touch["target"]; -- 获取被点击的控件.(此处可以不重复定义)
+                local x = touch["clientX"];
+            	local y = touch["clientY"];
+            	local distenceX = x - preX; -- X方向移动的距离。
+            	local distenceY = y - preY; -- Y方向移动的距离。
+            	-- 以上移动的距离是像素，需要除以缩放系数。
+            	distenceX = distenceX / scaleX;
+            	distenceY = distenceY / scaleY;
+            	local newLeft = currentX + distenceX;
+            	local newTop = currentY + distenceY;
+            	target:setStyleByName("left", newLeft .. "px");
+            	target:setStyleByName("top", newTop .. "px");
+            	target:setPropertyByName("value", x);
+            end;
+            
+            function touchendListener(event)
+                window:alert("触摸事件结束。");
+            end;
+            
+            function dragListener(argument, control)
+                print(argument["x"]);
+                print(argument["y"]);
+            end;
+            
+            -- 测试如下方法：touchstart、touchend、touchmove、touchcancel。
+            
+            function addTouchEvent()
+               local btns = document:getElementsByName("input_test");
+               
+               -- 设置手势回调。
+               gesture:setDragListener(btns[1], dragListener);
+               
+               btns[1]:addEventListener("touchstart", touchstartListener);
+               btns[1]:addEventListener("touchmove", touchmoveListener);
+               btns[1]:addEventListener("touchend", touchendListener);
+               
+               -- 设置成功。
+               window:alert("添加回调成功。");
+            end;
+            
+            ]]>
+    </script>
+  </head>
+
+  <body>
+
+    <div class="div_ctrl"  border="1"></div>
+    <input name="input_test" type="button" border="1" class="input_test" value="我是测试按钮" onclick="testClick()"/>
+    <input type="button" border="1" class="close_but" value="测试方法" onclick="addTouchEvent()"/>
+    <div class="div_ctrl"  border="1"></div>
+
+  </body>
+</content>

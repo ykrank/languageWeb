@@ -1,0 +1,13 @@
+{
+  "header":
+      {
+        "tran_success": "1",
+        "error_code": "1",
+        "error_msg":""
+      },
+  "body":
+      {
+        "comment1":"重置登录密码成功标识",
+        "flag":"1"
+      }
+}

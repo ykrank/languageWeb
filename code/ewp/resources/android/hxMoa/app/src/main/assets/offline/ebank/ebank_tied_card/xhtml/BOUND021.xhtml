@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+#{
+    local req_val = ert.channel:get_page("ebank_tied_card","BOUND021");
+    local vaLue_110 = req_val.context["vaLue_110"];
+}#
+<content>
+    <head>
+        <link ref="ebank_public.css" type="text/css"/>
+        <link ref="ebank_tied_card/css/BOUND011.css" type="text/css"/>
+        <script type="text/x-lua" src="RYTL.lua"></script>
+        <script type="text/x-lua" src="ebank_tied_card/lua/BOUND021.lua"></script>
+    </head>
+    <body class="body">
+        <div class="ebank_public_header_div" border="0">
+            <div border ="0" class="ebank_public_header_div_right" >
+                #{ if vaLue_110 == "110" then }#
+                    <input type="button" class="ebank_public_header_div_right" border ="0" onclick="next_home_title()" ></input>
+                #{ else }#    
+                    <input type="button" class="ebank_public_header_div_right" border ="0" onclick="next_cardList()" ></input>
+                #{ end }#
+                    
+                <label class="ebank_public_header_div_right_label">完成</label>
+            </div>
+            <label class="ebank_public_header_label">绑定结果</label>
+            <label class="public_line_b1"></label>
+        </div>
+
+        <div class="public_main_div" border="0">
+        <table class="tabel_w320_bgFFFFFF" border="0">
+          <tr class="trtd25" border="1">
+              <td class="trtd25">
+              </td>
+            </tr>
+            <tr class="trtd36" border="1">
+              <td class="trtd36">
+                <img src="check-icon.png" class = "img_h36_w36_l74"></img>
+                <label class="label_l148_fs17_c4D4D4D">绑定银行卡成功！</label>
+              </td>
+            </tr>
+            <tr class="trtd15" border="1">
+              <td class="trtd15">
+              </td>
+            </tr>
+                  <tr class="trtd30" border="1">
+                    <td class="trtd30">
+                      <label class="label_fs12_c666666,left">银行账户：</label>
+                      <label class="label_fs12_c666666,right">#{=req_val.context["account"]}#</label>
+                    </td>
+                  </tr>
+                  <tr class="trtd30" border="1">
+                    <td class="trtd30">
+                      <label class="label_fs12_c666666,left">开户行：</label>
+                      <label class="label_fs12_c666666,right">#{=req_val.context["bankname"]}#</label>
+                    </td>
+                  </tr>
+            <tr class="trtd10" border="1">
+              <td class="trtd10">
+              </td>
+            </tr>
+          #{ if vaLue_110 ~= "110" then }#
+              <tr class="trtd30,bgEBEBEE" border="1">
+                <td class="trtd30,bgEBEBEE">
+                </td>
+              </tr>
+              <tr class="trtd35,bgEBEBEE" border="1">
+                <td class="trtd35,bgEBEBEE">
+                  <input type="button" class = "input_h35_w140_l15_fs14_cFFFFFF" onclick="next_page()" value="继续绑卡"></input>
+                  <input type="button" class = "input_h35_w140_r15_fs14_cFFFFFF" onclick="next_home()" value="回到首页"></input>
+                </td>
+              </tr>
+              <tr class="trtd45,bgEBEBEE" border="1">
+                <td class="trtd45,bgEBEBEE">
+                </td>
+              </tr>
+          #{ else }#
+             <tr class="trtd30,bgEBEBEE" border="1">
+              <td class="trtd30,bgEBEBEE">
+              </td>
+            </tr>
+            <tr class="trtd35,bgEBEBEE" border="1">
+              <td class="trtd35,bgEBEBEE">
+                <input type="button" class="public_15_w290_h35" onclick="next_home_title()"  value="回到首页"/>
+              </td>
+            </tr>
+            <tr class="trtd45,bgEBEBEE" border="1">
+              <td class="trtd45,bgEBEBEE">
+              </td>
+            </tr>
+          #{ end }#
+        </table>
+      </div>
+      #{ if vaLue_110 ~= "110" then }#
+          #{=ebank_public.new_broduct:new_broduct_show()}#
+      #{ end }#
+    </body>
+</content>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<content>
+	<head>
+<style>
+	.scrolltable{width: 320px;height: 510px}
+</style>
+			<link ref="ebank_other/css/ebank_other_public.css" type="text/css"/>
+    		<link ref="ebank_public.css" type="text/css"/>
+	<script type="text/x-lua" src="ebank_other/lua/INFO0001.lua"></script>
+	</head>
+	<body class="body">
+	#{local str = ebank_public.header:set_header("消息中心","2")}#
+    #{= str}# 
+	<div class="public_main_div,bgffffff" border="0">
+		<table type="scrolltable" class="scrolltable" border="0" name="table_detail" preUrl="getPre()" nextUrl="getMore()"/>
+    </div>
+	</body>
+</content>

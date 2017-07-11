@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+#{
+local json_data = ert.channel:get_response("ebank_password_manager", "LPM00001");
+local json_tbl = json:objectFromJSON(json_data) or {};
+local t_body = json_tbl["body"] or {};
+local MOBILE = t_body["MOBILE"];
+local MOBILE1 = format_mobile(MOBILE);
+}#
+<content>
+  <head>
+    <link ref="ebank_password_manager/css/ebank_password_manager_public.css" type="text/css"/>
+    <link ref="ebank_public.css" type="text/css"/>
+    <script type="text/x-lua" src="ebank_password_manager/lua/LPM00001.lua"></script>
+  </head>
+  <body>
+    #{local str = ebank_public.header:set_header("修改登录密码","2")}#
+    #{= str}#
+
+    <div class="public_main_div" border="0">
+      <div class="div_kong" border="0"></div>
+      <table border="0">
+        <tr>
+          <td class="div_w320_h44">
+            <label class="public_line_t0"></label>
+            <label class="public_label_left">手机号码</label>
+            <input type="text"  class="public_input_w188_l117,text_bg" border="0" enable="false" value="#{=MOBILE1}#" />
+            <label hide='true' id="MOBILE">#{=MOBILE}#</label>
+            <label class="public_line_b1"></label>
+          </td>
+        </tr>
+        <tr>
+          <td class="div_w320_h44">
+            #{local msgStr = ebank_public.msg.msg_page()}#
+            #{= msgStr}#
+            <label class="public_line_b1"></label>
+          </td>
+        </tr>
+        <tr>
+          <td class="div_w320_h44">
+            <label class="public_label_left">原登录密码</label>
+            <input type="password-ASCII"  class="public_input_w188_l117,password" minleng="6" maxleng="16" id="password_modify1" hold="请输入原登录密码" name="pwd1" border="0" isorder="true" />
+            
+            
+            <label class="public_line_b1"></label>
+          </td>
+        </tr>
+        <tr>
+          <td class="div_w320_h44">
+            <label class="public_label_left">新登录密码</label>
+            <input type="password-ASCII"  class="public_input_w188_l117,password" minleng="6" maxleng="16" id="password_modify2" hold="请输入新登录密码" name="pwd2" border="0" isorder="true" />
+            <label class="public_line_b1"></label>
+          </td>
+        </tr>
+        <tr>
+          <td class="div_w320_h44">
+            <label class="public_label_left">确认登录密码</label>
+            <input type="password-ASCII"  class="public_input_w188_l117,password" minleng="6" maxleng="16" id="password_modify3" hold="请再次输入新登录密码" name="pwd3" border="0" isorder="true"/>
+            <label class="public_line_b1"></label>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div class="div_kong" border="0"></div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div class="div_kong" border="0"></div>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <input type="button" class="public_15_w290_h35" id="div_input_1" border="0" enable="true" value="下一步" onclick="click()" /> 
+  </body>
+</content>

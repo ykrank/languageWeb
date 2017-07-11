@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+#{
+	this = ert.channel:get_page("ebank_product_deposit","PD0001");
+    local data1=this:get_data();
+    local table1=json:objectFromJSON(data1) or {};
+    table1["body"] = table1["body"] or {};
+
+    local zn_rate = table1["body"]["rate"];
+    local zn_amount = table1["body"]["amount"];  
+    local profitInfoList = table1["body"]["profitInfoList"] or {};
+    
+  
+	local profitInfoList2 = { 
+							  { interestRateId='一天' , day='1', rate=profitInfoList[7]['rate'],date=profitInfoList[7]['date']},            
+    						  { interestRateId='七天' , day='7', rate=profitInfoList[8]['rate'],date=profitInfoList[8]['date']},
+							  { interestRateId='三个月' , day='90', rate=profitInfoList[3]['rate'],date=profitInfoList[3]['date']},
+							  { interestRateId='六个月' , day='180', rate=profitInfoList[6]['rate'],date=profitInfoList[6]['date']},
+							  { interestRateId='一年' , day='365', rate=profitInfoList[1]['rate'],date=profitInfoList[1]['date']}
+							  --对一年的收益以上的数据进行屏蔽
+							  --,
+							  --{ interestRateId='两年' , day='730',rate=profitInfoList[2]['rate'],date=profitInfoList[2]['date']},
+							  --{ interestRateId='三年' , day='1095', rate=profitInfoList[4]['rate'],date=profitInfoList[4]['date']},
+							  --{ interestRateId='五年' , day='1825',rate=profitInfoList[5]['rate'],date=profitInfoList[5]['date']} 
+							}
+
+    local rate_1 = profitInfoList[7]['rate'];
+}#
+<content>
+<head>
+	<script type="text/x-lua" src="ebank_product_deposit/lua/PD0001.lua"></script>
+	<link ref="ebank_public.css" type="text/css"/>
+	<link ref="ebank_product_deposit/css/PD0001.css" type="text/css"/>
+	<style>
+	/*投资案例说明*/
+	.div_t314_bg#ffffff_w320{top: 314px;background-color: #ffffff;width: 320px;}
+
+	.label_t35_w290_f14_l15{top: 35px;width: 290px;font-size: 14px;left: 15px;color: #999999;}
+
+	.table_w320_bg4f4f4f_l15{width: 290px;background-color: #4d4d4d; left: 15px;}
+	.tr_bgEDF7F9{background-color: #EDF7F9;height:38px;}
+	.tr_bgfffffff{background-color: #ffffff;height:38px;}
+	.label_w72_tc_f14_c4d4d4d{width: 72px;text-align: center;font-size: 12px;color: #4d4d4d;}
+	.label_w72_tc_f14_cf85050{width: 72px;text-align: center;font-size: 12px;color: #f85050;}
+	.label_w72_tc_f14_c666666{width: 72px;text-align: center;font-size: 12px;color: #666666;}
+	.label_w72_tc_f14_c69c2fc{width: 72px;text-align: center;font-size: 12px;color: #69c2fc;}
+
+	.div_line_w1_h37_t0_l73{width: 1px;height: 37px;top: 0px;left: 73px;background-color: #E9E9E9;}
+	.div_line_w1_h37_t0_l145{width: 1px;height: 37px;top: 0px;left: 145px;background-color: #E9E9E9;}
+	.div_line_w1_h37_t0_l218{width: 1px;height: 37px;top: 0px;left: 218px;background-color: #E9E9E9;}
+
+	.div_line_w290_bg_b0_h1{width: 290px;background-color: #E9E9E9;bottom: 0px;height: 1px;}
+
+	.div_height{height: 15px;}
+
+	.label_bg000000{background-color: #000000;height: 10px;width:2px;}
+
+	/*列表头对齐*/
+	.l80_w50{left: 85px;width: 50px;}
+	.l180_w50{left: 155px;width: 50px;}
+	.l280_w50{left: 230px;width: 50px;}
+	</style>
+</head>
+<body>
+  	#{
+		local str = ebank_public.header:set_header("智能存款","2",'0','0');
+		local str2 = ebank_public.header:set_header("智能存款","6",'0','0');
+		local str3 = "";
+
+		--跳转产品超市首页
+		function call_back_ph0001()
+			ebank_public.bottom:get_page("ebank_product_homepage","PH0001")
+		end;
+
+		if product_back_flag == "1" then
+			str3 = str2;
+			product_back_flag = nil;
+	        window:setPhysicalkeyListener("backspace", call_back_ph0001);
+		else
+			str3 = str;
+			ebank_public.allSuit:physicalkey_back();
+		end
+  	}#
+  	#{=str3}#
+	<div class="public_main_div" border="0">
+		<div class="div_h116_w320_t0" border="0">
+      	<!--
+          <img src="ebank_product_huaxingbao/images/vertical_line.png" class="img_l160_t30_w1" />
+		-->
+          	<label class="label_f40_w160,div_t30">#{=format_money(global_zn_rate)}#</label>
+          	<label class="label_f40_w160,div_t30,div_l160">#{=format_money(global_zn_amount)}#</label>
+          	<label class="label_f14_w160,div_t80">最高年化收益率(%)</label>
+          	<label class="label_f14_w160,div_t80,div_l160">起购金额(元)</label>
+          	<div class="line_2" border="0" ></div>
+            <label class="public_line_stroke_b1"></label>
+      	</div>
+      	<div class="div_h120_w320_t124" border="0">
+ 			<label class="public_line_stroke_t0"></label>
+	      	<!--折线图-->
+	        <label class="label_f14_c4d4d4d_l15">不同存期收益率(%)</label>
+	        <div class="div_table_l15" border="0">
+	          	<div type='plot' class='plot21' selectedType='0'>
+		            <ul type='yscale' class="2scale11">
+		              <li>6</li>
+		              <li>4</li>
+		              <li>2</li>
+		              <li>0.0</li>
+		            </ul>
+		            <ul type='xscale' class='2scale21'>
+		            #{for key,v in pairs(profitInfoList2)do}#
+		              <li>#{=(v["interestRateId"])}#</li>
+		            #{end}#
+		            </ul>
+		            <ul type='linePlot' class='line'>
+		              #{for key,v in pairs(profitInfoList2)do}#
+		               <li class='li21' value='#{=v["rate"]}#' onclick="show_alert()"></li>
+		              #{end}#
+		            </ul>
+	          	</div>  
+	        </div>
+            <label class="public_line_stroke_b1"></label>
+	    </div>
+	    <div class="div_t314_bg#ffffff_w320" border="0">
+	    	<label class="public_line_stroke_t0"></label>
+	     	<label class="label_f14_c4d4d4d_l15">智能存款投资案例说明</label>
+	     	<label class="label_t35_w290_f14_l15">假如您的电子E账户中有10万存款，按照2015年7月7日调整后的最新利率计算，您购买智能存款，不同存期的利息收益分别是(单位：元)</label>
+	     	<table class="table_w320_bg4f4f4f_l15" border="0">
+	     		<tr class="tr_bgEDF7F9">
+	     			<td>
+	     			<label class="label_w72_tc_f14_c4d4d4d">存期</label>
+	     			<label class="label_w72_tc_f14_c4d4d4d,l80_w50">申购利息所得</label>
+	     			<label class="label_w72_tc_f14_c4d4d4d,l180_w50">未申购利息所得</label>
+	     			<label class="label_w72_tc_f14_c4d4d4d,l280_w50">未申购利息损失</label>
+	     			</td>
+	     		</tr>
+	     		#{for key,v in pairs(profitInfoList2)do}#
+	     		#{local a =100000 * v["rate"] *v["day"] / 36000}#
+	     		#{local b =100000 * rate_1 * v["day"]  / 36000}#
+	     		<tr class="tr_bgfffffff">
+	    			<td>
+	     			<label class="label_w72_tc_f14_c4d4d4d">#{=(v["interestRateId"])}#</label>
+	     			<label class="label_w72_tc_f14_cf85050">#{=format_money(a)}#</label>
+	     			<label class="label_w72_tc_f14_c666666">#{=format_money(b)}#</label>
+	     			<label class="label_w72_tc_f14_c69c2fc">#{=format_money(a-b)}#</label>
+	     			<div class="div_line_w1_h37_t0_l73" border="0"></div>
+	     			<div class="div_line_w1_h37_t0_l145" border="0"></div>
+	     			<div class="div_line_w1_h37_t0_l218" border="0"></div>
+	     			<div class="div_line_w290_bg_b0_h1" border="0"></div>
+	     			</td>
+	     		</tr>
+	     		#{end}#
+	     	</table>
+	    </div>
+        <label class="public_line_stroke_b1"></label>
+	</div>
+	<div class="div_height" border="0"></div>
+	<input type="button" class="buttom_b0" value="立即买入" onclick="turn_page_PD0002('#{=zn_rate}#','#{=zn_amount}#')"></input>
+</body>
+</content>

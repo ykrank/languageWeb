@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+#{
+local json_data = ert.channel:get_response("ebank_password_manager","TPM00001");
+local json_tbl = json:objectFromJSON(json_data) or {};
+local t_body = json_tbl["body"] or {};
+local MOBILE = t_body["MOBILE"];
+local MOBILE1 = format_mobile(MOBILE);
+}#
+<content>
+  <head>
+    <link ref="ebank_password_manager/css/ebank_password_manager_public.css" type="text/css"/>
+    <link ref="ebank_public.css" type="text/css"/>
+    <script type="text/x-lua" src="ebank_password_manager/lua/TPM00001.lua"></script>
+  </head>
+  <body>
+   #{local str = ebank_public.header:set_header("交易密码变更","2")}#
+    #{= str}#
+   <div class="public_main_div" border="0">
+    <table border="0">
+    <tr>
+      <td>
+        <div class="div_kong" border="0"></div>
+      </td>
+    </tr>
+    <tr>
+      <td class="div_w320_h44">
+          <label class="public_label_left">是否忘记交易密码？</label>
+          <input type="switch" class="right" name="switch1" onclick="switch()"/>
+          <input type="switch" class="right" name="switch1" onclick="switch()"/>
+      </td>
+    </tr>
+    </table>
+    <table border="0" class="display_none" name="tb1">
+    <!-- 重置交易密码 -->
+    <tr>
+      <td class="div_w320_h44">
+          <label class="public_label_left">姓名</label>
+          <input type="text"  class="public_input_w188_l117" id="customerName" hold="请输入姓名" border="0" />
+          <label class="public_line_b1"></label>
+      </td>
+    </tr>
+   <tr>
+      <td class="div_w320_h44">
+          <label class="public_label_left">身份证号码</label>
+          <input type="text"  class="public_input_w188_l117" minleng="16" maxleng="18" id="IDNO" hold="请输入身份证号码" border="0" onblur="onblur_empty_format('IDNO')" />
+          <label class="public_line_b1"></label>
+      </td>
+    </tr>
+    <tr>
+      <td class="div_w320_h44">
+          <label class="public_label_left">手机号码</label>
+          <input type="text"  class="public_input_w188_l117,text_bg" border="0" enable="false" value="#{=MOBILE1}#" />
+          <label hide='true' id="MOBILE">#{=MOBILE}#</label>
+          <label class="public_line_b1"></label>
+      </td>
+    </tr>
+   <tr>
+      <td class="div_w320_h44">
+          #{local msgStr = ebank_public.msg.msg_page()}#
+          #{= msgStr}#
+          <label class="public_line_b1"></label>
+      </td>
+    </tr>
+    </table>
+    <table border="0" name="tb2">
+    <!-- 修改交易密码 -->
+    <tr>
+      <td class="div_w320_h44">
+          <label class="public_label_left">交易密码</label>
+          <input type="password-num"  class="public_input_w188_l117,password" minleng="6" maxleng="6" id="old_password" hold="请输入交易密码" border="0" isorder="true" style="-wap-input-format:'N'" />
+          <label class="public_line_b1"></label>
+      </td>
+    </tr>
+    </table>
+    <table border="0">
+    <tr>
+      <td class="div_w320_h44">
+          <label class="public_label_left">新交易密码</label>
+          <input type="password-num"  class="public_input_w188_l117,password" minleng="6" maxleng="6" id="new_password1" hold="请输入新交易密码" border="0" isorder="true" style="-wap-input-format:'N'" />
+          <label class="public_line_b1"></label>
+      </td>
+    </tr>
+    <tr>
+      <td class="div_w320_h44">
+          <label class="public_label_left">确认交易密码</label>
+          <input type="password-num"  class="public_input_w188_l117,password" minleng="6" maxleng="6" id="new_password2" hold="请再次输入新交易密码" border="0" isorder="true" style="-wap-input-format:'N'" />
+          <label class="public_line_b1"></label>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div class="div_kong" border="0"></div>
+        <div class="div_kong" border="0"></div>
+      </td>
+    </tr>
+    </table>
+  </div>
+  <input type="button" class="public_15_w290_h35" id="div_input_1" border="1" enable="true" value="下一步" onclick="click()" /> 
+</body>
+</content>

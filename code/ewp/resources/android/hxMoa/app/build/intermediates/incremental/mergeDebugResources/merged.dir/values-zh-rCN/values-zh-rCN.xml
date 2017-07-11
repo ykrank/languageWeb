@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="action_settings">Settings</string>
+    <string name="app_name">移动统一门户</string>
+    <string name="color_code_start_standard">颜色代码格式必须以‘#’开头。</string>
+    <string name="dialog_btn_cancel">取消</string>
+    <string name="dialog_btn_ok">确定</string>
+    <string name="dialog_title_tip">提示</string>
+    <string name="enter_password">请输入密码</string>
+    <string name="err_gunzip_data_format">压缩数据格式错误。</string>
+    <string name="err_gunzip_data_method">压缩数据方法错误。</string>
+    <string name="err_gunzip_fail">不能正确加压数据。</string>
+    <string name="err_system_res">系统资源不足，退出重新登录可缓解这个问题。</string>
+    <string name="error_code">错误码：</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="http_app_upgrading">服务升级中，请稍后再试。</string>
+    <string name="http_cancel_exception">本次网络请求已被取消。</string>
+    <string name="http_exception">通信异常，无法连接服务器，请检查手机的网络设置及通讯情况。</string>
+    <string name="http_hmac_verify">数据接受不完整，请重试。</string>
+    <string name="offline_prompt_latest">离线资源已是最新版。</string>
+    <string name="offline_prompt_must_start">有离线资源更新。</string>
+    <string name="offline_prompt_optional_start">您有新的离线资源需要下载，是否更新？</string>
+    <string name="offline_prompt_server_error">离线下载失败，服务器返回错误信息。</string>
+    <string name="offline_prompt_update_finish">离线资源更新完成。</string>
+    <string name="open_failed">文件无法打开!</string>
+    <string name="progress">当前进度：%s</string>
+    <string name="progress_o">当前进度：20%</string>
+    <string name="searching_">查找中...</string>
+    <string name="sys_function_unsupported">当前系统不支持该功能。</string>
+    <string name="sys_mail_unsupported">当前系统不支持收发邮件功能。</string>
+    <string name="sys_sms_unsupported">当前系统不支持收发短信功能。</string>
+    <string name="sys_tel_unsupported">当前系统不支持电话功能。</string>
+    <string name="text_not_found">内容未找到</string>
+    <string name="tls_http_connect_fail">建立安全通道失败，请检查手机的网络设置及通讯情况。</string>
+    <string name="tls_verify_certificate_fail">建立安全通道失败，原因为证书校验失败。</string>
+    <string name="tls_verify_finish_data_fail">建立安全通道失败，原因为finish校验失败。</string>
+    <string name="tls_verify_hmac_fail">建立安全通道失败，原因为hmac校验失败。</string>
+    <string name="toast_crash">很抱歉，程序出现异常，即将退出。</string>
+    <string name="vedio_title">融易通信息技术有限公司</string>
+</resources>
