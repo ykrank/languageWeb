@@ -12,12 +12,6 @@ public class TimePicker extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_time_picker);
 
-        this.mytimepicker = (TimePicker)super.findViewById(R.id.timepicker1);
-        this.mytimepicker.setls24HourView(true);
-        this.mytimepicker.setCurrentHour(18);
-        this.mytimepicker.setCurrentMinute(30);
-
-    }
 
 
 
