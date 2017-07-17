@@ -29,6 +29,5 @@ public class Question {
         mTextResId = textResId;
         mAnswerTrue = answerTrue;
 
-
     }
 }
