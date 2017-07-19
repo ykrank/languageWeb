@@ -15,7 +15,8 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.212"/>
+        app:layout_constraintVertical_bias="0.214"
+        app:layout_constraintHorizontal_bias="0.483"/>
 
     <Button
         android:id="@+id/true_button"
@@ -23,11 +24,11 @@
         android:layout_height="wrap_content"
         android:text="@string/true_button"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.716"
+        app:layout_constraintHorizontal_bias="0.708"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.395"/>
+        app:layout_constraintVertical_bias="0.148"/>
 
     <Button
         android:id="@+id/false_button"
@@ -35,11 +36,11 @@
         android:layout_height="wrap_content"
         android:text="@string/false_button"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.287"
+        app:layout_constraintHorizontal_bias="0.25"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.395"/>
+        app:layout_constraintVertical_bias="0.148"/>
 
     <Button
         android:id="@+id/next_button"
@@ -50,7 +51,8 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.557"/>
+        app:layout_constraintVertical_bias="0.422"
+        app:layout_constraintHorizontal_bias="0.466"/>
 
     <Button
         android:id="@+id/next_buttonleft"
@@ -59,11 +61,11 @@
         android:drawablePadding="4dp"
         android:drawableRight="@drawable/arrow_right"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.797"
+        app:layout_constraintHorizontal_bias="0.708"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.695"/>
+        app:layout_constraintVertical_bias="0.604"/>
 
     <Button
         android:id="@+id/next_buttonright"
@@ -72,11 +74,11 @@
         android:drawableLeft="@drawable/arrow_left"
         android:drawablePadding="4dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.263"
+        app:layout_constraintHorizontal_bias="0.25"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.695"/>
+        app:layout_constraintVertical_bias="0.604"/>
 
     <ImageButton
         android:id="@+id/next_buttonleft1"
@@ -84,11 +86,11 @@
         android:layout_height="wrap_content"
         android:src="@drawable/arrow_left"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.28"
+        app:layout_constraintHorizontal_bias="0.279"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.848"/>
+        app:layout_constraintVertical_bias="0.797"/>
 
     <ImageButton
         android:id="@+id/next_buttonright1"
@@ -97,9 +99,9 @@
         android:src="@drawable/arrow_right"
         android:layout_gravity="bottom|right"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.76"
+        app:layout_constraintHorizontal_bias="0.682"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.848"/>
+        app:layout_constraintVertical_bias="0.797"/>
 </android.support.constraint.ConstraintLayout>

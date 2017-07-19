@@ -28,7 +28,8 @@ public class QuizActivity extends AppCompatActivity {
 
     //设置TAG常量
     private static final String TAG = "QuizActivity";
-
+    //定义一个常量
+    private static final int REQUEST_CODE_CHEAT = 0;
     //定义数组对象
     private Question[] mQuestionBank = new Question[]{
             new Question(R.string.question_oceans, true),
@@ -72,8 +73,14 @@ public class QuizActivity extends AppCompatActivity {
         mCheatButton = (Button)findViewById(R.id.cheat_button);
         mCheatButton.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
-                Intent i = new Intent(QuizActivity.this, CheatActivity.class);
-                startActivity(i);
+//                Intent i = new Intent(QuizActivity.this, CheatActivity.class);
+                //获取列表数据对应的值
+                boolean answerIsTrue = mQuestionBank[mCurrentIndex].isAnswerTrue();
+//
+                Intent i = CheatActivity.newIntent(QuizActivity.this, answerIsTrue);
+//                startActivity(i);
+                //调用公共方法从子activity拿返回的信息
+                startActivityForResult(i,REQUEST_CODE_CHEAT);
             }
         });
 
